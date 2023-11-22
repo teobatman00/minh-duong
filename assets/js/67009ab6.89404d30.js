@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkminh_duong=self.webpackChunkminh_duong||[]).push([[35],{3580:o=>{o.exports=JSON.parse('{"permalink":"/minh-duong/blog/tags/facebook","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
