@@ -29,6 +29,12 @@ const config: Config = {
     locales: ["en"],
   },
 
+  customFields: {
+    forbiddenGiscusDocPaths: [
+      '/docs/intro'
+    ],
+  },
+
   presets: [
     [
       "classic",
