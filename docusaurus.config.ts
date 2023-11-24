@@ -90,6 +90,16 @@ const config: Config = {
   ],
   themeConfig: {
     // Replace with your project's social card
+    algolia: {
+      appId: 'K4ET45IDVU',
+      // Public API key: it is safe to commit it
+      apiKey: '2862bf4d96b1bf5857fda28d7a812b35',
+
+      indexName: 'minh_duong_blog',
+
+      // Optional: see doc section below
+      contextualSearch: true,
+    },
     image: "img/docusaurus-social-card.jpg",
     navbar: {
       title: "Minh Duong",
