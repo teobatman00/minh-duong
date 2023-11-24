@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Minh Duong</ShortName>
+  <Description>Search Minh Duong</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://teobatman00.github.io/minh-duong/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://teobatman00.github.io/minh-duong/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://teobatman00.github.io/minh-duong/opensearch.xml" />
+  <moz:SearchForm>https://teobatman00.github.io/minh-duong/</moz:SearchForm>
+</OpenSearchDescription>
