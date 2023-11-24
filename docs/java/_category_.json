@@ -1,0 +1,14 @@
+{
+    "position": 2.5,
+    "label": "Java",
+    "collapsible": true,
+    "collapsed": false,
+    "className": "red",
+    "link": {
+      "type": "generated-index",
+      "title": "Hướng dẫn java"
+    },
+    "customProps": {
+      "description": "Hướng dẫn lập trình bằng ngôn ngữ Java"
+    }
+  }

@@ -112,7 +112,7 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
           position: "left",
-          label: "Tutorial",
+          label: "Tài liệu",
         },
         { to: "/blog", label: "Blog", position: "left" },
         {
