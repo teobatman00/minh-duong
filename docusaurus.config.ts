@@ -49,14 +49,7 @@ const config: Config = {
           showLastUpdateTime: true,
           showLastUpdateAuthor: true
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-          blogSidebarTitle: 'Bài viết gần đây',
-        },
+        blog: false,
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -86,6 +79,17 @@ const config: Config = {
       {
         path: "./.env",
       },
+    ],
+    [
+      require.resolve("./plugins/custom-blog.ts"),
+      {
+        id: 'blog',
+        routeBasePath: 'blog',
+        path: './blog',
+        blogTitle: 'My Awesome Blog',
+        blogDescription: 'A great blog with homepage Docusaurus integration',
+        showReadingTime: true
+      },
     ]
   ],
   themeConfig: {
@@ -111,13 +115,18 @@ const config: Config = {
         {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
-          position: "left",
+          position: "right",
           label: "Tài liệu",
         },
-        { to: "/blog", label: "Blog", position: "left" },
+        { to: "/blog", label: "Blog", position: "right" },
+        {
+          to: "/blog/tags",
+          label: "Tags",
+          position: "right"
+        },
         {
           label: "Về tôi",
-          position: "left",
+          position: "right",
           to: "/about-me"
         },
         {
