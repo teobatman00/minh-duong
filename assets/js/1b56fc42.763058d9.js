@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkminh_duong=self.webpackChunkminh_duong||[]).push([[5612],{2935:s=>{s.exports=JSON.parse('{"label":"docusaurus","permalink":"/minh-duong/blog/tags/docusaurus","allTagsPath":"/minh-duong/blog/tags","count":4,"unlisted":false}')}}]);
