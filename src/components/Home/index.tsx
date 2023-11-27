@@ -63,13 +63,14 @@ function RecentBlogPostCard({ recentPost }) {
 }
 
 function RecentBlogPostTags({ tags }) {
+  const {siteConfig} = useDocusaurusContext();
   return (
     <ul className={clsx("tw-inline", "padding--none")}>
       {tags.map((item, index) => (
         <li key={index} 
             className={clsx("tw-inline-block", "tw-mr-2", "tw-my-3")}
         >
-          <Link to={`/blog/tags/${item}`} className={styles.tag}
+          <Link to={`${siteConfig.url + siteConfig.baseUrl}/blog/tags/${item}`} className={styles.tag}
           >
             {item}
           </Link>
