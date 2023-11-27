@@ -21,3 +21,10 @@
   align-items: center;
   justify-content: center;
 }
+
+.tag {
+  border: 1px solid var(--docusaurus-tag-list-border);
+  transition: border var(--ifm-transition-fast);
+  border-radius: 5px;
+  padding: 2px 5px;
+}
