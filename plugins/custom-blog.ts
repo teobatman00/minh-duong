@@ -1,9 +1,12 @@
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+
 const blogPluginExports = require("@docusaurus/plugin-content-blog")
 
 const defaultBlogPlugin = blogPluginExports.default;
 
 async function blogPluginExtended(...pluginArgs) {
     const blogPluginInstance = await defaultBlogPlugin(...pluginArgs);
+    const {siteConfig} = useDocusaurusContext();
 
     const pluginOptions = pluginArgs[1];
 
@@ -48,7 +51,7 @@ async function blogPluginExtended(...pluginArgs) {
 
             actions.addRoute({
                 // Add route for the home page
-                path: '/',
+                path: siteConfig.baseUrl,
                 exact: true,
 
                 // The component to use for the "Home" page route
