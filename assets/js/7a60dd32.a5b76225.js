@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkminh_duong=self.webpackChunkminh_duong||[]).push([[4566],{7724:e=>{e.exports=JSON.parse('{"permalink":"/minh-duong/blog/tags/facebook","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"A great blog with homepage Docusaurus integration","blogTitle":"My Awesome Blog"}')}}]);
