@@ -6,7 +6,6 @@ const defaultBlogPlugin = blogPluginExports.default;
 
 async function blogPluginExtended(...pluginArgs) {
     const blogPluginInstance = await defaultBlogPlugin(...pluginArgs);
-    const {siteConfig} = useDocusaurusContext();
 
     const pluginOptions = pluginArgs[1];
 
@@ -51,7 +50,7 @@ async function blogPluginExtended(...pluginArgs) {
 
             actions.addRoute({
                 // Add route for the home page
-                path: siteConfig.baseUrl,
+                path: "/minh-duong/",
                 exact: true,
 
                 // The component to use for the "Home" page route
