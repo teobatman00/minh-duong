@@ -33,16 +33,14 @@ function HomepageBlogPost({ homePageBlogMetadata, recentPosts }) {
   const { blogTitle, blogDescription, totalRecentPosts, totalPosts } =
     homePageBlogMetadata;
   return (
-    <div className={`p-3 container`}>
-      <h1 className="text-center">{blogTitle}</h1>
-      <p className="text-center">{blogDescription}</p>
-
+    <div className={`tw-p-3 container`}>
+      <h1 className="tw-text-center">{blogTitle}</h1>
+      <p className="tw-text-center">{blogDescription}</p>
       <section>
         {recentPosts.map((recentPost, index) => (
           <RecentBlogPostCard key={index} recentPost={recentPost} />
         ))}
       </section>
-      <hr />
     </div>
   );
 }
@@ -52,12 +50,12 @@ function RecentBlogPostCard({ recentPost }) {
   const tagsExists = metadata.frontMatter.tags.length > 0;
   const tags = metadata.frontMatter.tags;
   return (
-    <article style={{ padding: 20, marginTop: 20 }}>
+    <article style={{ padding: 20, marginTop: 20 }} className="tw-shadow">
       <Link to={`/blog/${metadata.frontMatter.slug}`}>
-        <h2>{metadata.title}</h2>
+        <h2 className="tw-mb-0 tw-text-3xl">{metadata.title}</h2>
       </Link>
-      <p>{metadata.description}</p>
       {tagsExists && <RecentBlogPostTags tags={tags} />}
+      <p>{metadata.description}</p>
       <hr />
       <Preview />
     </article>
@@ -66,10 +64,10 @@ function RecentBlogPostCard({ recentPost }) {
 
 function RecentBlogPostTags({ tags }) {
   return (
-    <ul className={clsx("inline", "padding--none")}>
+    <ul className={clsx("tw-inline", "padding--none")}>
       {tags.map((item, index) => (
         <li key={index} 
-            className={clsx("inline-block", "mr-2")}
+            className={clsx("tw-inline-block", "tw-mr-2", "tw-my-3")}
         >
           <Link to={`/blog/tags/${item}`} className={styles.tag}
           >

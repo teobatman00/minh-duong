@@ -23,8 +23,15 @@
 }
 
 .tag {
-  border: 1px solid var(--docusaurus-tag-list-border);
+  color: white;
+  background-color: var(--ifm-color-primary-darkest);
   transition: border var(--ifm-transition-fast);
   border-radius: 5px;
-  padding: 2px 5px;
+  padding: 4px 10px;
+}
+
+.tag:hover {
+  text-decoration: none;
+  font-weight: 500;
+  color: white;
 }

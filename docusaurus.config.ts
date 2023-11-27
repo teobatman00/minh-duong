@@ -34,7 +34,6 @@ const config: Config = {
       '/docs/intro'
     ],
   },
-
   presets: [
     [
       "classic",
@@ -86,14 +85,19 @@ const config: Config = {
         id: 'blog',
         routeBasePath: 'blog',
         path: './blog',
-        blogTitle: 'My Awesome Blog',
-        blogDescription: 'A great blog with homepage Docusaurus integration',
+        blogTitle: 'Bài viết mới nhất',
+        blogDescription: 'Danh sách bài viết mới nhất',
         showReadingTime: true
       },
     ]
   ],
   themeConfig: {
     // Replace with your project's social card
+    docs: {
+      sidebar: {
+        hideable: true
+      }
+    },
     algolia: {
       appId: 'K4ET45IDVU',
       // Public API key: it is safe to commit it

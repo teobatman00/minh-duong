@@ -11,19 +11,19 @@ function AboutMeHeader() {
         ${clsx("hero hero--primary")}`}
     >
       <div className="container">
-        <Heading as="h1" className="text--capitalize text-5xl mb-10">
+        <Heading as="h1" className="tw-text--capitalize tw-text-5xl tw-mb-10">
           Về tôi
         </Heading>
-        <p className="text-xl">
+        <p className="tw-text-xl">
           Chào các bạn, mình là Dương Bình Minh, tác giả của trang{" "}
-          <span className="text--bold">Minh Duong</span> vì nickname của mình là{" "}
-          <span className="text--bold">Minh Dương</span>.
+          <span className="tw-text--bold">Minh Duong</span> vì nickname của mình là{" "}
+          <span className="tw-text--bold">Minh Dương</span>.
         </p>
-        <p className="text-xl">
+        <p className="tw-text-xl">
           Mình hiện tại là một Full-stack Java Developer và cũng là một writter,
           blogger và nhiều thứ khác nữa.
         </p>
-        <div className="grid grid-cols-4 gap-2 py-5">
+        <div className="tw-grid tw-grid-cols-4 tw-gap-2 tw-py-5">
           <div>
             <img
               src={require("@site/static/img/personal/me.jpg").default}
@@ -32,9 +32,9 @@ function AboutMeHeader() {
               height={350}
             />
           </div>
-          <div className="col-span-3">
-            <h2 className="text-5xl">Minh Dương</h2>
-            <p className="text-2xl">Full-stack Java Developer, writter, blogger</p>
+          <div className="tw-col-span-3">
+            <h2 className="tw-text-5xl">Minh Dương</h2>
+            <p className="tw-text-2xl">Full-stack Java Developer, writter, blogger</p>
           </div>
         </div>
       </div>
@@ -44,11 +44,11 @@ function AboutMeHeader() {
 
 function AboutMeContent() {
     return (
-        <section className="py-10">
+        <section className="tw-py-[3.0rem]">
             <div className="container">
                 <div>
-                    <h2 className="text-3xl">Về trang blog Minh Dương</h2>
-                    <p className="text-xl">
+                    <h2 className="tw-text-3xl">Về trang blog Minh Dương</h2>
+                    <p className="tw-text-xl">
                         Blog Minh Dương được sinh ra với mục đích chia sẻ các kiến thức về ngôn ngữ lập trình và tài chính
                     </p>
                 </div>
