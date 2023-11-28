@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
 
 type FeatureItem = {
   title: string;
@@ -11,31 +12,28 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Về tôi',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/man.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Full-stack Java Developer
       </>
     ),
   },
   {
     title: 'Hỗ trợ',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/technical-support.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Đánh giá tôi tại đây <Link to={`https://github.com/teobatman00/minh-duong`}>Github</Link>
       </>
     ),
   },
   {
     title: 'Liên hệ',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/contact.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Sđt: 0916310208
       </>
     ),
   },
@@ -47,7 +45,7 @@ function Feature({title, Svg, description}: FeatureItem) {
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
-      <div className="text--center padding-horiz--md">
+      <div className="text--center padding--md">
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
       </div>

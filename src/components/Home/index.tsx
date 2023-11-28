@@ -12,18 +12,19 @@ function HomepageHeader() {
   return (
     <header className={clsx(styles.heroBanner)}>
       <div className="container">
-        <div>
-          <img src={require("@site/static/img/personal/me.jpg").default} 
-          alt="Về tôi"
-          width={350}
-          height={350}
-          className="tw-rounded-full tw-animate-dissolve-in-out"
+        <div className="tw-mb-5">
+          <img
+            src={require("@site/static/img/personal/me.jpg").default}
+            alt="Về tôi"
+            width={300}
+            height={300}
+            className="tw-rounded-full tw-animate-dissolve-in-out tw-shadow-2xl dark:tw-shadow-lg dark:tw-shadow-white"
           />
         </div>
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+        <Heading as="h1" className="lg:tw-text-5xl md:tw-text-4xl tw-text-2xl">
+          ❤ {siteConfig.title} ❤
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className="hero__subtitle tw-my-6">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
@@ -57,8 +58,10 @@ function RecentBlogPostCard({ recentPost }) {
   const tagsExists = metadata.frontMatter.tags.length > 0;
   const tags = metadata.frontMatter.tags;
   return (
-    <article style={{ padding: 20, marginTop: 20 }} 
-      className="tw-shadow dark:tw-border-solid tw-border tw-border-[--ifm-color-primary-dark]">
+    <article
+      style={{ padding: 20, marginTop: 20 }}
+      className="tw-shadow dark:tw-border-solid tw-border tw-border-[--ifm-color-primary-dark]"
+    >
       <Link to={`/blog/${metadata.frontMatter.slug}`}>
         <h2 className="tw-mb-0 tw-text-3xl">{metadata.title}</h2>
       </Link>
@@ -71,15 +74,17 @@ function RecentBlogPostCard({ recentPost }) {
 }
 
 function RecentBlogPostTags({ tags }) {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <ul className={clsx("tw-inline", "padding--none")}>
       {tags.map((item, index) => (
-        <li key={index} 
-            className={clsx("tw-inline-block", "tw-mr-2", "tw-my-3")}
+        <li
+          key={index}
+          className={clsx("tw-inline-block", "tw-mr-2", "tw-my-3")}
         >
-          <Link to={`${siteConfig.url + siteConfig.baseUrl}/blog/tags/${item}`} 
-          className={styles.tag}
+          <Link
+            to={`${siteConfig.url + siteConfig.baseUrl}/blog/tags/${item}`}
+            className={styles.tag}
           >
             {item}
           </Link>

@@ -136,7 +136,7 @@ const config: Config = {
           to: "/about-me"
         },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/teobatman00/",
           label: "GitHub",
           position: "right",
         },
