@@ -21,8 +21,8 @@ function HomepageHeader() {
             className="tw-rounded-full tw-animate-dissolve-in-out tw-shadow-2xl dark:tw-shadow-lg dark:tw-shadow-white"
           />
         </div>
-        <Heading as="h1" className="lg:tw-text-5xl md:tw-text-4xl tw-text-2xl">
-          ❤ {siteConfig.title} ❤
+        <Heading as="h1" className={`lg:tw-text-5xl md:tw-text-4xl tw-text-2xl`}>
+          ❤ <span className={clsx(styles.heading)}>{siteConfig.title}</span> ❤
         </Heading>
         <p className="hero__subtitle tw-my-6">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
