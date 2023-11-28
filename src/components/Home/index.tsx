@@ -10,8 +10,16 @@ import styles from "./index.module.css";
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
+    <header className={clsx(styles.heroBanner)}>
       <div className="container">
+        <div>
+          <img src={require("@site/static/img/personal/me.jpg").default} 
+          alt="Về tôi"
+          width={350}
+          height={350}
+          className="tw-rounded-full tw-animate-dissolve-in-out"
+          />
+        </div>
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
@@ -21,7 +29,7 @@ function HomepageHeader() {
             className="button button--secondary button--lg"
             to="/docs/intro"
           >
-            Docusaurus Tutorial - 5min ⏱️
+            Bài viết ➡
           </Link>
         </div>
       </div>
@@ -30,8 +38,7 @@ function HomepageHeader() {
 }
 
 function HomepageBlogPost({ homePageBlogMetadata, recentPosts }) {
-  const { blogTitle, blogDescription, totalRecentPosts, totalPosts } =
-    homePageBlogMetadata;
+  const { blogTitle, blogDescription } = homePageBlogMetadata;
   return (
     <div className={`tw-p-3 container`}>
       <h1 className="tw-text-center">{blogTitle}</h1>
@@ -50,7 +57,8 @@ function RecentBlogPostCard({ recentPost }) {
   const tagsExists = metadata.frontMatter.tags.length > 0;
   const tags = metadata.frontMatter.tags;
   return (
-    <article style={{ padding: 20, marginTop: 20 }} className="tw-shadow">
+    <article style={{ padding: 20, marginTop: 20 }} 
+      className="tw-shadow dark:tw-border-solid tw-border tw-border-[--ifm-color-primary-dark]">
       <Link to={`/blog/${metadata.frontMatter.slug}`}>
         <h2 className="tw-mb-0 tw-text-3xl">{metadata.title}</h2>
       </Link>
@@ -70,7 +78,8 @@ function RecentBlogPostTags({ tags }) {
         <li key={index} 
             className={clsx("tw-inline-block", "tw-mr-2", "tw-my-3")}
         >
-          <Link to={`${siteConfig.url + siteConfig.baseUrl}/blog/tags/${item}`} className={styles.tag}
+          <Link to={`${siteConfig.url + siteConfig.baseUrl}/blog/tags/${item}`} 
+          className={styles.tag}
           >
             {item}
           </Link>

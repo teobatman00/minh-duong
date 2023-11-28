@@ -1,6 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import 'dotenv/config';
 
 const config: Config = {
   title: "Minh Duong",
@@ -8,15 +9,15 @@ const config: Config = {
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://teobatman00.github.io",
+  url: process.env.APP_URL,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/minh-duong/",
+  baseUrl: process.env.APP_BASE_URL,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "teobatman00", // Usually your GitHub org/user name.
-  projectName: "teobatman00.github.io", // Usually your repo name.
+  organizationName: process.env.APP_ORGANIZATION_NAME, // Usually your GitHub org/user name.
+  projectName: process.env.APP_PROJECT_NAME, // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -74,10 +75,11 @@ const config: Config = {
       };
     },
     [
-      "docusaurus2-dotenv",
+      'docusaurus-plugin-dotenv',
       {
         path: "./.env",
-      },
+        systemvars: true
+      }
     ],
     [
       require.resolve("./plugins/custom-blog.ts"),
@@ -85,7 +87,7 @@ const config: Config = {
         id: 'blog',
         routeBasePath: 'blog',
         path: './blog',
-        blogTitle: 'Bài viết mới nhất',
+        blogTitle: '✏ Bài viết mới nhất ✏',
         blogDescription: 'Danh sách bài viết mới nhất',
         showReadingTime: true
       },
@@ -120,16 +122,16 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
           position: "right",
-          label: "Tài liệu",
+          label: "📄 Tài liệu",
         },
-        { to: "/blog", label: "Blog", position: "right" },
+        { to: "/blog", label: "📝 Blog", position: "right" },
         {
           to: "/blog/tags",
-          label: "Tags",
+          label: "📎 Tags",
           position: "right"
         },
         {
-          label: "Về tôi",
+          label: "👦 Về tôi",
           position: "right",
           to: "/about-me"
         },

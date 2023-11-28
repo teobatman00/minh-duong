@@ -1,5 +1,3 @@
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-
 const blogPluginExports = require("@docusaurus/plugin-content-blog")
 
 const defaultBlogPlugin = blogPluginExports.default;
@@ -50,7 +48,7 @@ async function blogPluginExtended(...pluginArgs) {
 
             actions.addRoute({
                 // Add route for the home page
-                path: "/minh-duong/",
+                path: process.env.APP_BASE_URL,
                 exact: true,
 
                 // The component to use for the "Home" page route
