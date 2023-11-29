@@ -122,14 +122,13 @@ const config: Config = {
       }
     },
     algolia: {
-      appId: 'K4ET45IDVU',
+      appId: 'WDU66AAD2T',
       // Public API key: it is safe to commit it
-      apiKey: '2862bf4d96b1bf5857fda28d7a812b35',
-
-      indexName: 'minh_duong_blog',
-
+      apiKey: 'adba63c1600012db35acb66f61ddf2cf',
+      indexName: 'minh-duong',
       // Optional: see doc section below
       contextualSearch: true,
+      externalUrlRegex: 'external\\.com|domain\\.com'
     },
     image: "img/docusaurus-social-card.jpg",
     navbar: {
