@@ -49,6 +49,9 @@ const config: Config = {
           showLastUpdateTime: true,
           showLastUpdateAuthor: true
         },
+        googleTagManager: {
+          containerId: 'G-0DNVWKFWGV'
+        },
         blog: false,
         theme: {
           customCss: "./src/css/custom.css",
