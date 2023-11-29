@@ -93,7 +93,7 @@ const config: Config = {
       },
     ],
     [
-      'plugin-image-zoom',
+      require.resolve("./plugins/image-zoom/index.ts"),
       {
         imageZoom: {
           // CSS selector to apply the plugin to, defaults to '.markdown img'
