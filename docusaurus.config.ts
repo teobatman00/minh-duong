@@ -127,7 +127,7 @@ const config: Config = {
       apiKey: 'adba63c1600012db35acb66f61ddf2cf',
       indexName: 'minh-duong',
       // Optional: see doc section below
-      contextualSearch: true
+      contextualSearch: false
     },
     image: "img/docusaurus-social-card.jpg",
     navbar: {
