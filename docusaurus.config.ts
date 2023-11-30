@@ -150,6 +150,11 @@ const config: Config = {
           position: "right"
         },
         {
+          to: "/portfolio",
+          label: "🎥 Dự án",
+          position: "right"
+        },
+        {
           label: "👦 Về tôi",
           position: "right",
           to: "/about-me"
@@ -174,23 +179,6 @@ const config: Config = {
           ],
         },
         {
-          title: "Community",
-          items: [
-            {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "Twitter",
-              href: "https://twitter.com/docusaurus",
-            },
-          ],
-        },
-        {
           title: "More",
           items: [
             {
@@ -201,6 +189,10 @@ const config: Config = {
               label: "GitHub",
               href: "https://github.com/facebook/docusaurus",
             },
+            {
+              label: "Về tôi",
+              to: "/about-me"
+            }
           ],
         },
       ],

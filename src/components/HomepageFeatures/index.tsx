@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 type FeatureItem = {
   title: string;
@@ -15,7 +16,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/man.svg').default,
     description: (
       <>
-        Full-stack Java Developer
+        Full-stack Java Developer. Tham khảo <Link to={`/about-me`}>Resume</Link>
       </>
     ),
   },
