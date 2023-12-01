@@ -1,11 +1,10 @@
 import axios from "axios";
 import ListRepositoriesUserResponse from "../dto/ListRepositoriesUserResponse";
-import { userName } from "../utils/constant";
 import { githubHeader } from "../api/header";
 
 const callListRepositoriesForUser = async (): Promise<ListRepositoriesUserResponse[]> => {
     return await axios.get<ListRepositoriesUserResponse[]>(
-        `${process.env.API_GITHUB_URL}/users/${userName.github}/repos`,
+        `${process.env.API_GITHUB_URL}/users/${process.env.GITHUB_USERNAME}/repos`,
         {
             params: {
                 type: 'owner',
