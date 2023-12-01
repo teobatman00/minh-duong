@@ -122,10 +122,10 @@ const config: Config = {
       }
     },
     algolia: {
-      appId: 'WDU66AAD2T',
+      appId: process.env.ALGOLIA_APP_ID,
       // Public API key: it is safe to commit it
-      apiKey: 'adba63c1600012db35acb66f61ddf2cf',
-      indexName: 'minh-duong',
+      apiKey: process.env.ALGOLIA_API_KEY,
+      indexName: process.env.ALGOLIA_INDEX_NAME,
       // Optional: see doc section below
       contextualSearch: false
     },
