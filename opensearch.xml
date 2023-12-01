@@ -4,8 +4,8 @@
   <ShortName>Minh Duong</ShortName>
   <Description>Search Minh Duong</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://minh-duong.vercel.app/img/favicon.ico</Image>
-  <Url type="text/html" method="get" template="https://minh-duong.vercel.app/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://minh-duong.vercel.app/opensearch.xml" />
-  <moz:SearchForm>https://minh-duong.vercel.app/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://teobatman00.github.io/minh-duong/img/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://teobatman00.github.io/minh-duong/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://teobatman00.github.io/minh-duong/opensearch.xml" />
+  <moz:SearchForm>https://teobatman00.github.io/minh-duong/</moz:SearchForm>
 </OpenSearchDescription>
