@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkminh_duong=self.webpackChunkminh_duong||[]).push([[2040],{3708:t=>{t.exports=JSON.parse('{"permalink":"/blog/tags/docusaurus","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Danh s\xe1ch b\xe0i vi\u1ebft m\u1edbi nh\u1ea5t","blogTitle":"\u270f B\xe0i vi\u1ebft m\u1edbi nh\u1ea5t \u270f"}')}}]);
