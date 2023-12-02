@@ -7,15 +7,15 @@ tags:
 slug: /gioi-thieu-java
 ---
 
-**_Truớc khi đi vào chi tiết về ngôn ngữ lập trình java thì mình sẽ giới thiệu sơ lược về ngôn ngữ lập trình java_**
+**_Truớc khi đi vào chi tiết về ngôn ngữ lập trình Java thì mình sẽ giới thiệu sơ lược về ngôn ngữ lập trình Java_**
 
 ## Java là gì ?
 
 Java là một trong những ngôn ngữ lập trình hướng đối tượng và được sử dụng để hướng tới các lập trình viên viết ứng dụng **"write one, run anywhere (WORA)"** (viết một lần, chạy mọi nơi), nghĩa là đoạn code Java sau khi được biên dịch có thể chạy được trên tất cả các nền tảng (platform) hỗ trợ Java mà không cần phải được biên dịch lại.
 
-Java được khởi đầu bởi James Gosling và bạn đồng nghiệp ở Sun MicroSystem năm 1991. Ban đầu Java được tạo ra nhằm mục đích viết phần mềm cho các sản phẩm gia dụng, và có tên là Oak. Tuy nhiên, khi ngôn ngữ Java phát triển sau này thì được ứng dụng phục vụ cho nhiều mục đích khác nhau như phát triển phần mềm, web, trò chơi di động, các ứng dụng trên thiết bị di động,...
+Java được khởi sướng bởi James Gosling và bạn đồng nghiệp ở Sun MicroSystem năm 1991. Ban đầu Java được tạo ra nhằm mục đích viết phần mềm cho các sản phẩm gia dụng, và có tên là Oak. Tuy nhiên, khi ngôn ngữ Java phát triển sau này thì được ứng dụng phục vụ cho nhiều mục đích khác nhau như phát triển phần mềm, web, trò chơi di động, các ứng dụng trên thiết bị di động,...
 
-Java được phát hành năm 1994, đến năm 2010 được Oracle mua lại từ Sun MicroSystem. Ngay sau khi phát hành, ngôn ngữ này đã trở thành ngôn ngữ lập trình phổ biến nhất trên thế giới trong một thời gian ngắn và duy trì đến gần những năm 2020. Đến năm 2022, theo bảng xếp hạng ngôn ngữ lập trình của trang Github, ngôn ngữ Java đã tụt hạng xuống vị trí thứ 3 về mức độ phổ biến. Tính đến tháng 10 năm 2023, ngôn ngữ Java tụt xuống vị trí thứ 4 về mức độ phổ biến tính theo chỉ số TIOBE (Chỉ số cộng đồng lập trình, theo trang TIOBE).
+Java được phát hành lần đầu tiền vào năm 1995 và đến khoảng năm 2010 được Oracle mua lại từ Sun MicroSystem. Ngay sau khi phát hành, ngôn ngữ này đã trở thành ngôn ngữ lập trình phổ biến nhất trên thế giới trong một thời gian ngắn và duy trì đến gần những năm 2020. Đến năm 2022, theo bảng xếp hạng ngôn ngữ lập trình của trang Github, ngôn ngữ Java đã tụt hạng xuống vị trí thứ 3 về mức độ phổ biến. Tính đến tháng 10 năm 2023, ngôn ngữ Java tụt xuống vị trí thứ 4 về mức độ phổ biến tính theo chỉ số TIOBE (Chỉ số cộng đồng lập trình, theo trang TIOBE).
 
 - [TIOBE Index for November 2023](https://www.tiobe.com/tiobe-index/)
 - [JAVA Wiki](<https://en.wikipedia.org/wiki/Java_(programming_language)> "Java (programming language)")

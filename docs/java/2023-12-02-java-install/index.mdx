@@ -1,0 +1,178 @@
+---
+id: java-install
+title: Cài đặt Java
+tags:
+  - Java
+slug: /cai-dat-java
+last_update:
+  author: Minh Duong
+---
+
+import Link from "@docusaurus/Link";
+
+## Kiểm tra cài đặt ngôn ngữ Java
+
+Một số PCs có thể đã cài đặt sẵn Java.
+
+Để kiểm tra xem máy tính PCs Window đã cài đặt Java hay chưa, hãy tìm kiếm Java trong thanh tìm kiếm Window hoặc nhập thông tin sau vào lệnh cmd.exe:
+
+```powershell
+C:\Users\Your Name>java -version
+```
+
+Nếu Java được cài đặt, bạn sẽ thấy terminal sẽ hiển thị như thế này (tùy theo phiên bản Java):
+
+```powershell
+java version "11.0.1" 2018-10-16 LTS
+Java(TM) SE Runtime Environment 18.9 (build 11.0.1+13-LTS)
+Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.1+13-LTS, mixed mode)
+```
+
+Nếu máy tính chưa cài đặt Java, bạn có thể tải xuống miễn phí [tại đây](https://www.oracle.com/java/technologies/downloads/)
+
+Tuy nhiên, sẽ là tốt hơn nếu ngôn ngữ Java được viết trong Môi trường phát triển tích hợp (IDE), chẳng hạn như IntelliJ IDEA, Netbeans hoặc Eclipse, điều này đặc biệt hữu ích khi quản lý các bộ các tệp Java lớn hơn.
+
+## Cài đặt Java cho hệ điều hành Window
+
+Để cài đặt Java cho hệ điều hành Window, thực hiện theo các bước như sau:
+
+1. Tải và cài đặt ngôn ngữ Java từ Oracle.
+2. Vào "System Properties" (Có thể vào Control Panel > System and Security > System > Advanced System Settings).
+3. Click vào nút "Environment variables" dưới thẻ "Advanced" tab.
+4. Sau đó chọn "Path" variable ở mục System variables và click vào nút "Edit".
+5. Click vào nút "New" và chèn đường dẫn đến thư mục cài đặt Java, tiếp theo đó là \bin. Mặc định, Java được cài đặt ở đường dẫn thư mục C:\Program Files\Java\jdk-11.0.1. Ngược lại, bạn nên thêm đường dẫn như này: C:\Program Files\Java\jdk-11.0.1\bin. Sau đó, click "OK", và lưu lại cài đặt.
+6. Cuối cùng, mở Terminal hoặc cmd.exe và gõ `java -version` để đảm bảo rằng Java đã được cài đặt.
+
+Chi tiết được minh hoạ như hình dưới đây:
+{/* Bước 1 */}
+
+<details>
+  <summary>Bước 1</summary>
+  <div>
+    <div>
+      Tải và cài đặt ngôn ngữ Java từ Oracle hoặc{" "}
+      <Link
+        to="https://www.oracle.com/java/technologies/downloads/"
+        className={`tw-font-bold`}
+      >
+        tại đây
+      </Link>
+    </div>
+    <br />
+    <figure>
+      <img src={require("./2023-12-02_20-09.png").default} alt="Cài đặt java" />
+    </figure>
+    <p>Sau đó click nút "Next" và thực hiện như hướng dẫn</p>
+  </div>
+</details>
+
+{/* Bước 2 */}
+
+<details>
+  <summary>Bước 2</summary>
+  <div>
+    <div>
+      Vào "System Properties" (Có thể vào Control Panel > System and Security >
+      System > Advanced System Settings).
+    </div>
+    <br />
+    <figure>
+      <img src={require("./2023-12-02_20-20.png").default} alt="Cài đặt java" />
+      <figcaption className="tw-text-center">Hình 1</figcaption>
+    </figure>
+    <figure>
+      <img src={require("./2023-12-02_20-42.png").default} alt="Cài đặt java" />
+      <figcaption className="tw-text-center">Hình 2</figcaption>
+    </figure>
+    <figure>
+      <img src={require("./2023-12-02_20-43.png").default} alt="Cài đặt java" />
+      <figcaption className="tw-text-center">Hình 3</figcaption>
+    </figure>
+  </div>
+</details>
+
+{/* Bước 3 */}
+
+<details>
+  <summary>Bước 3</summary>
+  <div>
+    <div>Click vào nút "Environment variables" dưới thẻ "Advanced" tab.</div>
+    <br />
+    <figure>
+      <img
+        src={require("./step2.png").default}
+        alt="Cài đặt java"
+        className="tw-block tw-m-auto"
+      />
+      <figcaption className="tw-text-center">Hình 1</figcaption>
+    </figure>
+  </div>
+</details>
+
+{/* Bước 4 */}
+
+<details>
+  <summary>Bước 4</summary>
+  <div>
+    <div>
+      Sau đó chọn "Path" variable ở mục System variables và click vào nút
+      "Edit".
+    </div>
+    <br />
+    <figure>
+      <img
+        src={require("./path2.png").default}
+        alt="Cài đặt java"
+        className="tw-block tw-m-auto"
+      />
+      <figcaption className="tw-text-center">Hình 1</figcaption>
+    </figure>
+  </div>
+</details>
+
+{/* Bước 5 */}
+
+<details>
+  <summary>Bước 5</summary>
+  <div>
+    <div>
+      Click vào nút "New" và chèn đường dẫn đến thư mục cài đặt Java, tiếp theo
+      đó là \bin. Mặc định, Java được cài đặt ở đường dẫn thư mục C:\Program
+      Files\Java\jdk-11.0.1. Ngược lại, bạn nên thêm đường dẫn như này:
+      C:\Program Files\Java\jdk-11.0.1\bin. Sau đó, click "OK", và lưu lại cài
+      đặt.
+    </div>
+    <br />
+    <figure>
+      <img
+        src={require("./path3.png").default}
+        alt="Cài đặt java"
+        className="tw-block tw-m-auto"
+      />
+      <figcaption className="tw-text-center">Hình 1</figcaption>
+    </figure>
+  </div>
+</details>
+
+{/* Bước 6 */}
+
+<details>
+  <summary>Bước 6</summary>
+  <div>
+    Gõ lệnh sau để kiểm tra 
+
+    ```powershell 
+      C:\Users\Your Name>java -version 
+    ```
+
+    Nếu Java được cài đặt, bạn sẽ thấy terminal sẽ hiển thị như thế này (tùy theo phiên bản Java)
+
+    ```powershell
+      java version "11.0.1" 2018-10-16 LTS
+      Java(TM) SE Runtime Environment 18.9 (build 11.0.1+13-LTS)
+      Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.1+13-LTS, mixed mode)
+    ```
+  </div>
+</details>
+
+<p className="tw-text-right">Nguồn: Tổng hợp từ W3School</p>

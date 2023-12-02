@@ -17,10 +17,10 @@ function PortfolioHeader(): JSX.Element {
           as="h1"
           className={`lg:tw-text-5xl md:tw-text-4xl tw-text-2xl`}
         >
-          Các dự án open-source
+          Các dự án cá nhân
         </Heading>
         <p className="hero__subtitle tw-mt-6 tw-italic">
-          Danh sách 24 dự án mới nhất
+          Danh sách dự án cá nhân
         </p>
       </div>
     </header>
@@ -56,29 +56,30 @@ function GithubListRepositoriesForUser({
           </div>
           <div className="tw-flex tw-flex-row tw-text-sm tw-mt-3">
             {item.language && (
-              <Link to={languages[item.language].url} 
-              className={`tw-text-gray-500 dark:tw-text-gray-200 hover:tw-no-underline dark:hover:tw-text-[--ifm-color-primary-dark]`}
+              <Link
+                to={languages[item.language].url}
+                className={`tw-text-gray-500 dark:tw-text-gray-200 hover:tw-no-underline dark:hover:tw-text-[--ifm-color-primary-dark]`}
               >
                 <div className="tw-flex tw-flex-row tw-mr-5">
-                <span
-                  className={clsx(
-                    "tw-block tw-w-[15px] tw-h-[15px] tw-rounded-full tw-m-auto"
-                  )}
-                  style={{
-                    backgroundColor: languages[item.language].color,
-                  }}
-                ></span>
-                <span className="tw-ml-2">{item.language}</span>
-              </div>
+                  <span
+                    className={clsx(
+                      "tw-block tw-w-[15px] tw-h-[15px] tw-rounded-full tw-m-auto"
+                    )}
+                    style={{
+                      backgroundColor: languages[item.language].color,
+                    }}
+                  ></span>
+                  <span className="tw-ml-2">{item.language}</span>
+                </div>
               </Link>
             )}
             <div className={clsx("tw-flex tw-flex-row")}>
               <span>
-                <FontAwesomeIcon icon={icon({name: 'star', style: "regular"})} />
+                <FontAwesomeIcon
+                  icon={icon({ name: "star", style: "regular" })}
+                />
               </span>
-              <span className="tw-ml-2">
-                {item.watchers}
-              </span>
+              <span className="tw-ml-2">{item.watchers}</span>
             </div>
           </div>
         </div>
@@ -100,7 +101,6 @@ export default function Portfolio(): JSX.Element {
       console.log(err);
     }
   }
-
 
   useEffect(() => {
     getListRepositoriesForUserData();
