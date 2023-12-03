@@ -17,7 +17,7 @@ function DonateModal({
   return (
     <Modal title="💖 Donate QR Code 💖">
       <div className="tw-relative tw-p-6 tw-flex-auto">
-        <img src={require("@site/static/img/photo_2022-08-29_14-13-24.jpg").default} alt="Donate QR Code" width={400} />
+        <img src={require("@site/static/img/photo_2022-08-29_14-13-24.jpg").default} alt="Donate QR Code" className="tw-w-[15.0rem] lg:tw-w-[25.0rem] md:tw-w-[20.0rem]"/>
       </div>
       {/*footer*/}
       <div className="tw-flex tw-justify-center tw-p-4 tw-rounded-b-lg">
