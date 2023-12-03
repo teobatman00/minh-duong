@@ -6,9 +6,38 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Heading from "@theme/Heading";
 
 import styles from "./index.module.css";
+import { useState } from "react";
+import Modal from "../shared/Modals";
+
+function DonateModal({
+  callBack,
+}: {
+  readonly callBack: (value: boolean) => void;
+}) {
+  return (
+    <Modal title="💖 Donate QR Code 💖">
+      <div className="tw-relative tw-p-6 tw-flex-auto">
+        <img src={require("@site/static/img/photo_2022-08-29_14-13-24.jpg").default} alt="Donate QR Code" width={400} />
+      </div>
+      {/*footer*/}
+      <div className="tw-flex tw-justify-center tw-p-4 tw-rounded-b-lg">
+        <button
+          className="button button--secondary button--lg"
+          type="button"
+          onClick={() => callBack(false)}
+        >
+          Close
+        </button>
+      </div>
+    </Modal>
+  );
+}
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <header className={clsx(styles.heroBanner)}>
       <div className="container">
@@ -21,18 +50,30 @@ function HomepageHeader() {
             className="tw-rounded-full tw-animate-dissolve-in-out tw-shadow-2xl dark:tw-shadow-lg dark:tw-shadow-white"
           />
         </div>
-        <Heading as="h1" className={`lg:tw-text-5xl md:tw-text-4xl tw-text-2xl`}>
+        <Heading
+          as="h1"
+          className={`lg:tw-text-5xl md:tw-text-4xl tw-text-2xl`}
+        >
           ❤ <span className={clsx(styles.heading)}>{siteConfig.title}</span> ❤
         </Heading>
         <p className="hero__subtitle tw-my-6">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro"
-          >
-            Bài viết ➡
-          </Link>
+        <div className="tw-flex tw-flex-row tw-justify-center tw-gap-4">
+          <div className={styles.buttons}>
+            <button className="button button--primary button--lg" onClick={() => setShowModal(true)}>
+              Donate 💖
+            </button>
+            {showModal && <DonateModal callBack={setShowModal} />}
+          </div>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--lg"
+              to="/docs/intro"
+            >
+              Bài viết ➡
+            </Link>
+          </div>
         </div>
+        
       </div>
     </header>
   );
