@@ -1,8 +1,8 @@
 import Layout from "@theme/Layout";
 import Heading from "@theme/Heading";
 import { useEffect, useState } from "react";
-import ListRepositoriesUserResponse from "@site/lib/dto/ListRepositoriesUserResponse";
-import GithubRepositoriesClient from "@site/lib/client/GithubRepositoriesClient";
+import ListRepositoriesUserResponse from "../lib/dto/ListRepositoriesUserResponse";
+import GithubRepositoriesClient from "../lib/client/GithubRepositoriesClient";
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";

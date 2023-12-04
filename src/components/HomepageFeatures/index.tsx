@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 type FeatureItem = {
   title: string;
@@ -40,7 +39,7 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, Svg, description}: Readonly<FeatureItem>) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">

@@ -4,7 +4,6 @@ import clsx from "clsx";
 import Heading from "@theme/Heading";
 
 function AboutMeHeader() {
-  const { siteConfig } = useDocusaurusContext();
   return (
     <header
       className={`
@@ -20,7 +19,7 @@ function AboutMeHeader() {
           <span className="tw-text--bold">Minh Dương</span>.
         </p>
         <p className="tw-text-xl">
-          Mình hiện tại là một Full-stack Java Developer và cũng là một writter,
+          Mình hiện tại là một Full-stack Java Developer và cũng là một writer,
           blogger và nhiều thứ khác nữa.
         </p>
         <div className="tw-grid tw-grid-cols-4 tw-gap-2 tw-py-5">
@@ -34,7 +33,7 @@ function AboutMeHeader() {
           </div>
           <div className="tw-col-span-3">
             <h2 className="tw-text-5xl">Minh Dương</h2>
-            <p className="tw-text-2xl">Full-stack Java Developer, writter, blogger</p>
+            <p className="tw-text-2xl">Full-stack Java Developer, writer, blogger</p>
           </div>
         </div>
       </div>

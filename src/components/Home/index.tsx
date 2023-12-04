@@ -94,8 +94,8 @@ function HomepageBlogPost({ homePageBlogMetadata, recentPosts }) {
       <h1 className="tw-text-center">{blogTitle}</h1>
       <p className="tw-text-center">{blogDescription}</p>
       <section>
-        {recentPosts.map((recentPost, index) => (
-          <RecentBlogPostCard key={index} recentPost={recentPost} />
+        {recentPosts.map((recentPost, idx) => (
+          <RecentBlogPostCard key={idx} recentPost={recentPost} />
         ))}
       </section>
     </div>
@@ -126,9 +126,9 @@ function RecentBlogPostTags({ tags }) {
   const { siteConfig } = useDocusaurusContext();
   return (
     <ul className={clsx("tw-inline", "padding--none")}>
-      {tags.map((item, index) => (
+      {tags.map((item, idx) => (
         <li
-          key={index}
+          key={idx}
           className={clsx("tw-inline-block", "tw-mr-2", "tw-my-3")}
         >
           <Link
@@ -147,7 +147,6 @@ export default function Home({
   homePageBlogMetadata,
   recentPosts,
 }): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title={`Chuyên về tài chính - công nghệ`}

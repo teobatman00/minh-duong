@@ -28,7 +28,7 @@ export default (function () {
 
   return {
     onRouteUpdate({ location , previousLocation}) {
-      if( location && location.hash && location.hash.length ) {
+      if( location?.hash && location.hash.length ) {
         return;
       }
 
