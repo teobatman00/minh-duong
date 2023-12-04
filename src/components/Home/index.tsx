@@ -7,24 +7,30 @@ import Heading from "@theme/Heading";
 
 import styles from "./index.module.css";
 import { useState } from "react";
-import Modal from "../shared/Modals";
+import Modal from "../shared/Modal";
 
 function DonateModal({
-  callBack,
+  setShowModal,
 }: {
-  readonly callBack: (value: boolean) => void;
+  readonly setShowModal: (value: boolean) => void;
 }) {
   return (
     <Modal title="💖 Donate QR Code 💖">
       <div className="tw-relative tw-p-6 tw-flex-auto">
-        <img src={require("@site/static/img/photo_2022-08-29_14-13-24.jpg").default} alt="Donate QR Code" className="tw-w-[15.0rem] lg:tw-w-[25.0rem] md:tw-w-[20.0rem]"/>
+        <img
+          src={
+            require("@site/static/img/photo_2022-08-29_14-13-24.jpg").default
+          }
+          alt="Donate QR Code"
+          className="tw-w-[15.0rem] lg:tw-w-[25.0rem] md:tw-w-[20.0rem]"
+        />
       </div>
       {/*footer*/}
       <div className="tw-flex tw-justify-center tw-p-4 tw-rounded-b-lg">
         <button
           className="button button--secondary button--lg"
           type="button"
-          onClick={() => callBack(false)}
+          onClick={() => setShowModal(false)}
         >
           Close
         </button>
@@ -59,10 +65,13 @@ function HomepageHeader() {
         <p className="hero__subtitle tw-my-6">{siteConfig.tagline}</p>
         <div className="tw-flex tw-flex-row tw-justify-center tw-gap-4">
           <div className={styles.buttons}>
-            <button className="button button--primary button--lg" onClick={() => setShowModal(true)}>
+            <button
+              className="button button--primary button--lg"
+              onClick={() => setShowModal(true)}
+            >
               Donate 💖
             </button>
-            {showModal && <DonateModal callBack={setShowModal} />}
+            {showModal && <DonateModal setShowModal={setShowModal} />}
           </div>
           <div className={styles.buttons}>
             <Link
@@ -73,7 +82,6 @@ function HomepageHeader() {
             </Link>
           </div>
         </div>
-        
       </div>
     </header>
   );
