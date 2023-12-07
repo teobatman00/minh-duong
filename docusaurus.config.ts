@@ -7,7 +7,6 @@ const config: Config = {
   title: "Minh Duong",
   tagline: "Chia sẻ kiến thức về tài chính - công nghệ",
   favicon: "img/favicon.ico",
-
   // Set the production url of your site here
   url: process.env.APP_URL,
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -201,6 +200,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['powershell', 'java']
     },
   } satisfies Preset.ThemeConfig,
 };

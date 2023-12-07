@@ -1,0 +1,43 @@
+---
+id: java-get-started
+title: Bắt đầu Java
+tags:
+  - Java
+slug: /bat-dau-java
+last_update:
+  author: Minh Duong
+---
+
+Trong Java, mọi ứng dụng đều bắt đầu bằng một tên lớp và lớp đó phải khớp với tên tệp.
+
+Hãy tạo tệp Java đầu tiên có tên gọi là Main.java, có thể được thực hiện trong bất kỳ trình soạn thảo văn bản nào (như Notepad, Notepad++).
+
+Tệp phải chứa message "Hello world", được viết bằng mã sau:
+
+```java title="HelloWorld.java" 
+public class HelloWorld {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
+```
+
+Lưu mã trong Notepad dưới dạng "HelloWorld.java". Mở công cụ cmd.exe, điều hướng đến thư mục nơi đã lưu tệp và nhập **"javac HelloWorld.java"**:
+
+```powershell
+C:\Users\Your Name>javac HelloWorld.java 
+```
+
+Chương trình sẽ biên dịch mã của bạn. Nếu không có lỗi trong mã, dấu nhắc lệnh sẽ chạy đến dòng tiếp theo. Bây giờ, hãy gõ **"java HelloWorld"** để chạy tệp:
+
+```powershell
+C:\Users\Your Name>java HelloWorld 
+```
+
+Kết quả như sau:
+
+```powershell
+Hello World
+```
+
+<p className="tw-text-right">Nguồn: W3School</p>
