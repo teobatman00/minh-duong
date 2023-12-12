@@ -4,7 +4,6 @@ id: java-history
 title: Lịch sử Java
 tags:
   - Java
-  - Java History
 slug: /lich-su-java
 last_update:
   date: 11/23/2023

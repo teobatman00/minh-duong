@@ -4,7 +4,6 @@ id: java-introduction
 title: Giới thiệu ngôn ngữ Java
 tags:
   - Java
-  - Java Introduction
 slug: /gioi-thieu-java
 last_update:
   date: 11/22/2023
