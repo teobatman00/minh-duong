@@ -1,4 +1,5 @@
 ---
+sidebar_position: 2
 id: java-history
 title: Lịch sử Java
 tags:
@@ -6,6 +7,7 @@ tags:
   - Java History
 slug: /lich-su-java
 last_update:
+  date: 11/23/2023
   author: Minh Duong
 ---
 

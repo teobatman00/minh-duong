@@ -111,10 +111,20 @@ const config: Config = {
           },
         }
       }
+    ],
+    [
+      '@docusaurus/theme-live-codeblock', {}
     ]
   ],
   themeConfig: {
     // Replace with your project's social card
+    liveCodeBlock: {
+      /**
+       * The position of the live playground, above or under the editor
+       * Possible values: "top" | "bottom"
+       */
+      playgroundPosition: 'bottom',
+    },
     docs: {
       sidebar: {
         hideable: true

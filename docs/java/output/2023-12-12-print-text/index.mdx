@@ -1,0 +1,100 @@
+---
+id: java-print-text
+title: In đoạn text Java
+tags:
+  - Java
+slug: /java-print-text
+last_update:
+  date: 12/13/2023
+  author: Minh Duong
+---
+
+## In đoạn text 
+
+Như đã đề cập ở phần trước, ở phần này, bạn có thể sử dụng phương thức `println()` để in giá trị hoặc in đoạn text trong Java:
+
+
+<p className="tw-text-2xl">Ví dụ 1</p>
+
+```java
+System.out.println("Hello World!");
+```
+
+Kết quả chương trình:
+
+```powershell
+Hello World
+```
+
+Bạn có thể thêm nhiều phương thức `println()` khác nhau. Lưu ý rằng mỗi phương thức `println()` khi chạy chương trình sẽ thêm một dòng mới:
+
+<p className="tw-text-2xl">Ví dụ 2</p>
+
+```java
+System.out.println("Hello World!");
+System.out.println("I am learning Java.");
+System.out.println("It is awesome!");
+```
+
+Kết quả chương trình:
+
+```powershell
+Hello World!
+I am learning Java.
+It is awesome!
+```
+
+## Dấu nháy kép (Double Quotes)
+
+Khi bạn làm việc với văn bản, văn bản phải được đặt trong dấu nháy kép `" "`.
+
+Nếu bạn quên dấu nháy kép, chương trình sẽ báo lỗi
+
+<p className="tw-text-2xl">Ví dụ 3</p>
+
+```java
+System.out.println("This sentence will work!");
+```
+
+Kết quả chương trình:
+```powershell
+This sentence will work!
+```
+
+---
+
+```java
+System.out.println(This sentence will produce an error);
+```
+
+Kết quả chương trình:
+```powershell
+HelloWorld.java:3: error: ')' expected
+    System.out.println(This sentence will produce an error);
+                           ^
+```
+
+## Phương thức `Print()`
+
+Ngoài ra, Java còn có phương thức `print()` tương tự như `println()`.
+
+Điểm khác biệt duy nhất là phương thức này không chèn dòng mới vào cuối output:
+
+<p className="tw-text-2xl">Ví dụ 4</p>
+
+```java
+System.out.print("Hello World! ");
+System.out.print("I will print on the same line.");
+```
+
+Kết quả chương trình:
+
+```powershell
+Hello World! I will print on the same line.
+```
+
+:::note[Lưu ý]
+
+Lưu ý rằng mình thêm một khoảng trắng `" "` (sau `"Hello World!"` trong ví dụ trên) để dễ đọc hơn.
+
+:::

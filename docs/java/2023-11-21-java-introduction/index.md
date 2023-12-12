@@ -1,10 +1,14 @@
 ---
+sidebar_position: 1
 id: java-introduction
 title: Giới thiệu ngôn ngữ Java
 tags:
   - Java
   - Java Introduction
 slug: /gioi-thieu-java
+last_update:
+  date: 11/22/2023
+  author: Minh Duong
 ---
 
 **_Truớc khi đi vào chi tiết về ngôn ngữ lập trình Java thì mình sẽ giới thiệu sơ lược về ngôn ngữ lập trình Java_**

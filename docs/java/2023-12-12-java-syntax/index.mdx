@@ -1,0 +1,75 @@
+---
+sidebar_position: 5
+id: java-syntax
+title: Cú pháp Java
+tags:
+  - Java
+slug: /cu-phap-java
+last_update:
+  date: 12/13/2023
+  author: Minh Duong
+---
+
+## Cú pháp Java
+
+Trong chương trước, mình đã tạo một tệp Java có tên **HelloWorld.java** và sử dụng đoạn mã sau để in **"Hello World"** ra màn hình:
+
+```java title="HelloWorld.java" 
+public class HelloWorld {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
+```
+
+<p className="tw-font-bold tw-text-2xl">Giải thích ví dụ</p>
+
+Mỗi dòng mã chạy trong Java phải nằm trong một lớp (class). Trong ví dụ này, mình đặt tên lớp là **HelloWorld**. Tên lớp trong Java phải luôn bắt đầu bằng chữ cái đầu tiên viết hoa cho mỗi từ.
+
+:::note[Lưu ý]
+
+Java phân biệt chữ hoa chữ thường: **"MyClass"** và **"myclass"** có ý nghĩa khác nhau.
+
+:::
+
+Tên tệp .java phải trùng với tên lớp. Khi lưu tệp, hãy lưu tệp bằng tên lớp và thêm ".java" vào cuối tên tệp. Để chạy chương trình ví dụ trên, hãy đảm bảo rằng Java được cài đặt đúng cách: Đi tới phần [Bắt đầu Java](/docs/bat-dau-java) để biết cách cài đặt Java. Kết quả đầu ra của chương trình Java là:
+
+```powershell
+Hello World
+```
+
+## Phương thức Main (The main method)
+
+Phương thức `main()` là phương thức bắt buộc trong mọi chương trình Java:
+
+```java 
+public static void main(String[] args)
+```
+
+Bất kỳ mã code nào bên trong phương thức `main()` đều sẽ được thực thi. Đừng lo lắng về các từ khóa (keywords) trước và sau main vì mình sẽ hướng dẫn về sau.
+
+Bây giờ, chỉ cần nhớ rằng mọi chương trình Java đều phải có tên lớp và tên lớp phải khớp với tên tệp .java và mọi chương trình Java đều phải có phương thức `main()` để chạy chương trình.
+
+## System.out.println()
+
+Bên trong phương thức `main()`, mình sử dụng phương thức `println()` để in một đoạn text ra màn hình, ví dụ như sau:
+
+```java 
+public static void main(String[] args) {
+  System.out.println("Hello World");
+}
+```
+
+:::note[Lưu ý]
+
+Trong Java, dấu ngoặc nhọn `{}` đánh dấu sự bắt đầu và kết thúc của một khối mã (code block).
+
+`System` là một lớp Java tích hợp có chứa các thành phần hữu ích, chẳng hạn như `out`, viết tắt của **"output"**. Phương thức `println()`, viết tắt của **"print line"**, được sử dụng để in một giá trị ra màn hình (hoặc một file).
+
+Đừng quan tâm quá nhiều về `System`, `out` và `println()`. Chỉ cần biết rằng bạn cần chúng để in ra nội dung lên màn hình.
+
+Bạn cũng nên lưu ý rằng mỗi dòng code trong Java phải kết thúc bằng dấu chấm phẩy `(;)`.
+
+:::
+
+<p className="tw-text-right">Nguồn: W3School</p>

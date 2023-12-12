@@ -1,14 +1,14 @@
 {
   "position": 6,
-  "label": "Java",
+  "label": "Output",
   "collapsible": true,
   "collapsed": false,
   "className": "red",
   "link": {
     "type": "generated-index",
-    "title": "Hướng dẫn java"
+    "title": "Output"
   },
   "customProps": {
-    "description": "Hướng dẫn lập trình bằng ngôn ngữ Java"
+    "description": "Kết quả chương trình Java"
   }
 }
