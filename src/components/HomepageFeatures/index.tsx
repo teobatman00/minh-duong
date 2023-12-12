@@ -15,7 +15,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/man.svg').default,
     description: (
       <>
-        Full-stack Java Developer. Tham khảo <a href={require('@site/static/file/DUONG-BINH-MINH-CV.pdf').default} target='_blank'>Resume</a>
+        Full-stack Java Developer. Tham khảo <a href={require('@site/static/file/DUONG-BINH-MINH-CV.pdf').default} target='_blank' rel="noopener noreferrer">Resume</a>
       </>
     ),
   },
