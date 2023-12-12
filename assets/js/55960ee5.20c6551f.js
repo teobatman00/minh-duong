@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkminh_duong=self.webpackChunkminh_duong||[]).push([[4121],{8070:a=>{a.exports=JSON.parse('[{"label":"Java","permalink":"/minh-duong/docs/tags/java","count":6},{"label":"Java Introduction","permalink":"/minh-duong/docs/tags/java-introduction","count":1},{"label":"Java History","permalink":"/minh-duong/docs/tags/java-history","count":1}]')}}]);
