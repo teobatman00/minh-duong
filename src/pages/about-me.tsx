@@ -10,20 +10,23 @@ function AboutMeHeader() {
         ${clsx("hero hero--primary")}`}
     >
       <div className="container">
-        <Heading as="h1" className="tw-text--capitalize tw-text-5xl tw-mb-10">
+        <Heading
+          as="h1"
+          className="tw-text--capitalize tw-text-5xl tw-mb-10 max-lg:tw-text-center"
+        >
           Về tôi
         </Heading>
         <p className="tw-text-xl">
           Chào các bạn, mình là Dương Bình Minh, tác giả của trang{" "}
-          <span className="tw-text--bold">Minh Duong</span> vì nickname của mình là{" "}
-          <span className="tw-text--bold">Minh Dương</span>.
+          <span className="tw-text--bold">Minh Duong</span> vì nickname của mình
+          là <span className="tw-text--bold">Minh Dương</span>.
         </p>
         <p className="tw-text-xl">
           Mình hiện tại là một Full-stack Java Developer và cũng là một writer,
           blogger và nhiều thứ khác nữa.
         </p>
-        <div className="tw-grid tw-grid-cols-4 tw-gap-2 tw-py-5">
-          <div>
+        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-4 tw-gap-2 tw-py-5">
+          <div className="max-lg:tw-flex max-lg:tw-justify-center">
             <img
               src={require("@site/static/img/personal/me.jpg").default}
               alt="About me"
@@ -31,9 +34,11 @@ function AboutMeHeader() {
               height={350}
             />
           </div>
-          <div className="tw-col-span-3">
+          <div className="lg:tw-col-span-3 max-lg:tw-text-center">
             <h2 className="tw-text-5xl">Minh Dương</h2>
-            <p className="tw-text-2xl">Full-stack Java Developer, writer, blogger</p>
+            <p className="tw-text-2xl">
+              Full-stack Java Developer, writer, blogger
+            </p>
           </div>
         </div>
       </div>
@@ -42,18 +47,19 @@ function AboutMeHeader() {
 }
 
 function AboutMeContent() {
-    return (
-        <section className="tw-py-[3.0rem]">
-            <div className="container">
-                <div>
-                    <h2 className="tw-text-3xl">Về trang blog Minh Dương</h2>
-                    <p className="tw-text-xl">
-                        Blog Minh Dương được sinh ra với mục đích chia sẻ các kiến thức về ngôn ngữ lập trình và tài chính
-                    </p>
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section className="tw-py-[3.0rem]">
+      <div className="container">
+        <div>
+          <h2 className="tw-text-3xl">Về trang blog Minh Dương</h2>
+          <p className="tw-text-xl">
+            Blog Minh Dương được sinh ra với mục đích chia sẻ các kiến thức về
+            ngôn ngữ lập trình và tài chính
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default function AboutMe(): JSX.Element {

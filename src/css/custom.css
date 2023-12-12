@@ -33,3 +33,7 @@
   --ifm-color-primary-lightest: #4eaddd;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+body {
+  min-width: 350px;
+}
