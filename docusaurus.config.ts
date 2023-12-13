@@ -133,7 +133,7 @@ const config: Config = {
       // Optional: see doc section below
       contextualSearch: false,
     },
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/personal/me.jpg",
     navbar: {
       title: "Minh Duong",
       logo: {

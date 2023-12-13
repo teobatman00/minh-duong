@@ -8,8 +8,6 @@ interface ImageGalleryPropsType {
     src?: string;
     Svg?: React.ComponentType<React.ComponentProps<"svg">>;
   }>;
-  columnWidth?: number;
-  gapSize?: number;
 }
 
 function renderImage(item: {
@@ -34,7 +32,7 @@ export default function ImageGallery({
 }: Readonly<ImageGalleryPropsType>): JSX.Element {
   return (
     <div className={`container`}>
-      <div className="tw-columns-1 sm:tw-columns-2 md:tw-columns-3 lg:tw-columns-4 tw-gap-4 tw-mx-auto tw-space-y-3 tw-pb-28">
+      <div className="tw-columns-2 sm:tw-columns-3 md:tw-columns-4 lg:tw-columns-5 tw-gap-4 tw-mx-auto tw-space-y-3 tw-pb-28">
         {imgArray.map((item) => (
           <div className="tw-break-inside-avoid" key={uniqid()}>
             <figure className={styles.gallery_img_figure}>

@@ -1,7 +1,7 @@
 import Layout from "@theme/Layout";
 import Heading from "@theme/Heading";
 import images from "./_gallery_";
-import ImageGallery from "@site/src/components/shared/ImageGallery";
+import React, { Suspense } from "react";
 
 function ImageGalleryHeader(): JSX.Element {
   return (
@@ -13,17 +13,24 @@ function ImageGalleryHeader(): JSX.Element {
         >
           Thư viện hình ảnh
         </Heading>
+        <p className="hero__subtitle tw-mt-6 tw-italic">
+          Danh sách hình ảnh
+        </p>
       </div>
     </header>
   );
 }
+
+const ImageGallery = React.lazy(() => import('@site/src/components/shared/ImageGallery'))
 
 export default function ImgGallery(): JSX.Element {
   return (
     <Layout title="Thư viện hình ảnh" description="Thư viện hình ảnh">
       <ImageGalleryHeader />
       <main>
-        <ImageGallery imgArray={images} />
+        <Suspense fallback={<div className="container">Loading...</div>}>
+          <ImageGallery imgArray={images} />
+        </Suspense>
       </main>
     </Layout>
   );
