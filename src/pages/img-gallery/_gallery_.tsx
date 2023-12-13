@@ -20,7 +20,27 @@ const images: Images[] = [
     alt: "Docusaurus Tree",
     caption: "Docusaurus Tree",
     Svg: require("@site/static/img/gallery/undraw_docusaurus_tree.svg").default
-  }
+  },
+  {
+    alt: "Me",
+    caption: "Me",
+    src: require("@site/static/img/personal/me.jpg").default
+  },
+  {
+    alt: "Me",
+    caption: "Me",
+    src: require("@site/static/img/personal/me.jpg").default
+  },
+  {
+    alt: "Me",
+    caption: "Me",
+    src: require("@site/static/img/personal/me.jpg").default
+  },
+  {
+    alt: "Me",
+    caption: "Me",
+    src: require("@site/static/img/docusaurus.png").default
+  },
 ]
 
 export default images;

@@ -5,7 +5,6 @@
 
 .gallery_img_figure img {
   display: block;
-  width: 100%;
 }
 
 .gallery_img_figure figcaption {
@@ -19,6 +18,8 @@
   font-size: 0.85rem;
   text-align: center;
   color: #fff;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 
 .gallery_img_figure:hover figcaption {

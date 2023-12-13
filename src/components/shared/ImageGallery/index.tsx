@@ -32,25 +32,18 @@ function renderImage(item: {
 export default function ImageGallery({
   imgArray,
 }: Readonly<ImageGalleryPropsType>): JSX.Element {
-  const columns = [[], [], [], []];
-  imgArray.forEach((item, i) => columns[i % 4].push(item));
-
   return (
-    <div
-      className={`container tw-grid tw-grid-cols-1 md:tw-grid-cols-3 lg:tw-grid-cols-4 tw-gap-4 tw-my-4`}
-    >
-      {columns.map((column, i) => (
-        <div key={uniqid()} className="tw-grid tw-gap-4">
-          {column.map((item) => (
-            <div key={uniqid()}>
-              <figure className={styles.gallery_img_figure}>
-                {renderImage(item)}
-                {item.caption ? <figcaption>{item.caption}</figcaption> : ""}
-              </figure>
-            </div>
-          ))}
-        </div>
-      ))}
+    <div className={`container`}>
+      <div className="tw-columns-1 sm:tw-columns-2 md:tw-columns-3 lg:tw-columns-4 tw-gap-4 tw-mx-auto tw-space-y-3 tw-pb-28">
+        {imgArray.map((item) => (
+          <div className="tw-break-inside-avoid" key={uniqid()}>
+            <figure className={styles.gallery_img_figure}>
+              {renderImage(item)}
+              {item.caption && <figcaption>{item.caption}</figcaption>}
+            </figure>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
