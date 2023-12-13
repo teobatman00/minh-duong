@@ -1,0 +1,26 @@
+.gallery_img_figure {
+  margin: 0;
+  position: relative;
+}
+
+.gallery_img_figure img {
+  display: block;
+  width: 100%;
+}
+
+.gallery_img_figure figcaption {
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 16px;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #fff;
+}
+
+.gallery_img_figure:hover figcaption {
+  opacity: 1;
+}

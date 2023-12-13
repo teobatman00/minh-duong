@@ -1,7 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-import 'dotenv/config';
+import "dotenv/config";
 
 const config: Config = {
   title: "Minh Duong",
@@ -30,9 +30,7 @@ const config: Config = {
   },
 
   customFields: {
-    forbiddenGiscusDocPaths: [
-      '/docs/intro'
-    ],
+    forbiddenGiscusDocPaths: ["/docs/intro"],
   },
   presets: [
     [
@@ -46,10 +44,10 @@ const config: Config = {
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
           breadcrumbs: true,
           showLastUpdateTime: true,
-          showLastUpdateAuthor: true
+          showLastUpdateAuthor: true,
         },
         googleTagManager: {
-          containerId: 'G-0DNVWKFWGV'
+          containerId: "G-0DNVWKFWGV",
         },
         blog: false,
         theme: {
@@ -57,10 +55,10 @@ const config: Config = {
         },
         sitemap: {
           priority: 0.5,
-          ignorePatterns: ['/tags/**'],
-          filename: 'sitemap.xml',
-          changefreq: 'weekly'
-        }
+          ignorePatterns: ["/tags/**"],
+          filename: "sitemap.xml",
+          changefreq: "weekly",
+        },
       } satisfies Preset.Options,
     ],
   ],
@@ -77,58 +75,55 @@ const config: Config = {
       };
     },
     [
-      'docusaurus-plugin-dotenv',
+      "docusaurus-plugin-dotenv",
       {
         path: "./.env",
-        systemvars: true
-      }
+        systemvars: true,
+      },
     ],
     [
       require.resolve("./plugins/custom-blog.ts"),
       {
-        id: 'blog',
-        routeBasePath: 'blog',
-        path: './blog',
-        blogTitle: '✏ Bài viết mới nhất ✏',
-        blogDescription: 'Danh sách bài viết mới nhất',
-        showReadingTime: true
+        id: "blog",
+        routeBasePath: "blog",
+        path: "./blog",
+        blogTitle: "✏ Bài viết mới nhất ✏",
+        blogDescription: "Danh sách bài viết mới nhất",
+        showReadingTime: true,
       },
     ],
     [
       require.resolve("./plugins/image-zoom/index.ts"),
       {
-        imageZoom: {
-          // CSS selector to apply the plugin to, defaults to '.markdown img'
-          selector: '.markdown img',
-          // Optional medium-zoom options
-          // see: https://www.npmjs.com/package/medium-zoom#options
-          options: {
-            margin: 24,
-            background: '#BADA55',
-            scrollOffset: 0,
-            container: '#zoom-container',
-            template: '#zoom-template',
-          },
-        }
-      }
+        selector: "img",
+        // Optional medium-zoom options
+        // see: https://www.npmjs.com/package/medium-zoom#options
+        options: {
+          margin: 24,
+          background: "#BADA55",
+          scrollOffset: 0,
+          container: "#zoom-container",
+          template: "#zoom-template",
+        },
+      },
     ],
-    [
-      '@docusaurus/theme-live-codeblock', {}
-    ]
+    ["@docusaurus/theme-live-codeblock", {}],
   ],
   themeConfig: {
     // Replace with your project's social card
+    // CSS selector to apply the plugin to, defaults to '.markdown img'
+
     liveCodeBlock: {
       /**
        * The position of the live playground, above or under the editor
        * Possible values: "top" | "bottom"
        */
-      playgroundPosition: 'bottom',
+      playgroundPosition: "bottom",
     },
     docs: {
       sidebar: {
-        hideable: true
-      }
+        hideable: true,
+      },
     },
     algolia: {
       appId: process.env.ALGOLIA_APP_ID,
@@ -136,7 +131,7 @@ const config: Config = {
       apiKey: process.env.ALGOLIA_API_KEY,
       indexName: process.env.ALGOLIA_INDEX_NAME,
       // Optional: see doc section below
-      contextualSearch: false
+      contextualSearch: false,
     },
     image: "img/docusaurus-social-card.jpg",
     navbar: {
@@ -156,17 +151,22 @@ const config: Config = {
         {
           to: "/blog/tags",
           label: "📎 Tags",
-          position: "right"
+          position: "right",
         },
         {
           to: "/portfolio",
           label: "🎥 Dự án",
-          position: "right"
+          position: "right",
+        },
+        {
+          to: "/img-gallery",
+          label: "📸 Hình ảnh",
+          position: "right",
         },
         {
           label: "👦 Về tôi",
           position: "right",
-          to: "/about-me"
+          to: "/about-me",
         },
         {
           href: "https://github.com/teobatman00/",
@@ -200,8 +200,8 @@ const config: Config = {
             },
             {
               label: "Về tôi",
-              to: "/about-me"
-            }
+              to: "/about-me",
+            },
           ],
         },
       ],
@@ -210,7 +210,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['powershell', 'java']
+      additionalLanguages: ["powershell", "java"],
     },
   } satisfies Preset.ThemeConfig,
 };
