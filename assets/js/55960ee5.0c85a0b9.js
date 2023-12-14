@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkminh_duong=self.webpackChunkminh_duong||[]).push([[4121],{8070:n=>{n.exports=JSON.parse('[{"label":"Git","permalink":"/minh-duong/docs/tags/git","count":1},{"label":"Java","permalink":"/minh-duong/docs/tags/java","count":8}]')}}]);
