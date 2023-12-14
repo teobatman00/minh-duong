@@ -1,0 +1,82 @@
+---
+sidebar_position: 7
+id: java-comments
+title: Chú thích Java
+tags:
+  - Java
+slug: /chu-thich-java
+last_update:
+  date: 12/15/2023
+  author: Minh Duong
+---
+
+## Chú thích Java (Java Comments)
+
+Các chú thích (Comments) có thể được sử dụng để giải thích mã Java và làm cho mã dễ đọc hơn. Chú thích cũng có thể được sử dụng để ngăn việc thực thi mã code khi kiểm tra mã code thay thế.
+
+## Chú thích một dòng (Single-line Comments)
+
+Nhận xét một dòng bắt đầu bằng hai dấu gạch chéo hướng lên `//`.
+
+Bất kỳ đoạn text nào nằm giữa `//` và dòng cuối cùng của đoạn code đều được Java bỏ qua (đoạn code sẽ không được thực thi).
+
+Ví dụ này sử dụng nhận xét một dòng trước một dòng code:
+
+<p className="tw-text-2xl">Ví dụ 1</p>
+
+```java
+// Đây là comment
+System.out.println("Hello World");
+```
+
+Kết quả chương trình:
+
+```powershell
+Hello World
+```
+
+Ví dụ này sử dụng nhận xét một dòng ở dòng cuối cùng của đoạn code:
+
+<p className="tw-text-2xl">Ví dụ 2</p>
+
+```java
+System.out.println("Hello World"); // Đây là comment
+```
+
+Kết quả chương trình:
+
+```powershell
+Hello World
+```
+
+## Chú thích nhiều dòng (Java Multi-line Comments)
+
+Chú thích nhiều dòng bắt đầu bằng `/*` và kết thúc bằng `*/`.
+
+Mọi văn bản giữa `/*` và `*/` đều được Java bỏ qua khi thực thi chương trình.
+
+Ví dụ này sử dụng nhận xét nhiều dòng (hay còn gọi là **khối nhận xét**) để giải thích code:
+
+<p className="tw-text-2xl">Ví dụ 3</p>
+
+```java
+/* 
+  Đoạn code dưới đây sẽ in ra đoạn text Hello World
+  và thật sự vô cùng ngạc nhiên
+*/
+System.out.println("Hello World");
+```
+
+Kết quả chương trình:
+
+```powershell
+Hello World
+```
+
+:::info[Lựa chọn chú thích một dòng hay chú thích nhiều dòng ?]
+
+Lựa chọn chú thích một dòng hay chú thích nhiều dòng là tuỳ thuộc vào bạn. Thông thường, khi lập trình Java, mình sẽ dùng chú thích một dòng `//` khi chú thích vắn tắt một đoạn code nào đó, ngược lại sẽ dùng chú thích nhiều dòng `/* */`
+
+:::
+
+<p className="tw-text-right">Nguồn: W3School</p>

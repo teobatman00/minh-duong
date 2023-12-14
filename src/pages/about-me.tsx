@@ -32,6 +32,7 @@ function AboutMeHeader() {
               alt="About me"
               width={300}
               height={350}
+              className="tw-rounded-lg"
             />
           </div>
           <div className="lg:tw-col-span-3 max-lg:tw-text-center">

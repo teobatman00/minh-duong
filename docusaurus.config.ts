@@ -110,9 +110,6 @@ const config: Config = {
     ["@docusaurus/theme-live-codeblock", {}],
   ],
   themeConfig: {
-    // Replace with your project's social card
-    // CSS selector to apply the plugin to, defaults to '.markdown img'
-
     liveCodeBlock: {
       /**
        * The position of the live playground, above or under the editor
@@ -134,6 +131,14 @@ const config: Config = {
       contextualSearch: false,
     },
     image: "img/personal/me.jpg",
+    announcementBar: {
+      id: 'support_us',
+      content:
+        'Nếu bạn thích trang của mình, hãy đánh giá 5 sao <a target="_blank" rel="noopener noreferrer" href="https://github.com/teobatman00/minh-duong" class="tw-font-bold">tại đây</a> 👈',
+      backgroundColor: '#ECF4D6',
+      textColor: '#265073',
+      isCloseable: true,
+    },
     navbar: {
       title: "Minh Duong",
       logo: {

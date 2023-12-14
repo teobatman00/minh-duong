@@ -37,7 +37,7 @@ export default function ImageGallery({
           <div className="tw-break-inside-avoid" key={uniqid()}>
             <figure className={styles.gallery_img_figure}>
               {renderImage(item)}
-              {item.caption && <figcaption>{item.caption}</figcaption>}
+              {item.caption && <figcaption className="tw-p-3 md:tw-p-4">{item.caption}</figcaption>}
             </figure>
           </div>
         ))}
