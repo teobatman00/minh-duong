@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkminh_duong=self.webpackChunkminh_duong||[]).push([[7530],{4168:n=>{n.exports=JSON.parse('{"label":"thu\u1ebf GTGT","permalink":"/minh-duong/blog/tags/thu\u1ebf-gtgt","allTagsPath":"/minh-duong/blog/tags","count":1,"unlisted":false}')}}]);
