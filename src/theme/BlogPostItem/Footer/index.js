@@ -40,7 +40,7 @@ export default function BlogPostItemFooter() {
       <BrowserOnly>
         {() => (
           <div className={clsx(
-            "col", {"col--9 ": truncatedPost }, 
+            "col", {"col--9 ": truncatedPost },
             )}>
             <BlogReactions reactions={reactions} slug={slug} />
           </div>
