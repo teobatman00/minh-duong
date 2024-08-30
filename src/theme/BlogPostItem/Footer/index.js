@@ -30,7 +30,6 @@ export default function BlogPostItemFooter() {
         isBlogPostPage && styles.blogPostFooterDetailsFull
       )}
     >
-
       {tagsExists && (
         <div className={clsx("col", { "col--9": truncatedPost })}>
           <TagsListInline tags={tags} />
@@ -39,9 +38,7 @@ export default function BlogPostItemFooter() {
 
       <BrowserOnly>
         {() => (
-          <div className={clsx(
-            "col", {"col--9 ": truncatedPost },
-            )}>
+          <div className={clsx("col", { "col--9 ": truncatedPost })}>
             <BlogReactions reactions={reactions} slug={slug} />
           </div>
         )}
@@ -59,7 +56,11 @@ export default function BlogPostItemFooter() {
             "col--3": tagsExists,
           })}
         >
-          <ReadMoreLink blogPostTitle={title} to={metadata.permalink} />
+          <ReadMoreLink
+            blogPostTitle={title}
+            className={clsx("button button--outline button--primary")}
+            to={metadata.permalink}
+          />
         </div>
       )}
     </footer>

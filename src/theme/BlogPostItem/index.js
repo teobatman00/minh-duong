@@ -13,7 +13,7 @@ function useContainerClassName() {
 export default function BlogPostItem({children, className}) {
   const containerClassName = useContainerClassName();
   return (
-    <BlogPostItemContainer className={clsx(containerClassName, className, 'tw-ring-1 tw-ring-zinc-200 tw-p-5 tw-rounded-md')}>
+    <BlogPostItemContainer className={clsx(containerClassName, className)}>
       <BlogPostItemHeader />
       <BlogPostItemContent>{children}</BlogPostItemContent>
       <BlogPostItemFooter />
