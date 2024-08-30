@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkminh_duong=self.webpackChunkminh_duong||[]).push([[6225],{9106:s=>{s.exports=JSON.parse('{"title":"MDX Blog Post","description":"Blog posts support Docusaurus Markdown features, such as MDX.","frontMatter":{"slug":"mdx-blog-post","title":"MDX Blog Post","authors":["slorber"],"tags":["docusaurus"]}}')}}]);
