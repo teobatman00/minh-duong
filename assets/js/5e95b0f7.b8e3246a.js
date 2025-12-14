@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkminh_duong=self.webpackChunkminh_duong||[]).push([[3308],{2164:l=>{l.exports=JSON.parse('{"label":"pickleball","permalink":"/minh-duong/blog/tags/pickleball","allTagsPath":"/minh-duong/blog/tags","count":1,"unlisted":false}')}}]);

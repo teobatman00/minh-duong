@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkminh_duong=self.webpackChunkminh_duong||[]).push([[8537],{5734:t=>{t.exports=JSON.parse('{"title":"Ghi ch\xfa Lu\u1eadt thu\u1ebf GTGT","description":"V\u0103n b\u1ea3n lu\u1eadt tham chi\u1ebfu","frontMatter":{"title":"Ghi ch\xfa Lu\u1eadt thu\u1ebf GTGT","tags":["thu\u1ebf GTGT"],"slug":"ghi-chu-luat-thue-gtgt","authors":["minhduong"]}}')}}]);

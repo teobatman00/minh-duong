@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkminh_duong=self.webpackChunkminh_duong||[]).push([[2621],{3065:n=>{n.exports=JSON.parse('{"label":"C\xe2u chuy\u1ec7n","permalink":"/minh-duong/blog/tags/cau-chuy\u1ec7n","allTagsPath":"/minh-duong/blog/tags","count":1,"unlisted":false}')}}]);
