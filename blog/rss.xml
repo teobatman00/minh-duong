@@ -17,6 +17,7 @@
             <content:encoded><![CDATA[<p><strong>Pickleball và những người bạn đã đi vào dĩ vãng</strong></p>
 <p><img loading="lazy" alt="Pickleball Cartoon" src="https://teobatman00.github.io/minh-duong/assets/images/pickleball-cartoon-611586c986f5c2c79f91696bbdfe2f3c.jpg" width="612" height="498" class="img_ev3q"></p>
 <p>Pickleball đến với tôi rất tự nhiên, giống như một buổi chiều rảnh rỗi vô tình cầm cây vợt lên rồi… không đặt xuống được nữa. Sân nhỏ, bóng nhẹ, luật đơn giản, nhưng cái làm tôi dính thật sự lại không nằm ở điểm số. Nó nằm ở tiếng cười, ở những pha đánh hụt “đi vào lòng đất”, và ở hai cái tên từng xuất hiện rất đều trong lịch chơi: Minh và Long.</p>
+<!-- -->
 <p>Minh là kiểu người lúc nào cũng tin rằng mình đánh rất “bài bản”. Cú giao bóng thì chậm rãi như đang suy nghĩ về triết lý cuộc đời, nhưng khi vào rally thì mọi lý thuyết tan biến. Minh hay đánh những quả bóng… không ai đoán trước được, kể cả chính Minh. Có những pha bóng bay sang sân đối thủ rất đẹp, nhưng cũng có những pha bay thẳng lên trời, để lại Minh đứng ngơ ngác như vừa đánh rơi một triết lý sống nào đó. Minh thua thì hay cười, thắng thì cũng cười, nói chung là lên sân để vui chứ không phải để thắng.</p>
 <p>Long thì khác. Long vào sân với khí chất của một nhà vô địch tương lai. Khởi động kỹ, buộc dây giày cẩn thận, ánh mắt nghiêm túc. Nhưng cứ đến mấy pha gần lưới là Long lại đánh mạnh như đang chơi tennis, bóng bay qua sân đối thủ, qua luôn hàng rào, và đôi khi… qua cả niềm tin của đồng đội. Long đánh rất nhiệt, thua thì đổ tại gió, tại nắng, tại mặt sân, nhưng tuyệt nhiên không bao giờ tại mình.</p>
 <p>Những buổi pickleball ngày đó không hẹn mà quen. Tan làm là nhắn nhau: “Ra sân không?” Không cần lịch, không cần lý do. Chỉ cần Minh mang theo nụ cười, Long mang theo tinh thần chiến đấu, và tôi mang theo niềm tin rằng hôm nay chắc chắn sẽ có chuyện để kể lại.</p>
@@ -405,28 +406,6 @@
 <li>Đối với các loại tem, vé là chứng từ thanh toán in sẵn giá thanh toán thì giá thanh toán tem, vé đó đã bao gồm thuế giá trị gia tăng.</li>
 </ol><hr><br>]]></content:encoded>
             <category>thuế GTGT</category>
-        </item>
-        <item>
-            <title><![CDATA[Welcome]]></title>
-            <link>https://teobatman00.github.io/minh-duong/blog/welcome</link>
-            <guid>https://teobatman00.github.io/minh-duong/blog/welcome</guid>
-            <pubDate>Thu, 26 Aug 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Docusaurus blogging features are powered by the blog plugin.]]></description>
-            <content:encoded><![CDATA[<p><a href="https://docusaurus.io/docs/blog" target="_blank" rel="noopener noreferrer">Docusaurus blogging features</a> are powered by the <a href="https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog" target="_blank" rel="noopener noreferrer">blog plugin</a>.</p>
-<p>Simply add Markdown files (or folders) to the <code>blog</code> directory.</p>
-<p>Regular blog authors can be added to <code>authors.yml</code>.</p>
-<p>The blog post date can be extracted from filenames, such as:</p>
-<ul>
-<li><code>2019-05-30-welcome.md</code></li>
-<li><code>2019-05-30-welcome/index.md</code></li>
-</ul>
-<p>A blog post folder can be convenient to co-locate blog post images:</p>
-<p><img loading="lazy" alt="Docusaurus Plushie" src="https://teobatman00.github.io/minh-duong/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_ev3q"></p>
-<p>The blog supports tags as well!</p>
-<p><strong>And if you don't want a blog</strong>: just delete this directory, and use <code>blog: false</code> in your Docusaurus config.</p><hr><br>]]></content:encoded>
-            <category>facebook</category>
-            <category>hello</category>
-            <category>docusaurus</category>
         </item>
     </channel>
 </rss>
