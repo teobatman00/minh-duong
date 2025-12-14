@@ -2,8 +2,8 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 import "dotenv/config";
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 const config: Config = {
   title: "Minh Duong",
@@ -36,12 +36,12 @@ const config: Config = {
   },
   stylesheets: [
     {
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
-      type: 'text/css',
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+      type: "text/css",
       integrity:
-        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
-      crossorigin: 'anonymous'
-    }
+        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      crossorigin: "anonymous",
+    },
   ],
   presets: [
     [
@@ -57,9 +57,7 @@ const config: Config = {
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
           remarkPlugins: [remarkMath],
-          rehypePlugins: [
-            [rehypeKatex, {strict: false}]
-          ]
+          rehypePlugins: [[rehypeKatex, { strict: false }]],
         },
         googleTagManager: {
           containerId: "G-0DNVWKFWGV",
@@ -106,9 +104,7 @@ const config: Config = {
         blogDescription: "Danh sách bài viết mới nhất",
         showReadingTime: true,
         remarkPlugins: [remarkMath],
-        rehypePlugins: [
-          [rehypeKatex, {strict: false}]
-        ]
+        rehypePlugins: [[rehypeKatex, { strict: false }]],
       },
     ],
     [
@@ -151,11 +147,11 @@ const config: Config = {
     },
     image: "img/personal/me.jpg",
     announcementBar: {
-      id: 'support_us',
+      id: "support_us",
       content:
         'Nếu bạn thích trang của mình, hãy đánh giá 5 sao <a target="_blank" rel="noopener noreferrer" href="https://github.com/teobatman00/minh-duong" class="tw-font-bold">tại đây</a> 👈',
-      backgroundColor: '#ECF4D6',
-      textColor: '#265073',
+      backgroundColor: "#ECF4D6",
+      textColor: "#265073",
       isCloseable: true,
     },
     navbar: {
