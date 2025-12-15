@@ -9,21 +9,10 @@ export default (function () {
   if ( typeof window === 'undefined' ) {
     return null;
   }
-
   // Backwards compatibility
   const zoomSelector = '.markdown img';
 
-  // Allow medium-zoom options: https://www.npmjs.com/package/medium-zoom#options
-  const {
-    imageZoom: {
-      selector = zoomSelector,
-      options,
-    } = {},
-  } = themeConfig;
 
-  setTimeout(() => {
-    mediumZoom(selector, options);
-  }, 1000);
 
 
   return {
@@ -37,7 +26,10 @@ export default (function () {
       }
 
       setTimeout(() => {
-        mediumZoom(selector, options);
+        mediumZoom(zoomSelector, {
+          margin: 72,
+          scrollOffset: 0,
+        });
       }, 1000);
 
     },

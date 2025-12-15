@@ -1,11 +1,11 @@
-const path = require('path');
+const path = require("path");
 
-module.exports = function(context, options) {
+module.exports = function () {
   return {
-    name: 'image-zoom',
+    name: "image-zoom",
 
-    getClientModules(options) {
-      return [path.resolve(__dirname, './zoom.ts')];
+    getClientModules() {
+      return [path.resolve(__dirname, "./zoom.ts")];
     },
   };
 };
