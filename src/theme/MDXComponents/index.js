@@ -2,10 +2,7 @@ import React from 'react';
 // Import the original mapper
 import MDXComponents from '@theme-original/MDXComponents';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import the FontAwesomeIcon component.
-import { library } from '@fortawesome/fontawesome-svg-core'; // Import the library component.
-import {faEdit} from "@fortawesome/free-regular-svg-icons"
-
-library.add(faEdit); // Add all icons to the library so you can use them without importing them individually.
+import "@site/src/lib/icons/registry"; // Registers all FontAwesome icons used across the site.
 
 export default {
   // Re-use the default mapping

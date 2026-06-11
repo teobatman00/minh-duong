@@ -4,6 +4,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Heading from "@theme/Heading";
+import Card from "../shared/Card";
 
 import styles from "./index.module.css";
 import { useState } from "react";
@@ -15,14 +16,16 @@ function DonateModal({
   readonly setShowModal: (value: boolean) => void;
 }) {
   return (
-    <Modal title="💖 Donate QR Code 💖">
+    <Modal title="Donate QR Code">
       <div className="tw-relative tw-p-6 tw-flex-auto">
         <img
           src={
             require("@site/static/img/photo_2022-08-29_14-13-24.jpg").default
           }
           alt="Donate QR Code"
-          className="tw-w-[15.0rem] lg:tw-w-[25.0rem] md:tw-w-[20.0rem]"
+          loading="lazy"
+          decoding="async"
+          className="tw-w-[15.0rem] lg:tw-w-[25.0rem] md:tw-w-[20.0rem] tw-rounded-lg"
         />
       </div>
       {/*footer*/}
@@ -47,40 +50,38 @@ function HomepageHeader() {
   return (
     <header className={clsx(styles.heroBanner)}>
       <div className="container">
-        <div className="tw-mb-5">
+        <div className="tw-mb-6">
           <img
             src={require("@site/static/img/personal/me.jpg").default}
             alt="Về tôi"
             width={300}
             height={300}
-            className="tw-rounded-full tw-animate-dissolve-in-out tw-shadow-2xl dark:tw-shadow-lg dark:tw-shadow-white"
+            className="tw-rounded-full tw-animate-dissolve-in-out tw-ring-1 tw-ring-gray-200 dark:tw-ring-gray-800 tw-shadow-md"
           />
         </div>
         <Heading
           as="h1"
-          className={`lg:tw-text-5xl md:tw-text-4xl tw-text-2xl`}
+          className="lg:tw-text-6xl md:tw-text-4xl tw-text-3xl tw-font-bold tw-tracking-tight"
         >
-          ❤ <span className={clsx(styles.heading)}>{siteConfig.title}</span> ❤
+          {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle tw-my-6">{siteConfig.tagline}</p>
-        <div className="tw-flex tw-flex-row tw-justify-center tw-gap-4">
-          <div className={styles.buttons}>
-            <button
-              className="button button--primary button--lg"
-              onClick={() => setShowModal(true)}
-            >
-              Donate 💖
-            </button>
-            {showModal && <DonateModal setShowModal={setShowModal} />}
-          </div>
-          <div className={styles.buttons}>
-            <Link
-              className="button button--secondary button--lg"
-              to="/docs/intro"
-            >
-              Bài viết ➡
-            </Link>
-          </div>
+        <p className="hero__subtitle tw-mt-4 tw-mb-8 tw-text-gray-500 dark:tw-text-gray-400 tw-text-lg">
+          {siteConfig.tagline}
+        </p>
+        <div className="tw-flex tw-flex-row tw-items-center tw-justify-center tw-gap-4">
+          <button
+            className="button button--primary button--lg"
+            onClick={() => setShowModal(true)}
+          >
+            Ủng hộ
+          </button>
+          {showModal && <DonateModal setShowModal={setShowModal} />}
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/intro"
+          >
+            Xem bài viết
+          </Link>
         </div>
       </div>
     </header>
@@ -90,10 +91,14 @@ function HomepageHeader() {
 function HomepageBlogPost({ homePageBlogMetadata, recentPosts }) {
   const { blogTitle, blogDescription } = homePageBlogMetadata;
   return (
-    <div className={`tw-p-3 container`}>
-      <h1 className="tw-text-center">{blogTitle}</h1>
-      <p className="tw-text-center">{blogDescription}</p>
-      <section>
+    <div className="container tw-py-12 md:tw-py-16">
+      <h2 className="tw-text-2xl md:tw-text-3xl tw-font-semibold tw-text-center tw-mb-2">
+        {blogTitle}
+      </h2>
+      <p className="tw-text-center tw-text-gray-500 dark:tw-text-gray-400 tw-mb-10">
+        {blogDescription}
+      </p>
+      <section className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6">
         {recentPosts.map((recentPost, idx) => (
           <RecentBlogPostCard key={idx} recentPost={recentPost} />
         ))}
@@ -107,33 +112,35 @@ function RecentBlogPostCard({ recentPost }) {
   const tagsExists = metadata.frontMatter.tags.length > 0;
   const tags = metadata.frontMatter.tags;
   return (
-    <article
-      style={{ padding: 20, marginTop: 20 }}
-      className="tw-shadow dark:tw-border-solid tw-border tw-border-[--ifm-color-primary-dark]"
-    >
-      <Link to={`/blog/${metadata.frontMatter.slug}`}>
-        <h2 className="tw-mb-0 tw-text-3xl">{metadata.title}</h2>
+    <Card as="article" className="tw-flex tw-flex-col">
+      <Link
+        to={`/blog/${metadata.frontMatter.slug}`}
+        className="hover:tw-no-underline"
+      >
+        <h3 className="tw-text-xl tw-font-semibold tw-mb-2">
+          {metadata.title}
+        </h3>
       </Link>
       {tagsExists && <RecentBlogPostTags tags={tags} />}
-      <p>{metadata.description}</p>
-      <hr />
-      <Preview />
-    </article>
+      <p className="tw-text-sm tw-text-gray-500 dark:tw-text-gray-400 tw-mb-4">
+        {metadata.description}
+      </p>
+      <div className="tw-border-t tw-border-gray-100 dark:tw-border-gray-800 tw-pt-4 tw-mt-auto tw-text-sm">
+        <Preview />
+      </div>
+    </Card>
   );
 }
 
 function RecentBlogPostTags({ tags }) {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <ul className={clsx("tw-inline", "padding--none")}>
+    <ul className={clsx("tw-flex tw-flex-wrap tw-gap-2", "padding--none", "tw-mb-3")}>
       {tags.map((item, idx) => (
-        <li
-          key={idx}
-          className={clsx("tw-inline-block", "tw-mr-2", "tw-my-3")}
-        >
+        <li key={idx} className="tw-inline-block">
           <Link
             to={`${siteConfig.url + siteConfig.baseUrl}/blog/tags/${item}`}
-            className={styles.tag}
+            className="tw-inline-block tw-text-xs tw-font-medium tw-px-2.5 tw-py-1 tw-rounded-full tw-bg-gray-100 dark:tw-bg-gray-800 tw-text-gray-600 dark:tw-text-gray-300 hover:tw-bg-[--ifm-color-primary] hover:tw-text-white tw-transition-colors hover:tw-no-underline"
           >
             {item}
           </Link>

@@ -1,8 +1,8 @@
-import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import uniqid from 'uniqid';
+import Card from '@site/src/components/shared/Card';
 
 type FeatureItem = {
   title: string;
@@ -42,23 +42,23 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({title, Svg, description}: Readonly<FeatureItem>) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
-    </div>
+    <Card className="tw-text-center">
+      <Svg className={styles.featureSvg} role="img" />
+      <Heading as="h3" className="tw-text-lg tw-font-semibold tw-mt-4 tw-mb-2">
+        {title}
+      </Heading>
+      <p className="tw-text-sm tw-text-gray-500 dark:tw-text-gray-400 tw-mb-0">
+        {description}
+      </p>
+    </Card>
   );
 }
 
 export default function HomepageFeatures(): JSX.Element {
   return (
-    <section className={styles.features}>
+    <section className="tw-py-12 md:tw-py-16">
       <div className="container">
-        <div className="row">
+        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-6">
           {FeatureList.map((props) => (
             <Feature key={uniqid()} {...props} />
           ))}

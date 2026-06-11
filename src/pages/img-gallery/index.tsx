@@ -5,15 +5,15 @@ import React, { Suspense } from "react";
 
 function ImageGalleryHeader(): JSX.Element {
   return (
-    <header className="tw-py-16">
+    <header className="tw-py-12 md:tw-py-16">
       <div className="container tw-text-center">
         <Heading
           as="h1"
-          className={`lg:tw-text-5xl md:tw-text-4xl tw-text-2xl`}
+          className="lg:tw-text-5xl md:tw-text-4xl tw-text-3xl tw-font-bold tw-tracking-tight"
         >
           Thư viện hình ảnh
         </Heading>
-        <p className="hero__subtitle tw-mt-6 tw-italic">
+        <p className="hero__subtitle tw-mt-4 tw-text-gray-500 dark:tw-text-gray-400">
           Danh sách hình ảnh
         </p>
       </div>

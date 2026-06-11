@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import {translate} from '@docusaurus/Translate';
 import {usePluralForm} from '@docusaurus/theme-common';
 import {useBlogPost} from '@docusaurus/theme-common/internal';
+import BrowserOnly from '@docusaurus/BrowserOnly';
+import ViewCounter from '@site/components/ViewCounter';
 import styles from './styles.module.css';
 // Very simple pluralization: probably good enough for now
 function useReadingTimePlural() {
@@ -38,8 +40,8 @@ function Spacer() {
   return <>{' · '}</>;
 }
 export default function BlogPostItemHeaderInfo({className}) {
-  const {metadata} = useBlogPost();
-  const {date, formattedDate, readingTime} = metadata;
+  const {metadata, isBlogPostPage} = useBlogPost();
+  const {date, formattedDate, readingTime, frontMatter} = metadata;
   return (
     <div className={clsx(styles.container, 'margin-vert--md', className)}>
       <Date date={date} formattedDate={formattedDate} />
@@ -47,6 +49,14 @@ export default function BlogPostItemHeaderInfo({className}) {
         <>
           <Spacer />
           <ReadingTime readingTime={readingTime} />
+        </>
+      )}
+      {isBlogPostPage && frontMatter.slug && (
+        <>
+          <Spacer />
+          <BrowserOnly>
+            {() => <ViewCounter slug={frontMatter.slug} />}
+          </BrowserOnly>
         </>
       )}
     </div>

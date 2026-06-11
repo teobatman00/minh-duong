@@ -1,6 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import { EnumChangefreq } from "sitemap";
 import "dotenv/config";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -70,7 +71,7 @@ const config: Config = {
           priority: 0.5,
           ignorePatterns: ["/tags/**"],
           filename: "sitemap.xml",
-          changefreq: "weekly",
+          changefreq: EnumChangefreq.WEEKLY,
         },
       } satisfies Preset.Options,
     ],
@@ -100,7 +101,7 @@ const config: Config = {
         id: "blog",
         routeBasePath: "blog",
         path: "./blog",
-        blogTitle: "✏ Bài viết mới nhất ✏",
+        blogTitle: "Bài viết mới nhất",
         blogDescription: "Danh sách bài viết mới nhất",
         showReadingTime: true,
         remarkPlugins: [remarkMath],
@@ -139,9 +140,9 @@ const config: Config = {
     announcementBar: {
       id: "support_us",
       content:
-        'Nếu bạn thích trang của mình, hãy đánh giá 5 sao <a target="_blank" rel="noopener noreferrer" href="https://github.com/teobatman00/minh-duong" class="tw-font-bold">tại đây</a> 👈',
-      backgroundColor: "#ECF4D6",
-      textColor: "#265073",
+        'Nếu bạn thích trang của mình, hãy đánh giá 5 sao <a target="_blank" rel="noopener noreferrer" href="https://github.com/teobatman00/minh-duong" class="tw-font-bold">tại đây</a>',
+      backgroundColor: "#eef4fb",
+      textColor: "#1f3f5e",
       isCloseable: true,
     },
     navbar: {
@@ -155,33 +156,35 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
           position: "right",
-          label: "📄 Tài liệu",
+          label: "Tài liệu",
         },
-        { to: "/blog", label: "📝 Blog", position: "right" },
+        { to: "/blog", label: "Blog", position: "right" },
         {
           to: "/blog/tags",
-          label: "📎 Tags",
+          label: "Tags",
           position: "right",
         },
         {
           to: "/portfolio",
-          label: "🎥 Dự án",
+          label: "Dự án",
           position: "right",
         },
         {
           to: "/img-gallery",
-          label: "📸 Hình ảnh",
+          label: "Hình ảnh",
           position: "right",
         },
         {
-          label: "👦 Về tôi",
+          label: "Về tôi",
           position: "right",
           to: "/about-me",
         },
         {
-          href: "https://github.com/teobatman00/",
-          label: "GitHub",
+          type: "custom-iconLink",
           position: "right",
+          href: "https://github.com/teobatman00/",
+          icon: "github",
+          label: "GitHub",
         },
       ],
     },

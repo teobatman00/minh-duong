@@ -45,9 +45,7 @@ export default function DocItemLayout({ children }) {
   const {siteConfig} = useDocusaurusContext();
   const {forbiddenGiscusDocPaths} = siteConfig.customFields;
   const giscus = (
-    <React.Fragment>
-      <hr />
-      <br></br>
+    <div className="tw-mt-12 tw-pt-8 tw-border-t tw-border-gray-200 dark:tw-border-gray-800">
       <Giscus
         id="comments"
         repo={process.env.GISCUS_REPO}
@@ -62,7 +60,7 @@ export default function DocItemLayout({ children }) {
         lang="en"
         loading="lazy"
       />
-    </React.Fragment>
+    </div>
   );
 
   return (

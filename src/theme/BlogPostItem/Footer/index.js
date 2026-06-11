@@ -7,6 +7,7 @@ import ReadMoreLink from "@theme/BlogPostItem/Footer/ReadMoreLink";
 import styles from "./styles.module.css";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import BlogReactions from "@site/customizations/BlogReactions";
+import ButtonBookmark from "@site/components/ButtonBookmark";
 
 export default function BlogPostItemFooter() {
   const { metadata, isBlogPostPage } = useBlogPost();
@@ -38,8 +39,14 @@ export default function BlogPostItemFooter() {
 
       <BrowserOnly>
         {() => (
-          <div className={clsx("col", { "col--9 ": truncatedPost })}>
+          <div
+            className={clsx(
+              "col tw-flex tw-items-center tw-justify-between tw-gap-2",
+              { "col--9 ": truncatedPost }
+            )}
+          >
             <BlogReactions reactions={reactions} slug={slug} />
+            <ButtonBookmark permalink={metadata.permalink} />
           </div>
         )}
       </BrowserOnly>

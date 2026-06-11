@@ -1,6 +1,9 @@
 .gallery_img_figure {
   margin: 0;
   position: relative;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .gallery_img_figure img {
@@ -14,13 +17,14 @@
   bottom: 0;
   z-index: 1;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
   font-size: 0.85rem;
   text-align: center;
   color: #fff;
-  border-bottom-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
+  padding: 0.75rem;
   pointer-events: none;
+  transition: opacity var(--ifm-transition-fast);
 }
 
 .gallery_img_figure:hover figcaption {

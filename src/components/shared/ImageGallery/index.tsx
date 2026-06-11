@@ -19,13 +19,15 @@ function renderImage(item: {
   Svg?: React.ComponentType<React.ComponentProps<"svg">>;
 }): import("react").ReactNode {
   return item.Svg ? (
-    <item.Svg className="tw-h-auto tw-max-w-full tw-rounded-lg" />
+    <item.Svg className="tw-h-auto tw-max-w-full" />
   ) : (
     <img
       src={item.src}
       alt={item.alt}
       data-zoomable="true"
-      className="tw-h-auto tw-max-w-full tw-rounded-lg"
+      loading="lazy"
+      decoding="async"
+      className="tw-h-auto tw-max-w-full"
     />
   );
 }
@@ -60,11 +62,7 @@ export default function ImageGallery({
           <div className="tw-break-inside-avoid" key={uniqid()}>
             <figure className={styles.gallery_img_figure}>
               {renderImage(item)}
-              {item.caption && (
-                <figcaption className="tw-p-3 md:tw-p-4">
-                  {item.caption}
-                </figcaption>
-              )}
+              {item.caption && <figcaption>{item.caption}</figcaption>}
             </figure>
           </div>
         ))}

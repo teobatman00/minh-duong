@@ -3,10 +3,8 @@
  * and scoped locally.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@600&display=swap');
-
 .heroBanner {
-  padding: 4rem 0;
+  padding: 5rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -14,45 +12,6 @@
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 3rem 1.5rem;
   }
 }
-
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tag {
-  color: white;
-  background-color: var(--ifm-color-primary-darkest);
-  transition: border var(--ifm-transition-fast);
-  border-radius: 5px;
-  padding: 4px 10px;
-}
-
-.tag:hover {
-  text-decoration: none;
-  font-weight: 500;
-  color: white;
-}
-
-.heading {
-  font-family: 'Lemonada', cursive;
-  background: linear-gradient(90deg, #ff0000, #ffff00, #ff00f3, #0033ff, #ff00c4, #ff0000);
-  background-size: 400%;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  animation: animate 10s linear infinite;
-}
-
-@keyframes animate {
-    0% {
-      background-position: 0%;
-    }
-    100% {
-      background-position: 400%;
-    }
-}
-

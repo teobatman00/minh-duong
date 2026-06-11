@@ -5,14 +5,13 @@ import {useBlogPost} from '@docusaurus/theme-common/internal';
 import MDXContent from '@theme/MDXContent';
 import Giscus from '@giscus/react';
 import { useColorMode } from '@docusaurus/theme-common';
+import RelatedPosts from '@site/src/components/RelatedPosts';
 
 export default function BlogPostItemContent({children, className}) {
-  const {isBlogPostPage} = useBlogPost();
+  const {isBlogPostPage, metadata} = useBlogPost();
   const { colorMode } = useColorMode();
   const giscus = (
-    <React.Fragment>
-      <hr />
-      <br></br>
+    <div className="tw-mt-12 tw-pt-8 tw-border-t tw-border-gray-200 dark:tw-border-gray-800">
       <Giscus
         id="comments"
         repo={process.env.GISCUS_REPO}
@@ -27,7 +26,7 @@ export default function BlogPostItemContent({children, className}) {
         lang="en"
         loading="lazy"
       />
-    </React.Fragment>
+    </div>
   );
 
   return (
@@ -39,6 +38,12 @@ export default function BlogPostItemContent({children, className}) {
       <MDXContent>
         {children}
       </MDXContent>
+      {isBlogPostPage && (
+        <RelatedPosts
+          currentPermalink={metadata.permalink}
+          tags={metadata.tags}
+        />
+      )}
       {isBlogPostPage && giscus}
     </div>
   );

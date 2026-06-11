@@ -11,27 +11,41 @@
 @tailwind utilities;
 
 :root {
-  --ifm-color-primary: #2e4f85;
-  --ifm-color-primary-dark: #294778;
-  --ifm-color-primary-darker: #274371;
-  --ifm-color-primary-darkest: #20375d;
-  --ifm-color-primary-light: #335792;
-  --ifm-color-primary-lighter: #355b99;
-  --ifm-color-primary-lightest: #3c67ad;
+  --ifm-color-primary: #2f5d8a;
+  --ifm-color-primary-dark: #2a5479;
+  --ifm-color-primary-darker: #274e72;
+  --ifm-color-primary-darkest: #1f3f5e;
+  --ifm-color-primary-light: #34669b;
+  --ifm-color-primary-lighter: #386da3;
+  --ifm-color-primary-lightest: #4a82b8;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Accent palette (amber) - complements the primary blue, used for
+     badges/highlights and the new reading-progress/back-to-top/bookmark UI. */
+  --md-color-accent: #d97706;
+  --md-color-accent-dark: #b45309;
+  --md-color-accent-light: #f59e0b;
+  --md-color-accent-contrast: #ffffff;
+  --md-color-surface-muted: #f3f4f6;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #258dc1;
-  --ifm-color-primary-dark: #217fae;
-  --ifm-color-primary-darker: #1f78a4;
-  --ifm-color-primary-darkest: #1a6387;
-  --ifm-color-primary-light: #299bd4;
-  --ifm-color-primary-lighter: #31a0d8;
-  --ifm-color-primary-lightest: #4eaddd;
+  --ifm-color-primary: #5fa8e0;
+  --ifm-color-primary-dark: #4699d8;
+  --ifm-color-primary-darker: #3a91d4;
+  --ifm-color-primary-darkest: #2778b8;
+  --ifm-color-primary-light: #78b7e5;
+  --ifm-color-primary-lighter: #84bee8;
+  --ifm-color-primary-lightest: #a8d2ef;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --md-color-accent: #fbbf24;
+  --md-color-accent-dark: #f59e0b;
+  --md-color-accent-light: #fde68a;
+  --md-color-accent-contrast: #1f2937;
+  --md-color-surface-muted: #1f2937;
 }
 
 body {

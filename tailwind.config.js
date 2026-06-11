@@ -12,6 +12,24 @@ module.exports = {
   darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          DEFAULT: 'var(--ifm-color-primary)',
+          dark: 'var(--ifm-color-primary-dark)',
+          darker: 'var(--ifm-color-primary-darker)',
+          darkest: 'var(--ifm-color-primary-darkest)',
+          light: 'var(--ifm-color-primary-light)',
+          lighter: 'var(--ifm-color-primary-lighter)',
+          lightest: 'var(--ifm-color-primary-lightest)',
+        },
+        accent: {
+          DEFAULT: 'var(--md-color-accent)',
+          dark: 'var(--md-color-accent-dark)',
+          light: 'var(--md-color-accent-light)',
+          contrast: 'var(--md-color-accent-contrast)',
+        },
+        'surface-muted': 'var(--md-color-surface-muted)',
+      },
       keyframes: {
         'dissolve-in': {
           '0%': {

@@ -8,18 +8,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import clsx from "clsx";
 import languages from "@site/static/file/languages_colors.json";
+import Card from "@site/src/components/shared/Card";
 
 function PortfolioHeader(): JSX.Element {
   return (
-    <header className="tw-py-16">
+    <header className="tw-py-12 md:tw-py-16">
       <div className="container tw-text-center">
         <Heading
           as="h1"
-          className={`lg:tw-text-5xl md:tw-text-4xl tw-text-2xl`}
+          className="lg:tw-text-5xl md:tw-text-4xl tw-text-3xl tw-font-bold tw-tracking-tight"
         >
           Các dự án cá nhân
         </Heading>
-        <p className="hero__subtitle tw-mt-6 tw-italic">
+        <p className="hero__subtitle tw-mt-4 tw-text-gray-500 dark:tw-text-gray-400">
           Danh sách dự án cá nhân
         </p>
       </div>
@@ -33,34 +34,31 @@ function GithubListRepositoriesForUser({
   readonly data: ListRepositoriesUserResponse[];
 }): JSX.Element {
   return (
-    <div className="container tw-grid tw-grid-cols-1 xl:tw-grid-cols-4 lg:tw-grid-cols-3 md:tw-grid-cols-2 tw-gap-8 tw-mb-10 tw-min-w-[300px]">
+    <div className="container tw-grid tw-grid-cols-1 xl:tw-grid-cols-4 lg:tw-grid-cols-3 md:tw-grid-cols-2 tw-gap-6 tw-mb-10 tw-min-w-[300px]">
       {data.map((item) => (
-        <div
-          key={item.id}
-          className="tw-border-solid tw-border tw-rounded tw-border-gray-300 tw-p-5 dark:tw-bg-gray-950"
-        >
-          <div className="tw-flex tw-flex-row">
-            <div>
+        <Card key={item.id}>
+          <div className="tw-flex tw-flex-row tw-items-center">
+            <div className="tw-text-gray-400 dark:tw-text-gray-500">
               <FontAwesomeIcon
                 icon={icon({ name: "bookmark", style: "regular" })}
               />
             </div>
-            <div className="tw-ml-3 tw-font-semibold">
+            <div className="tw-ml-3 tw-font-semibold tw-text-base">
               <Link to={item.html_url}>{item.name}</Link>
             </div>
           </div>
-          <div className="tw-text-sm tw-text-gray-500 dark:tw-text-gray-200 tw-my-1">
+          <div className="tw-text-sm tw-text-gray-500 dark:tw-text-gray-400 tw-my-2">
             {item.description ?? (
               <span className="tw-italic">No description</span>
             )}
           </div>
-          <div className="tw-flex tw-flex-row tw-text-sm tw-mt-3">
+          <div className="tw-flex tw-flex-row tw-items-center tw-text-sm tw-mt-4 tw-pt-4 tw-border-t tw-border-gray-100 dark:tw-border-gray-800">
             {item.language && (
               <Link
                 to={languages[item.language].url}
-                className={`tw-text-gray-500 dark:tw-text-gray-200 hover:tw-no-underline dark:hover:tw-text-[--ifm-color-primary-dark]`}
+                className={`tw-text-gray-500 dark:tw-text-gray-400 hover:tw-no-underline dark:hover:tw-text-[--ifm-color-primary-dark]`}
               >
-                <div className="tw-flex tw-flex-row tw-mr-5">
+                <div className="tw-flex tw-flex-row tw-items-center tw-mr-5">
                   <span
                     className={clsx(
                       "tw-block tw-w-[15px] tw-h-[15px] tw-rounded-full tw-m-auto"
@@ -73,7 +71,7 @@ function GithubListRepositoriesForUser({
                 </div>
               </Link>
             )}
-            <div className={clsx("tw-flex tw-flex-row")}>
+            <div className="tw-flex tw-flex-row tw-items-center tw-text-gray-500 dark:tw-text-gray-400">
               <span>
                 <FontAwesomeIcon
                   icon={icon({ name: "star", style: "regular" })}
@@ -81,8 +79,18 @@ function GithubListRepositoriesForUser({
               </span>
               <span className="tw-ml-2">{item.watchers}</span>
             </div>
+            <Link
+              to={item.html_url}
+              aria-label={`Xem ${item.name} trên GitHub`}
+              title="Xem trên GitHub"
+              className="tw-ml-auto tw-text-gray-400 dark:tw-text-gray-500 hover:tw-text-[--ifm-color-primary]"
+            >
+              <FontAwesomeIcon
+                icon={icon({ name: "github", style: "brands" })}
+              />
+            </Link>
           </div>
-        </div>
+        </Card>
       ))}
     </div>
   );

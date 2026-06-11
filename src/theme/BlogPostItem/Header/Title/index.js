@@ -12,7 +12,7 @@ export default function BlogPostItemHeaderTitle({className}) {
       {isBlogPostPage ? (
         title
       ) : (
-        <Link itemProp="url" to={permalink} className={`tw-text-4xl`}>
+        <Link itemProp="url" to={permalink} className="tw-text-2xl tw-font-semibold hover:tw-no-underline">
           {title}
         </Link>
       )}

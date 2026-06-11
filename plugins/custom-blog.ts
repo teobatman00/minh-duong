@@ -46,6 +46,22 @@ async function blogPluginExtended(...pluginArgs) {
                 };
             }
 
+            // Expose lightweight metadata for ALL posts (used by bookmarks &
+            // related-posts features) via usePluginData('docusaurus-plugin-content-blog', 'blog')
+            actions.setGlobalData({
+                allPosts: content.blogPosts.map((post) => ({
+                    id: post.id,
+                    title: post.metadata.title,
+                    permalink: post.metadata.permalink,
+                    description: post.metadata.description,
+                    date: post.metadata.date,
+                    tags: post.metadata.tags.map((tag) => ({
+                        label: tag.label,
+                        permalink: tag.permalink,
+                    })),
+                })),
+            });
+
             actions.addRoute({
                 // Add route for the home page
                 path: process.env.APP_BASE_URL,
