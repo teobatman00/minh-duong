@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { IconPrefix } from "@fortawesome/fontawesome-svg-core";
+import "@site/src/lib/icons/registry";
 
 export default function IconLink({
   href,
@@ -23,13 +24,22 @@ export default function IconLink({
     <Link
       href={href}
       to={to}
-      className={clsx("navbar__item navbar__link", className)}
+      className={clsx(
+        "navbar__item navbar__link",
+        "tw-inline-flex tw-items-center tw-justify-center tw-leading-none",
+        "tw-transition-colors tw-duration-200",
+        "hover:tw-text-primary",
+        className
+      )}
       aria-label={label}
       title={label}
       target={href ? "_blank" : undefined}
       rel={href ? "noopener noreferrer" : undefined}
     >
-      <FontAwesomeIcon icon={[iconPrefix, icon as never]} />
+      <FontAwesomeIcon
+        icon={[iconPrefix, icon as never]}
+        style={{ width: "1.15em", height: "1.15em" }}
+      />
     </Link>
   );
 }

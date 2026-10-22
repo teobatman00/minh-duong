@@ -1,0 +1,65 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  /* Above navbar, EarthGlobe/hero, and ReadingProgressBar (z-index: 2000). */
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: var(--layout-space-5);
+  background-color: var(--surface-overlay);
+  backdrop-filter: blur(4px);
+  outline: none;
+}
+
+.dialog {
+  position: relative;
+  width: 100%;
+  max-width: var(--layout-measure-wide);
+  margin: auto;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface-elevated);
+  box-shadow: 0 24px 48px color-mix(in srgb, var(--scrim-color) 18%, transparent);
+  outline: none;
+}
+
+.header {
+  padding: var(--layout-space-4) var(--layout-space-5);
+  background: linear-gradient(
+    135deg,
+    var(--brand-800),
+    var(--brand-600)
+  );
+  border-bottom: 1px solid color-mix(in srgb, var(--text-inverse) 12%, transparent);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-inverse);
+}
+
+.body {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .panel {
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .title {
+  /* Dark theme remaps brand-* lighter; header gradient stays light. */
+  color: var(--surface-page);
+}

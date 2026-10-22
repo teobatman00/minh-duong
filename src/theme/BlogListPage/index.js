@@ -10,6 +10,8 @@ import BlogLayout from '@theme/BlogLayout';
 import BlogListPaginator from '@theme/BlogListPaginator';
 import SearchMetadata from '@theme/SearchMetadata';
 import BlogPostItems from '@theme/BlogPostItems';
+import styles from './styles.module.css';
+
 function BlogListPageMetadata(props) {
   const {metadata} = props;
   const {
@@ -25,15 +27,23 @@ function BlogListPageMetadata(props) {
     </>
   );
 }
+
 function BlogListPageContent(props) {
   const {metadata, items, sidebar} = props;
   return (
     <BlogLayout sidebar={sidebar}>
-      <BlogPostItems items={items} />
-      <BlogListPaginator metadata={metadata} />
+      <div className={clsx('layout-section', styles.page)}>
+        <div className={styles.list}>
+          <BlogPostItems items={items} />
+        </div>
+        <div className={styles.paginator}>
+          <BlogListPaginator metadata={metadata} />
+        </div>
+      </div>
     </BlogLayout>
   );
 }
+
 export default function BlogListPage(props) {
   return (
     <HtmlClassNameProvider

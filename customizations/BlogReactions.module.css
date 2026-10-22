@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--layout-space-2) var(--layout-space-3);
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--layout-space-2);
+}

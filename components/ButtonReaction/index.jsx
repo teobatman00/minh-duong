@@ -2,8 +2,7 @@ import * as React from "react";
 import {
   getReactionStateLocal,
   setReactionStateLocal,
-  updateReactionsDB,
-} from "@site/integration/reactions";
+} from "@site/integration/reactionsLocal";
 import styles from "./styles.module.css";
 
 export default function ButtonReaction({
@@ -29,7 +28,10 @@ export default function ButtonReaction({
           setReactionStateLocal(slug, reaction, true);
         }
         setReactionCounts(() => newReactions);
-        updateReactionsDB(slug, newReactions);
+        // Load Firebase only when the user actually reacts.
+        import("@site/integration/reactions").then(({ updateReactionsDB }) => {
+          updateReactionsDB(slug, newReactions);
+        });
       }}
       type="button"
     >

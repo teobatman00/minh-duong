@@ -34,7 +34,7 @@ export default function RelatedPosts({
   }
 
   return (
-    <aside className="tw-mt-12 tw-pt-8 tw-border-t tw-border-gray-200 dark:tw-border-gray-800">
+    <aside className="tw-mt-12 tw-pt-8 tw-border-t tw-border-subtle">
       <h3 className="tw-text-lg tw-font-semibold tw-mb-4">
         Bài viết liên quan
       </h3>

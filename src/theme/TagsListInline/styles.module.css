@@ -1,8 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--layout-space-2) var(--layout-space-2);
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
 .tags {
-  display: inline;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--layout-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .tag {
-  margin: 0 0.4rem 0.5rem 0;
-  display: inline-block;
+  display: inline-flex;
+  margin: 0;
 }

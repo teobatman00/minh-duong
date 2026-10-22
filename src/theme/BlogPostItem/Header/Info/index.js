@@ -6,7 +6,7 @@ import {useBlogPost} from '@docusaurus/theme-common/internal';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import ViewCounter from '@site/components/ViewCounter';
 import styles from './styles.module.css';
-// Very simple pluralization: probably good enough for now
+
 function useReadingTimePlural() {
   const {selectMessage} = usePluralForm();
   return (readingTimeFloat) => {
@@ -25,25 +25,34 @@ function useReadingTimePlural() {
     );
   };
 }
+
 function ReadingTime({readingTime}) {
   const readingTimePlural = useReadingTimePlural();
-  return <>{readingTimePlural(readingTime)}</>;
+  return (
+    <span className={styles.metaItem}>{readingTimePlural(readingTime)}</span>
+  );
 }
+
 function Date({date, formattedDate}) {
   return (
-    <time dateTime={date} itemProp="datePublished">
+    <time
+      className={styles.metaItem}
+      dateTime={date}
+      itemProp="datePublished">
       {formattedDate}
     </time>
   );
 }
+
 function Spacer() {
-  return <>{' · '}</>;
+  return <span className={styles.separator} aria-hidden="true">·</span>;
 }
+
 export default function BlogPostItemHeaderInfo({className}) {
   const {metadata, isBlogPostPage} = useBlogPost();
   const {date, formattedDate, readingTime, frontMatter} = metadata;
   return (
-    <div className={clsx(styles.container, 'margin-vert--md', className)}>
+    <div className={clsx(styles.container, 'margin-vert--sm', className)}>
       <Date date={date} formattedDate={formattedDate} />
       {typeof readingTime !== 'undefined' && (
         <>
@@ -54,9 +63,11 @@ export default function BlogPostItemHeaderInfo({className}) {
       {isBlogPostPage && frontMatter.slug && (
         <>
           <Spacer />
-          <BrowserOnly>
-            {() => <ViewCounter slug={frontMatter.slug} />}
-          </BrowserOnly>
+          <span className={styles.metaItem}>
+            <BrowserOnly>
+              {() => <ViewCounter slug={frontMatter.slug} />}
+            </BrowserOnly>
+          </span>
         </>
       )}
     </div>

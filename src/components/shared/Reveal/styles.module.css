@@ -1,0 +1,34 @@
+/**
+ * Reveal-on-scroll. The element is visible by default (SSR / no-JS).
+ * `.ready` is added client-side after mount and hides the element until
+ * `.visible` is added by the IntersectionObserver.
+ */
+
+.reveal {
+  --reveal-delay: 0ms;
+  --reveal-duration: 0.6s;
+  --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --reveal-offset: 24px;
+}
+
+.reveal.ready {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-offset), 0);
+}
+
+.reveal.ready.visible {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease) var(--reveal-delay),
+    transform var(--reveal-duration) var(--reveal-ease) var(--reveal-delay);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal.ready,
+  .reveal.ready.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

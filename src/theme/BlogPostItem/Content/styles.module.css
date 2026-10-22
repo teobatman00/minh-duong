@@ -1,0 +1,5 @@
+.comments {
+  margin-top: var(--layout-space-7);
+  padding-top: var(--layout-space-5);
+  border-top: 1px solid var(--border-subtle);
+}

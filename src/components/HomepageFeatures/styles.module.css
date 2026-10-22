@@ -1,5 +1,9 @@
 .featureSvg {
-  height: 64px;
+  display: block;
   width: 64px;
+  height: 64px;
   margin: 0 auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  flex-shrink: 0;
 }

@@ -1,13 +1,37 @@
 .gallery_img_figure {
   margin: 0;
   position: relative;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   overflow: hidden;
-  border: 1px solid var(--ifm-color-emphasis-200);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface-muted);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--brand-950) 4%, transparent);
+  content-visibility: auto;
+  contain-intrinsic-size: 180px;
+  transition:
+    border-color var(--ifm-transition-fast) ease,
+    box-shadow var(--ifm-transition-fast) ease,
+    transform var(--ifm-transition-fast) ease;
+}
+
+.gallery_img_figure:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--brand-500) 45%,
+    var(--border-subtle)
+  );
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--brand-950) 10%, transparent);
+  transform: translateY(-2px);
+}
+
+.gallery_img_figure img,
+.gallery_img_figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .gallery_img_figure img {
-  display: block;
   cursor: zoom-in;
 }
 
@@ -17,16 +41,46 @@
   bottom: 0;
   z-index: 1;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(2px);
+  /* --scrim-color stays deep ink in dark mode (brand-950 flips to near-white) */
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--scrim-color) 78%, transparent),
+    color-mix(in srgb, var(--scrim-color) 35%, transparent),
+    transparent
+  );
   font-size: 0.85rem;
+  letter-spacing: 0.01em;
   text-align: center;
-  color: #fff;
-  padding: 0.75rem;
+  color: var(--text-inverse);
+  padding: 1.75rem 0.75rem 0.85rem;
   pointer-events: none;
-  transition: opacity var(--ifm-transition-fast);
+  transition: opacity var(--ifm-transition-fast) ease;
 }
 
-.gallery_img_figure:hover figcaption {
+.gallery_img_figure:hover figcaption,
+.gallery_img_figure:focus-within figcaption {
   opacity: 1;
+}
+
+[data-theme="dark"] .gallery_img_figure {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .gallery_img_figure:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .gallery_img_figure figcaption {
+  color: var(--brand-900);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery_img_figure,
+  .gallery_img_figure figcaption {
+    transition: none;
+  }
+
+  .gallery_img_figure:hover {
+    transform: none;
+  }
 }

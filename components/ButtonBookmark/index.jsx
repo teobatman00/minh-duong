@@ -20,10 +20,13 @@ export default function ButtonBookmark({ permalink }) {
         "tw-inline-flex tw-h-8 tw-w-8 tw-items-center tw-justify-center tw-rounded-full tw-border tw-transition-colors",
         active
           ? "tw-border-accent tw-bg-accent tw-text-accent-contrast"
-          : "tw-border-gray-300 tw-text-gray-500 dark:tw-border-gray-700 dark:tw-text-gray-400 hover:tw-border-accent hover:tw-text-accent"
+          : "tw-border-line tw-text-secondary hover:tw-border-accent hover:tw-text-accent"
       )}
     >
-      <FontAwesomeIcon icon={[active ? "fas" : "far", "bookmark"]} />
+      <FontAwesomeIcon
+        icon={[active ? "fas" : "far", "bookmark"]}
+        style={{ width: "0.95em", height: "1em" }}
+      />
     </button>
   );
 }

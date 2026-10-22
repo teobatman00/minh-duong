@@ -19,6 +19,10 @@ export default function BlogPostItemHeaderAuthor({author, className}) {
             src={imageURL}
             alt={name}
             itemProp="image"
+            width={48}
+            height={48}
+            loading="lazy"
+            decoding="async"
           />
         </MaybeLink>
       )}

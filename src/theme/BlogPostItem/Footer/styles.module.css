@@ -1,3 +1,70 @@
-.blogPostFooterDetailsFull {
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--layout-space-3) var(--layout-space-4);
+  margin-top: var(--layout-space-5);
+  padding-top: var(--layout-space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footerPage {
   flex-direction: column;
+  align-items: stretch;
+  gap: var(--layout-space-4);
+  margin-top: var(--layout-space-6);
+  padding-top: var(--layout-space-5);
+}
+
+.tagsCol {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.actionsCol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--layout-space-3);
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.footerPage .actionsCol {
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+.readMoreCol {
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+
+.readMore {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: var(--layout-space-2) var(--layout-space-3);
+  border-radius: var(--ifm-button-border-radius);
+  transition:
+    background-color var(--ifm-transition-fast) ease,
+    color var(--ifm-transition-fast) ease,
+    border-color var(--ifm-transition-fast) ease;
+}
+
+.editCol {
+  margin-top: var(--layout-space-1);
+}
+
+@media (max-width: 576px) {
+  .readMoreCol {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .readMore {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+  }
 }

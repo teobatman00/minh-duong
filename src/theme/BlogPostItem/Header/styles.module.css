@@ -1,0 +1,16 @@
+.header {
+  margin-bottom: var(--layout-space-4);
+}
+
+.headerPage {
+  margin-bottom: var(--layout-space-5);
+  padding-bottom: var(--layout-space-5);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 576px) {
+  .headerPage {
+    margin-bottom: var(--layout-space-4);
+    padding-bottom: var(--layout-space-4);
+  }
+}

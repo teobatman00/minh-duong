@@ -113,6 +113,7 @@ const config: Config = {
       {
       },
     ],
+    [require.resolve("./plugins/site-motion/index.ts"), {}],
     ["@docusaurus/theme-live-codeblock", {}],
   ],
   themeConfig: {
@@ -141,8 +142,8 @@ const config: Config = {
       id: "support_us",
       content:
         'Nếu bạn thích trang của mình, hãy đánh giá 5 sao <a target="_blank" rel="noopener noreferrer" href="https://github.com/teobatman00/minh-duong" class="tw-font-bold">tại đây</a>',
-      backgroundColor: "#eef4fb",
-      textColor: "#1f3f5e",
+      backgroundColor: "#eef5f9",
+      textColor: "#0f3346",
       isCloseable: true,
     },
     navbar: {

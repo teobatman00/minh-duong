@@ -1,0 +1,85 @@
+/* Decorative panel on the RIGHT — never full-bleed behind the avatar */
+.wrap {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: 0;
+  left: auto;
+  bottom: auto;
+  width: min(46%, 34rem);
+  height: min(112%, 28rem);
+  transform: translate(8%, -50%);
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.52;
+  contain: layout paint;
+}
+
+.canvas {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Soft orb when WebGL is skipped (reduced motion / load fail) */
+.fallback {
+  position: absolute;
+  inset: 6% 4%;
+  z-index: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 42% 38%,
+      color-mix(in srgb, var(--ifm-color-primary-light, #4a8fb5) 32%, transparent),
+      color-mix(in srgb, var(--ifm-color-primary, #1b5f82) 16%, transparent) 48%,
+      transparent 72%
+    );
+  filter: blur(2px);
+}
+
+/* Soften CSS orb once the live globe is painting */
+.wrapLive .fallback {
+  opacity: 0.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .canvas {
+    display: none;
+  }
+
+  .wrap {
+    opacity: 0.32;
+  }
+}
+
+html[data-theme='dark'] .wrap {
+  opacity: 0.6;
+}
+
+/* Mobile: keep right-side, smaller & lower so avatar stays clear */
+@media screen and (max-width: 996px) {
+  .wrap {
+    width: min(62%, 18rem);
+    height: min(58%, 16rem);
+    top: auto;
+    bottom: 0;
+    right: 0;
+    transform: translate(18%, 18%);
+    opacity: 0.28;
+  }
+
+  html[data-theme='dark'] .wrap {
+    opacity: 0.36;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wrap {
+    width: min(55%, 14rem);
+    height: min(48%, 12rem);
+    transform: translate(22%, 22%);
+    opacity: 0.22;
+  }
+}

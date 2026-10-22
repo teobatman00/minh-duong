@@ -3,6 +3,35 @@
   margin-top: 0;
 }
 
+.docItemContainer {
+  padding-bottom: var(--layout-space-2);
+}
+
+/*
+ * Reading panel — clean --surface-elevated sheet so the content separates
+ * from the tinted sidebar and the glass TOC (tokens set on html.docs-doc-page
+ * in src/css/custom.css; fallbacks keep it safe if that scope is missing).
+ */
+.docItemContainer article {
+  background-color: var(--docs-panel-bg, var(--surface-elevated));
+  border: 1px solid var(--docs-panel-border, var(--border-subtle));
+  border-radius: 0.75rem;
+  box-shadow: var(--docs-panel-shadow, 0 1px 2px rgba(0, 0, 0, 0.04));
+  padding: var(--layout-space-5) var(--layout-space-4);
+}
+
+@media (min-width: 768px) {
+  .docItemContainer article {
+    padding: var(--layout-space-6) clamp(1.5rem, 4vw, 2.75rem);
+  }
+}
+
+.comments {
+  margin-top: var(--layout-space-7);
+  padding-top: var(--layout-space-5);
+  border-top: 1px solid var(--border-subtle);
+}
+
 @media (min-width: 997px) {
   .docItemCol {
     max-width: 75% !important;

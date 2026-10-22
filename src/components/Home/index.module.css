@@ -1,17 +1,440 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Home page — scoped styles. Colors prefer Infima / site tokens from custom.css.
  */
 
+.home {
+  --home-ink: var(--text-primary);
+  --home-muted: var(--text-secondary);
+  --home-faint: var(--text-muted);
+  --home-border: var(--border-subtle);
+  --home-surface: var(--surface-elevated);
+  --home-primary: var(--brand-500);
+  --home-primary-soft: color-mix(in srgb, var(--brand-500) 12%, transparent);
+  --home-primary-softer: color-mix(in srgb, var(--brand-500) 6%, transparent);
+  --home-accent: var(--accent-500);
+  --home-radius: var(--radius-lg);
+  --home-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* —— Hero —— */
+
 .heroBanner {
-  padding: 5rem 0;
-  text-align: center;
   position: relative;
+  isolation: isolate;
   overflow: hidden;
+  padding: 5.5rem 0 4.5rem;
+  text-align: center;
+  background:
+    radial-gradient(
+      120% 80% at 50% -20%,
+      var(--home-primary-soft),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      var(--home-primary-softer) 0%,
+      transparent 70%
+    );
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+/*
+ * Avatar with an animated conic-gradient ring.
+ * The wrapper is a circle; ::before is the rotating ring (its own circle, so
+ * rotating the element rotates the gradient), ::after is a soft, pulsing glow.
+ * The avatar's own border provides the gap between photo and ring.
+ */
+.avatarWrap {
+  --home-ring-gradient: conic-gradient(
+    from 0deg,
+    var(--ifm-color-primary) 0%,
+    var(--ifm-color-primary-lightest) 22%,
+    var(--home-accent) 42%,
+    var(--ifm-color-primary-light) 62%,
+    color-mix(in srgb, var(--ifm-color-primary) 55%, var(--home-surface)) 80%,
+    var(--ifm-color-primary) 100%
+  );
+  --home-ring-glow-opacity: 0.45;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  margin-bottom: 1.75rem;
+  padding: 4px;
+  border-radius: 50%;
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--home-primary) 22%, transparent);
+}
+
+.avatarWrap::before,
+.avatarWrap::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: var(--home-ring-gradient);
+  pointer-events: none;
+}
+
+/* Ring */
+.avatarWrap::before {
+  inset: 0;
+  z-index: -1;
+  animation: homeRingSpin 8s linear infinite;
+}
+
+/* Glow */
+.avatarWrap::after {
+  inset: -8px;
+  z-index: -2;
+  opacity: var(--home-ring-glow-opacity);
+  filter: blur(16px);
+  animation:
+    homeRingSpin 8s linear infinite reverse,
+    homeRingPulse 3.6s ease-in-out infinite;
+}
+
+:global([data-theme="dark"]) .avatarWrap {
+  --home-ring-glow-opacity: 0.55;
+  box-shadow: 0 12px 36px color-mix(in srgb, var(--home-primary) 30%, transparent);
+}
+
+@keyframes homeRingSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Opacity-only so it composes with the rotation on the same element */
+@keyframes homeRingPulse {
+  0%,
+  100% {
+    opacity: calc(var(--home-ring-glow-opacity) * 0.55);
+  }
+  50% {
+    opacity: var(--home-ring-glow-opacity);
+  }
+}
+
+.avatar {
+  display: block;
+  width: min(11.5rem, 42vw);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-pill);
+  border: 3px solid var(--home-surface);
+  background: var(--surface-muted);
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--home-ink);
+}
+
+.heroSubtitle {
+  margin: 1rem 0 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--home-muted);
+  max-width: 32rem;
+  margin-inline: auto;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1rem;
+  margin-top: 2rem;
+}
+
+/* —— Donate modal —— */
+
+.donateBody {
+  display: flex;
+  justify-content: center;
+  padding: var(--layout-space-5) var(--layout-space-5) 0;
+}
+
+/*
+ * Source asset is 660×993 (portrait). Width drives layout; height is derived
+ * from the intrinsic ratio (never forced) so the QR can't stretch.
+ */
+.donateQr {
+  display: block;
+  width: 100%;
+  max-width: 15rem;
+  height: auto;
+  aspect-ratio: 660 / 993;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  background: var(--surface-elevated);
+}
+
+@media (min-width: 768px) {
+  .donateQr {
+    max-width: 20rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .donateQr {
+    max-width: 25rem;
+  }
+}
+
+/* Soft entrance — hero only */
+.heroReveal {
+  animation: homeFadeUp 0.7s var(--home-ease) both;
+}
+
+.heroRevealDelay {
+  animation: homeFadeUp 0.75s var(--home-ease) 0.08s both;
+}
+
+.heroRevealDelay2 {
+  animation: homeFadeUp 0.8s var(--home-ease) 0.16s both;
+}
+
+@keyframes homeFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroReveal,
+  .heroRevealDelay,
+  .heroRevealDelay2,
+  .avatarWrap::before,
+  .avatarWrap::after {
+    animation: none;
+  }
+
+  .postCard {
+    transition: none;
+  }
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 3rem 1.5rem;
+    padding: 3.25rem 1.25rem 3rem;
   }
+}
+
+/* —— Recent posts —— */
+
+.blogSection {
+  padding: 3.5rem 0 4.5rem;
+}
+
+.blogHeader {
+  max-width: 36rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.blogEyebrow {
+  display: inline-block;
+  margin-bottom: 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--home-primary);
+}
+
+.blogTitle {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--home-ink);
+}
+
+.blogDescription {
+  margin: 0.75rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--home-muted);
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media screen and (min-width: 768px) {
+  .blogGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 997px) {
+  .blogGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Reveal wrapper is the grid item; single-cell grid stretches the card to full height */
+.postCardReveal {
+  display: grid;
+}
+
+.postCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.35rem 1.4rem 1.25rem;
+  border-radius: var(--home-radius);
+  border: 1px solid var(--home-border);
+  background: var(--home-surface);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--home-ink) 4%, transparent);
+  transition:
+    transform 0.28s var(--home-ease),
+    border-color 0.28s var(--home-ease),
+    box-shadow 0.28s var(--home-ease);
+}
+
+.postCard:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--home-primary) 45%, var(--home-border));
+  box-shadow:
+    0 12px 28px color-mix(in srgb, var(--home-primary) 12%, transparent),
+    0 1px 0 color-mix(in srgb, var(--home-ink) 4%, transparent);
+}
+
+.postTitleLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.postTitleLink:hover {
+  text-decoration: none;
+  color: var(--home-primary);
+}
+
+.postTitle {
+  margin: 0 0 0.65rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+.postTitleLink:hover .postTitle {
+  color: var(--home-primary);
+}
+
+.postDescription {
+  margin: 0 0 1rem;
+  font-size: 0.925rem;
+  line-height: 1.55;
+  color: var(--home-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.postPreview {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--home-border);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--home-faint);
+}
+
+.postPreview :global(p) {
+  margin: 0;
+}
+
+/* Keep MDX previews card-sized: demote headings, clamp media */
+.postPreview :global(h1),
+.postPreview :global(h2),
+.postPreview :global(h3),
+.postPreview :global(h4) {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--home-ink);
+}
+
+.postPreview :global(img) {
+  display: block;
+  max-height: 11rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin: 0.5rem 0;
+}
+
+.postPreview :global(ul),
+.postPreview :global(ol) {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+/* Same chip language as theme/Tag and pageLayout .tagChip */
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  background: var(--surface-muted);
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.tag:hover {
+  color: var(--text-inverse);
+  background: var(--brand-500);
+  border-color: var(--brand-500);
+  text-decoration: none;
+}
+
+.blogFooter {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.25rem;
+}
+
+.blogAllLink {
+  font-weight: 600;
+  font-size: 0.95rem;
 }

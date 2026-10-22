@@ -45,7 +45,7 @@ export default function DocItemLayout({ children }) {
   const {siteConfig} = useDocusaurusContext();
   const {forbiddenGiscusDocPaths} = siteConfig.customFields;
   const giscus = (
-    <div className="tw-mt-12 tw-pt-8 tw-border-t tw-border-gray-200 dark:tw-border-gray-800">
+    <div className={styles.comments}>
       <Giscus
         id="comments"
         repo={process.env.GISCUS_REPO}

@@ -1,5 +1,6 @@
 import React from "react";
 import BrowserOnly from "@docusaurus/BrowserOnly";
+import "@site/src/lib/icons/registry";
 import ReadingProgressBar from "@site/src/components/ReadingProgressBar";
 import BackToTopButton from "@site/src/components/BackToTopButton";
 

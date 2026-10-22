@@ -1,53 +1,1369 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Global design tokens — Harbor Ledger
+ * Professional finance/tech personal brand (light + dark).
+ * Components should prefer --brand-*, --surface-*, --text-*, --accent-*, --border-*.
+ * Infima (--ifm-*) is wired to the same sources for Docusaurus chrome.
  */
-
-/* You can override the default Infima variables here. */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --ifm-color-primary: #2f5d8a;
-  --ifm-color-primary-dark: #2a5479;
-  --ifm-color-primary-darker: #274e72;
-  --ifm-color-primary-darkest: #1f3f5e;
-  --ifm-color-primary-light: #34669b;
-  --ifm-color-primary-lighter: #386da3;
-  --ifm-color-primary-lightest: #4a82b8;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* ── Brand (harbor ink) ───────────────────────────────────────── */
+  --brand-50: #eef5f9;
+  --brand-100: #d9e8f2;
+  --brand-200: #b3d1e5;
+  --brand-300: #7fb3d0;
+  --brand-400: #4a8fb5;
+  --brand-500: #1b5f82;
+  --brand-600: #174f6c;
+  --brand-700: #134057;
+  --brand-800: #0f3346;
+  --brand-900: #0b2634;
+  --brand-950: #071820;
 
-  /* Accent palette (amber) - complements the primary blue, used for
-     badges/highlights and the new reading-progress/back-to-top/bookmark UI. */
-  --md-color-accent: #d97706;
-  --md-color-accent-dark: #b45309;
-  --md-color-accent-light: #f59e0b;
-  --md-color-accent-contrast: #ffffff;
-  --md-color-surface-muted: #f3f4f6;
+  /* ── Accent (restrained copper — highlights, progress, badges) ── */
+  --accent-50: #fbf4eb;
+  --accent-100: #f5e4cc;
+  --accent-200: #e9c896;
+  --accent-300: #d9a85e;
+  --accent-400: #c98a3a;
+  --accent-500: #b8722a;
+  --accent-600: #965c22;
+  --accent-700: #74471b;
+  --accent-800: #533314;
+  --accent-900: #3a240e;
+  --accent-contrast: #ffffff;
+
+  /* ── Surfaces ─────────────────────────────────────────────────── */
+  --surface-page: #f4f7fa;
+  --surface-elevated: #ffffff;
+  --surface-muted: #e8eef4;
+  --surface-sunken: #dde5ee;
+  --surface-overlay: rgba(11, 38, 52, 0.45);
+
+  /* ── Text ─────────────────────────────────────────────────────── */
+  --text-primary: #0f1c26;
+  --text-secondary: #3d5160;
+  --text-muted: #5b6f80; /* ≥4.5:1 on page/elevated/muted surfaces */
+  --text-inverse: #f4f7fa;
+  --text-link: var(--brand-600);
+  --text-link-hover: var(--brand-800);
+
+  /* ── Borders & focus ──────────────────────────────────────────── */
+  --border-subtle: #d5e0ea;
+  --border-default: #c2d0dc;
+  --border-strong: #9aafc0;
+  --focus-ring: var(--brand-500);
+  --focus-ring-offset: var(--surface-elevated);
+
+  /* ── Shape ────────────────────────────────────────────────────── */
+  --radius-sm: 0.375rem; /* buttons, inputs, chips with corners */
+  --radius-md: 0.5rem; /* panels, TOC, figures, code, alerts */
+  --radius-lg: 0.75rem; /* cards, modal */
+  --radius-pill: 9999px;
+
+  /*
+   * Scrim — fixed deep ink used for image-zoom overlays, figcaption fades,
+   * and heavy shadows. Intentionally NOT remapped in dark mode (brand-950
+   * flips to near-white there, which would wash overlays out).
+   */
+  --scrim-color: #071820;
+
+  /* ── Semantic aliases for app UI ──────────────────────────────── */
+  --accent: var(--accent-500);
+  --accent-dark: var(--accent-600);
+  --accent-light: var(--accent-400);
+
+  /* Legacy aliases (ReadingProgressBar, existing Tailwind `accent`) */
+  --md-color-accent: var(--accent-500);
+  --md-color-accent-dark: var(--accent-600);
+  --md-color-accent-light: var(--accent-400);
+  --md-color-accent-contrast: var(--accent-contrast);
+  --md-color-surface-muted: var(--surface-muted);
+
+  /* ── Infima primary scale ─────────────────────────────────────── */
+  --ifm-color-primary: var(--brand-500);
+  --ifm-color-primary-dark: var(--brand-600);
+  --ifm-color-primary-darker: var(--brand-700);
+  --ifm-color-primary-darkest: var(--brand-800);
+  --ifm-color-primary-light: var(--brand-400);
+  --ifm-color-primary-lighter: var(--brand-300);
+  --ifm-color-primary-lightest: var(--brand-200);
+
+  /* ── Infima surfaces / type / chrome ──────────────────────────── */
+  --ifm-background-color: var(--surface-page);
+  --ifm-background-surface-color: var(--surface-elevated);
+  --ifm-font-color-base: var(--text-primary);
+  --ifm-font-color-secondary: var(--text-secondary);
+  --ifm-link-color: var(--text-link);
+  --ifm-link-hover-color: var(--text-link-hover);
+  --ifm-navbar-background-color: color-mix(in srgb, var(--surface-elevated) 92%, transparent);
+  --ifm-navbar-shadow: 0 1px 0 var(--border-subtle);
+  --ifm-footer-background-color: var(--brand-900);
+  --ifm-footer-color: color-mix(in srgb, var(--text-inverse) 78%, transparent);
+  --ifm-footer-link-color: var(--brand-200);
+  --ifm-footer-title-color: var(--text-inverse);
+  --ifm-toc-border-color: var(--border-subtle);
+  --ifm-toc-link-color: var(--text-muted);
+  --ifm-hr-border-color: var(--border-subtle);
+  --ifm-color-emphasis-200: var(--border-subtle);
+  --ifm-color-emphasis-300: var(--border-default);
+  --ifm-hover-overlay: color-mix(in srgb, var(--brand-500) 6%, transparent);
+
+  --ifm-button-border-radius: var(--radius-sm);
+  --ifm-global-radius: var(--radius-md);
+  --ifm-code-border-radius: var(--radius-sm);
+  --ifm-alert-border-radius: var(--radius-md);
+  --ifm-card-border-radius: var(--radius-lg);
+  --ifm-pagination-nav-border-radius: var(--radius-md);
+  --ifm-code-font-size: 92%;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.65;
+  --ifm-heading-font-weight: 650;
+  --ifm-heading-line-height: 1.25;
+  --ifm-h1-font-size: 2.15rem;
+  --ifm-h2-font-size: 1.65rem;
+  --ifm-h3-font-size: 1.3rem;
+
+  /*
+   * Layout system — Harbor Ledger (editorial personal site)
+   * Prefer these over ad-hoc rem values in page/theme CSS.
+   * Breakpoints (align Infima/Docusaurus): 576 / 768 / 997 / 1440
+   */
+  --layout-space-1: 0.25rem;
+  --layout-space-2: 0.5rem;
+  --layout-space-3: 0.75rem;
+  --layout-space-4: 1rem;
+  --layout-space-5: 1.5rem;
+  --layout-space-6: 2rem;
+  --layout-space-7: 3rem;
+  --layout-space-8: 4rem;
+  /* Section vertical rhythm (content bands under navbar) */
+  --layout-section-y: 3.25rem;
+  --layout-section-y-md: 4rem;
+  --layout-section-y-lg: 5rem;
+  /* Reading measures — longform vs bio/intro */
+  --layout-measure: 42rem; /* ~672px, ~65–75ch at 16px */
+  --layout-measure-wide: 48rem;
+  /* Card / repo grids: prefer 1→2→3; avoid 4-col density */
+  --layout-grid-gap: 1.25rem;
+  --layout-grid-gap-md: 1.5rem;
+  /* Sticky chrome offset (navbar; announcement is dismissible) */
+  --layout-sticky-offset: calc(var(--ifm-navbar-height) + 0.5rem);
+
+  /* Slightly tighter shell than Infima defaults (1140 / 1320) */
+  --ifm-global-spacing: 1.25rem;
+  --ifm-container-width: 1080px;
+  --ifm-container-width-xl: 1200px;
+  --ifm-footer-padding-vertical: var(--layout-space-7);
+  --ifm-footer-padding-horizontal: var(--layout-space-6);
+
+  --docusaurus-highlighted-code-line-bg: color-mix(
+    in srgb,
+    var(--brand-500) 10%,
+    transparent
+  );
+
+  /* Atmosphere */
+  --page-gradient: radial-gradient(
+      120% 80% at 0% -10%,
+      color-mix(in srgb, var(--brand-200) 55%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      90% 60% at 100% 0%,
+      color-mix(in srgb, var(--accent-200) 28%, transparent),
+      transparent 50%
+    ),
+    linear-gradient(180deg, var(--surface-page) 0%, var(--surface-muted) 100%);
+  --page-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%231b5f82' fill-opacity='0.035' d='M0 23h1v1H0zm12-12h1v1h-1z'/%3E%3C/svg%3E");
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #5fa8e0;
-  --ifm-color-primary-dark: #4699d8;
-  --ifm-color-primary-darker: #3a91d4;
-  --ifm-color-primary-darkest: #2778b8;
-  --ifm-color-primary-light: #78b7e5;
-  --ifm-color-primary-lighter: #84bee8;
-  --ifm-color-primary-lightest: #a8d2ef;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+/*
+ * NOTE: Infima declares its dark defaults on `html[data-theme='dark']`
+ * (specificity 0,1,1). A bare `[data-theme='dark']` block loses to it for
+ * --ifm-background-color, --ifm-background-surface-color, --ifm-color-emphasis-*,
+ * --ifm-color-content-secondary, etc., leaving neutral grays in dark mode.
+ * Match the selector so the Harbor Ledger tokens win.
+ */
+html[data-theme='dark'] {
+  --brand-50: #0d1c26;
+  --brand-100: #122838;
+  --brand-200: #1a3a4f;
+  --brand-300: #2a5670;
+  --brand-400: #3f7a97;
+  --brand-500: #6eb0d0;
+  --brand-600: #8bc2db;
+  --brand-700: #a8d3e6;
+  --brand-800: #c7e4f0;
+  --brand-900: #e4f2f8;
+  --brand-950: #f2f9fc;
 
-  --md-color-accent: #fbbf24;
-  --md-color-accent-dark: #f59e0b;
-  --md-color-accent-light: #fde68a;
-  --md-color-accent-contrast: #1f2937;
-  --md-color-surface-muted: #1f2937;
+  --accent-50: #2a1c0e;
+  --accent-100: #3d2814;
+  --accent-200: #5c3c1c;
+  --accent-300: #8a5a28;
+  --accent-400: #c4873c;
+  --accent-500: #d9a056;
+  --accent-600: #e4b56f;
+  --accent-700: #eec98f;
+  --accent-800: #f5dcb4;
+  --accent-900: #faf0dc;
+  --accent-contrast: #1a1208;
+
+  --surface-page: #0a1118;
+  --surface-elevated: #121b24;
+  --surface-muted: #1a2530;
+  --surface-sunken: #070c11;
+  --surface-overlay: rgba(0, 0, 0, 0.55);
+
+  --text-primary: #e8eef4;
+  --text-secondary: #a8b8c6;
+  --text-muted: #7a8d9d;
+  --text-inverse: #0a1118;
+  --text-link: var(--brand-500);
+  --text-link-hover: var(--brand-700);
+
+  --border-subtle: #243240;
+  --border-default: #334556;
+  --border-strong: #4a6074;
+  --focus-ring: var(--brand-500);
+  --focus-ring-offset: var(--surface-elevated);
+
+  --accent: var(--accent-500);
+  --accent-dark: var(--accent-400);
+  --accent-light: var(--accent-600);
+
+  --md-color-accent: var(--accent-500);
+  --md-color-accent-dark: var(--accent-400);
+  --md-color-accent-light: var(--accent-600);
+  --md-color-accent-contrast: var(--accent-contrast);
+  --md-color-surface-muted: var(--surface-muted);
+
+  --ifm-color-primary: var(--brand-500);
+  --ifm-color-primary-dark: var(--brand-400);
+  --ifm-color-primary-darker: var(--brand-300);
+  --ifm-color-primary-darkest: var(--brand-200);
+  --ifm-color-primary-light: var(--brand-600);
+  --ifm-color-primary-lighter: var(--brand-700);
+  --ifm-color-primary-lightest: var(--brand-800);
+
+  --ifm-background-color: var(--surface-page);
+  --ifm-background-surface-color: var(--surface-elevated);
+  --ifm-font-color-base: var(--text-primary);
+  --ifm-font-color-secondary: var(--text-secondary);
+  --ifm-link-color: var(--text-link);
+  --ifm-link-hover-color: var(--text-link-hover);
+  --ifm-navbar-background-color: color-mix(in srgb, var(--surface-elevated) 88%, transparent);
+  --ifm-navbar-shadow: 0 1px 0 var(--border-subtle);
+  --ifm-footer-background-color: #05090d;
+  --ifm-footer-color: color-mix(in srgb, var(--text-primary) 72%, transparent);
+  --ifm-footer-link-color: var(--brand-600);
+  --ifm-footer-title-color: var(--text-primary);
+  --ifm-toc-border-color: var(--border-subtle);
+  --ifm-toc-link-color: var(--text-muted);
+  --ifm-hr-border-color: var(--border-subtle);
+  --ifm-color-emphasis-200: var(--border-subtle);
+  --ifm-color-emphasis-300: var(--border-default);
+  --ifm-hover-overlay: color-mix(in srgb, var(--brand-500) 10%, transparent);
+
+  --docusaurus-highlighted-code-line-bg: color-mix(
+    in srgb,
+    var(--brand-500) 16%,
+    transparent
+  );
+
+  --page-gradient: radial-gradient(
+      100% 70% at 10% -15%,
+      color-mix(in srgb, var(--brand-300) 35%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      80% 50% at 100% 0%,
+      color-mix(in srgb, var(--accent-300) 18%, transparent),
+      transparent 45%
+    ),
+    linear-gradient(180deg, var(--surface-page) 0%, var(--surface-sunken) 100%);
+  --page-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%236eb0d0' fill-opacity='0.04' d='M0 23h1v1H0zm12-12h1v1h-1z'/%3E%3C/svg%3E");
+}
+
+/*
+ * ── Infima chrome → Harbor Ledger tokens (both themes) ───────────────
+ * The semantic tokens above already flip per theme, so one mapping serves
+ * light and dark. Listed with `html[data-theme='dark']` so it also beats
+ * Infima's own dark-mode gray scale.
+ */
+:root,
+html[data-theme='dark'] {
+  /* Neutral emphasis scale — replaces Infima's gray ramp */
+  --ifm-color-emphasis-0: var(--surface-elevated);
+  --ifm-color-emphasis-100: var(--surface-muted);
+  --ifm-color-emphasis-200: var(--border-subtle);
+  --ifm-color-emphasis-300: var(--border-default);
+  --ifm-color-emphasis-400: var(--border-strong);
+  --ifm-color-emphasis-500: color-mix(in srgb, var(--text-muted) 70%, var(--border-strong));
+  --ifm-color-emphasis-600: var(--text-muted);
+  --ifm-color-emphasis-700: var(--text-secondary);
+  --ifm-color-emphasis-800: color-mix(in srgb, var(--text-primary) 80%, var(--text-secondary));
+  --ifm-color-emphasis-900: var(--text-primary);
+  --ifm-color-emphasis-1000: var(--text-primary);
+  --ifm-color-content: var(--text-primary);
+  --ifm-color-content-secondary: var(--text-secondary);
+
+  /* Primary contrast pair (alert--primary, tag hover fallbacks) */
+  --ifm-color-primary-contrast-background: var(--brand-50);
+  --ifm-color-primary-contrast-foreground: var(--brand-900);
+
+  /* Admonitions: `note` (secondary) and `info` tinted with harbor ink */
+  --ifm-color-secondary: var(--surface-muted);
+  --ifm-color-secondary-dark: var(--border-default);
+  --ifm-color-secondary-darker: var(--border-strong);
+  --ifm-color-secondary-contrast-background: var(--surface-elevated);
+  --ifm-color-secondary-contrast-foreground: var(--text-primary);
+  --ifm-color-info: var(--brand-400);
+  --ifm-color-info-dark: var(--brand-500);
+  --ifm-color-info-darker: var(--brand-600);
+  --ifm-color-info-contrast-background: color-mix(in srgb, var(--brand-500) 9%, var(--surface-elevated));
+  --ifm-color-info-contrast-foreground: var(--text-primary);
+
+  /* Inline code, tables, blockquotes */
+  --ifm-code-background: color-mix(in srgb, var(--brand-500) 8%, var(--surface-muted));
+  --ifm-table-border-color: var(--border-default);
+  --ifm-table-stripe-background: color-mix(in srgb, var(--brand-500) 4%, transparent);
+  --ifm-table-head-background: color-mix(in srgb, var(--brand-500) 7%, transparent);
+  --ifm-blockquote-border-color: var(--brand-400);
+  --ifm-blockquote-color: var(--text-secondary);
+}
+
+/* ── Base polish ──────────────────────────────────────────────────── */
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--layout-sticky-offset);
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+/*
+ * Page surface + atmosphere.
+ *
+ * Infima paints `html { background-color: var(--ifm-background-color) }`, so a
+ * background declared on <body> does NOT propagate to the canvas — body is an
+ * ordinary non-root box. `background-attachment: fixed` on a non-root box is
+ * rasterised by Chromium on the main thread per tile; with composited layers
+ * on the page (navbar / TOC backdrop-filter, animated .main-wrapper) the tiles
+ * end up with stale offsets: a hard horizontal band at the current scroll
+ * offset and a different tint under the left column vs. the content.
+ *
+ * The solid colour lives on <html> (one flat surface), and the optional
+ * gradient/pattern atmosphere is a fixed-position pseudo-element behind the
+ * content — same viewport-locked look, normal compositor path, no seams.
+ */
+html {
+  background-color: var(--surface-page);
 }
 
 body {
   min-width: 350px;
+  background: transparent;
+  color: var(--text-primary);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: var(--page-pattern), var(--page-gradient);
+}
+
+/* Blog (list, post, tag pages): one uniform page colour, no atmosphere layer */
+html.blog-wrapper body::before {
+  display: none;
+}
+
+@media print {
+  body::before {
+    display: none;
+  }
+}
+
+@media (min-width: 997px) {
+  :root {
+    --layout-section-y: var(--layout-section-y-md);
+  }
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand-400) 35%, transparent);
+  color: var(--text-primary);
+}
+
+[data-theme='dark'] ::selection {
+  background: color-mix(in srgb, var(--brand-400) 45%, transparent);
+  color: var(--text-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.navbar {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.navbar__inner {
+  max-width: var(--ifm-container-width-xl);
+  margin-inline: auto;
+}
+
+/*
+ * Icon aspect locks — prevent flex stretch / missing FA CSS from squashing
+ * navbar + chrome SVGs (GitHub, color-mode, search, bookmark).
+ * Keep this block after .navbar__inner; do not merge into TOC glass rules below.
+ */
+.navbar__items {
+  align-items: center;
+}
+
+.navbar .svg-inline--fa,
+.navbar__items .svg-inline--fa {
+  width: 1.15em !important;
+  height: 1.15em !important;
+  max-width: none;
+  max-height: none;
+  flex-shrink: 0;
+  aspect-ratio: 1;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+
+.navbar button.clean-btn svg,
+.navbar .navbar__toggle svg,
+.navbar .DocSearch-Search-Icon {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  max-width: none;
+  max-height: none;
+  flex-shrink: 0;
+  aspect-ratio: 1;
+  overflow: visible;
+}
+
+.navbar__logo img {
+  width: auto;
+  height: 2rem;
+  max-width: none;
+  object-fit: contain;
+  aspect-ratio: auto;
+}
+
+/* Keep FA natural width/height ratio outside navbar (bookmark etc.). */
+.svg-inline--fa {
+  max-width: none;
+  max-height: none;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+/*
+ * ── Algolia DocSearch (Harbor Ledger) ────────────────────────────────
+ * Tokens are set on `.DocSearch` (button + modal root) rather than :root so
+ * they beat @docsearch/css's own `:root` / `html[data-theme=dark]` literals
+ * regardless of stylesheet order. Dark mode comes from the remapped tokens.
+ */
+.DocSearch {
+  --docsearch-primary-color: var(--brand-500);
+  --docsearch-highlight-color: var(--brand-500);
+  --docsearch-logo-color: var(--brand-500);
+  --docsearch-text-color: var(--text-primary);
+  --docsearch-muted-color: var(--text-muted);
+  --docsearch-spacing: 12px;
+  --docsearch-container-background: var(--surface-overlay);
+  --docsearch-modal-background: var(--surface-page);
+  --docsearch-modal-shadow:
+    0 0 0 1px var(--border-subtle),
+    0 24px 48px color-mix(in srgb, var(--brand-950) 18%, transparent);
+  --docsearch-searchbox-height: 52px;
+  --docsearch-searchbox-background: var(--surface-muted);
+  --docsearch-searchbox-focus-background: var(--surface-elevated);
+  --docsearch-searchbox-shadow: inset 0 0 0 2px var(--focus-ring);
+  --docsearch-hit-color: var(--text-secondary);
+  --docsearch-hit-active-color: #ffffff;
+  --docsearch-hit-background: var(--surface-elevated);
+  --docsearch-hit-shadow: 0 1px 2px color-mix(in srgb, var(--brand-950) 8%, transparent);
+  --docsearch-footer-background: var(--surface-elevated);
+  --docsearch-footer-shadow: 0 -1px 0 var(--border-subtle);
+  --docsearch-key-gradient: linear-gradient(-225deg, var(--surface-sunken), var(--surface-elevated));
+  --docsearch-key-shadow:
+    inset 0 -2px 0 0 var(--border-default),
+    inset 0 0 1px 1px var(--surface-elevated),
+    0 1px 2px 1px color-mix(in srgb, var(--brand-950) 10%, transparent);
+}
+
+[data-theme='dark'] .DocSearch {
+  --docsearch-hit-active-color: var(--text-inverse);
+  --docsearch-modal-shadow:
+    0 0 0 1px var(--border-subtle),
+    0 24px 48px rgba(0, 0, 0, 0.5);
+  --docsearch-hit-shadow: none;
+  --docsearch-key-shadow:
+    inset 0 -2px 0 0 var(--border-default),
+    inset 0 0 1px 1px var(--surface-muted),
+    0 1px 2px 1px rgba(0, 0, 0, 0.35);
+}
+
+/*
+ * Search box: the `<input>` fills the form's full height, so the global
+ * `input:focus-visible` ring (2px + 2px offset) drew a second rectangle
+ * around the input only — misaligned with the icon and the form's own inset
+ * ring. The form is the focus target; the input stays ring-less.
+ * Selectors are prefixed with `.DocSearch-Container` because @docsearch/css is
+ * bundled *after* this file (lazy modal chunk) — equal specificity would lose.
+ */
+.DocSearch-Container .DocSearch-SearchBar {
+  padding: var(--docsearch-spacing) var(--docsearch-spacing) 0;
+}
+
+.DocSearch-Container .DocSearch-Form {
+  height: var(--docsearch-searchbox-height);
+  padding: 0 var(--docsearch-spacing);
+  border-radius: 0.5rem;
+  background: var(--docsearch-searchbox-focus-background);
+  box-shadow: inset 0 0 0 1px var(--border-default);
+  transition: box-shadow var(--md-motion-duration-fast) ease;
+}
+
+.DocSearch-Container .DocSearch-Form:focus-within {
+  box-shadow: var(--docsearch-searchbox-shadow);
+}
+
+.DocSearch-Container .DocSearch-Input,
+.DocSearch-Container .DocSearch-Input:focus,
+.DocSearch-Container .DocSearch-Input:focus-visible {
+  height: 100%;
+  padding: 0 0 0 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1;
+  outline: none;
+  box-shadow: none;
+  border: 0;
+}
+
+.DocSearch-Container .DocSearch-Input::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+/* LoadingIndicator keeps DocSearch's own display toggle (hidden until stalled). */
+.DocSearch-Container .DocSearch-MagnifierLabel {
+  display: flex;
+}
+
+.DocSearch-Container .DocSearch-MagnifierLabel,
+.DocSearch-Container .DocSearch-LoadingIndicator {
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--docsearch-primary-color);
+}
+
+.DocSearch-Container .DocSearch-MagnifierLabel svg,
+.DocSearch-Container .DocSearch-LoadingIndicator svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.DocSearch-Container .DocSearch-Reset {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+}
+
+.DocSearch-Container .DocSearch-Reset:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: -2px;
+  border-radius: 0.25rem;
+}
+
+.DocSearch-Container .DocSearch-Modal {
+  border-radius: 0.75rem;
+}
+
+.DocSearch-Container .DocSearch-Footer {
+  border-radius: 0 0 0.75rem 0.75rem;
+}
+
+.footer {
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 0;
+}
+
+.footer__links {
+  margin-bottom: var(--layout-space-6);
+}
+
+.footer__bottom {
+  margin-top: var(--layout-space-5);
+}
+
+/* Main column breathing room above dark footer */
+.main-wrapper {
+  padding-bottom: var(--layout-space-6);
+}
+
+@media (min-width: 997px) {
+  .main-wrapper {
+    padding-bottom: var(--layout-space-7);
+  }
+}
+
+/*
+ * Optional helpers for page/theme agents (no markup change required yet).
+ * Use alongside Infima `.container` for consistent section rhythm.
+ */
+.layout-section {
+  padding-block: var(--layout-section-y);
+}
+
+.layout-section--lg {
+  padding-block: var(--layout-section-y-lg);
+}
+
+.layout-measure {
+  max-width: var(--layout-measure);
+  margin-inline: auto;
+}
+
+.layout-measure--wide {
+  max-width: var(--layout-measure-wide);
+  margin-inline: auto;
+}
+
+/* Longform: comfortable measure; wide tables/code can still overflow */
+.theme-blog-post-page article .markdown {
+  max-width: var(--layout-measure);
+}
+
+.theme-doc-markdown.markdown {
+  max-width: var(--layout-measure-wide);
+}
+
+/* Anchor targets clear sticky navbar + reading bar */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  scroll-margin-top: var(--layout-sticky-offset);
+}
+
+.button--primary:not(.button--outline) {
+  --ifm-button-background-color: var(--brand-500);
+  --ifm-button-border-color: var(--brand-500);
+}
+
+.button--primary:not(.button--outline):hover {
+  --ifm-button-background-color: var(--brand-600);
+  --ifm-button-border-color: var(--brand-600);
+}
+
+[data-theme='dark'] .button--primary:not(.button--outline):hover {
+  --ifm-button-background-color: var(--brand-600);
+  --ifm-button-border-color: var(--brand-600);
+}
+
+/* Secondary button: quiet elevated surface instead of Infima's fixed gray */
+.button--secondary:not(.button--outline) {
+  --ifm-button-background-color: var(--surface-elevated);
+  --ifm-button-border-color: var(--border-default);
+  --ifm-button-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.button--secondary:not(.button--outline):hover,
+.button--secondary:not(.button--outline):focus-visible {
+  --ifm-button-background-color: var(--surface-muted);
+  --ifm-button-border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+/*
+ * Footer: Infima's `.footer--dark` sets its own --ifm-footer-* on the class
+ * (beats :root), so re-point them here to the harbor-ink ramp.
+ */
+.footer.footer--dark {
+  --ifm-footer-background-color: var(--brand-900);
+  --ifm-footer-color: color-mix(in srgb, var(--text-inverse) 78%, transparent);
+  --ifm-footer-link-color: var(--brand-200);
+  --ifm-footer-link-hover-color: var(--text-inverse);
+  --ifm-footer-title-color: var(--text-inverse);
+}
+
+html[data-theme='dark'] .footer.footer--dark {
+  --ifm-footer-background-color: #05090d;
+  --ifm-footer-color: color-mix(in srgb, var(--text-primary) 72%, transparent);
+  --ifm-footer-link-color: var(--brand-600);
+  --ifm-footer-link-hover-color: var(--brand-800);
+  --ifm-footer-title-color: var(--text-primary);
+}
+
+/*
+ * Announcement bar: themeConfig colors are inline (light values only).
+ * Re-tint for dark so the bar doesn't sit as a pale strip above the navbar.
+ */
+html[data-theme='dark'] div[role='banner'][class*='announcementBar'] {
+  background-color: color-mix(in srgb, var(--brand-500) 14%, var(--surface-elevated)) !important;
+  color: var(--brand-800) !important;
+  border-bottom-color: var(--border-subtle);
+}
+
+div[role='banner'][class*='announcementBar'] a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* medium-zoom overlay (docs/blog images + gallery): deep ink in both themes */
+.medium-zoom-overlay {
+  background: color-mix(in srgb, var(--scrim-color) 88%, transparent) !important;
+}
+
+/* Admonitions / code blocks share the panel radius and a hairline edge */
+.theme-admonition {
+  box-shadow: none;
+}
+
+.theme-code-block {
+  /* radius comes from --ifm-code-border-radius via Docusaurus' own module CSS */
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--scrim-color) 6%, transparent);
+  border: 1px solid var(--border-subtle);
+}
+
+html[data-theme='dark'] .theme-code-block {
+  border-color: var(--border-default);
+}
+
+/* Scrollbar — WebKit + Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--border-strong);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-muted);
+}
+
+/*
+ * Desktop sticky TOC — Harbor Ledger soft glass panel
+ * Targets docs (.theme-doc-toc-desktop) and blog (sticky thin-scrollbar wrapping Infima TOC).
+ * Keeps Docusaurus scroll-spy classes intact.
+ */
+.theme-doc-toc-desktop,
+.thin-scrollbar:has(> .table-of-contents) {
+  --md-toc-pad-x: 0.55rem;
+  --md-toc-pad-y: 0.65rem;
+  max-height: calc(100vh - var(--layout-sticky-offset) - 1rem);
+  top: var(--layout-sticky-offset);
+  padding: var(--md-toc-pad-y) var(--md-toc-pad-x);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+  background-color: color-mix(in srgb, var(--surface-elevated) 86%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--brand-950) 4%, transparent),
+    0 8px 24px color-mix(in srgb, var(--brand-950) 5%, transparent);
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--brand-400) 55%, var(--border-default)) transparent;
+}
+
+[data-theme='dark'] .theme-doc-toc-desktop,
+[data-theme='dark'] .thin-scrollbar:has(> .table-of-contents) {
+  background-color: color-mix(in srgb, var(--surface-elevated) 88%, transparent);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.28),
+    0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.theme-doc-toc-desktop::-webkit-scrollbar,
+.thin-scrollbar:has(> .table-of-contents)::-webkit-scrollbar {
+  width: 6px;
+}
+
+.theme-doc-toc-desktop::-webkit-scrollbar-track,
+.thin-scrollbar:has(> .table-of-contents)::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 0.4rem;
+}
+
+.theme-doc-toc-desktop::-webkit-scrollbar-thumb,
+.thin-scrollbar:has(> .table-of-contents)::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--brand-400) 50%, var(--border-default));
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.theme-doc-toc-desktop::-webkit-scrollbar-thumb:hover,
+.thin-scrollbar:has(> .table-of-contents)::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(in srgb, var(--brand-500) 65%, var(--border-strong));
+}
+
+.theme-doc-toc-desktop > .table-of-contents,
+.thin-scrollbar:has(> .table-of-contents) > .table-of-contents {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.theme-doc-toc-desktop > .table-of-contents__left-border,
+.thin-scrollbar:has(> .table-of-contents) > .table-of-contents__left-border {
+  border-left: none;
+}
+
+.theme-doc-toc-desktop .table-of-contents ul,
+.thin-scrollbar:has(> .table-of-contents) .table-of-contents ul {
+  padding-left: 0.65rem;
+}
+
+.theme-doc-toc-desktop .table-of-contents li,
+.thin-scrollbar:has(> .table-of-contents) .table-of-contents li {
+  margin: 0.1rem 0;
+}
+
+.theme-doc-toc-desktop .table-of-contents__link,
+.thin-scrollbar:has(> .table-of-contents) .table-of-contents__link {
+  position: relative;
+  display: block;
+  padding: 0.28rem 0.45rem 0.28rem 0.55rem;
+  border-radius: 0.35rem;
+  color: var(--text-muted);
+  border-left: 2px solid transparent;
+  transition:
+    color var(--md-motion-duration-fast) ease,
+    background-color var(--md-motion-duration-fast) ease,
+    border-color var(--md-motion-duration-fast) ease;
+}
+
+.theme-doc-toc-desktop .table-of-contents__link:hover,
+.theme-doc-toc-desktop .table-of-contents__link:hover code,
+.thin-scrollbar:has(> .table-of-contents) .table-of-contents__link:hover,
+.thin-scrollbar:has(> .table-of-contents) .table-of-contents__link:hover code {
+  color: var(--text-primary);
+  background-color: color-mix(in srgb, var(--brand-500) 8%, transparent);
+  text-decoration: none;
+}
+
+.theme-doc-toc-desktop .table-of-contents__link--active,
+.theme-doc-toc-desktop .table-of-contents__link--active code,
+.thin-scrollbar:has(> .table-of-contents) .table-of-contents__link--active,
+.thin-scrollbar:has(> .table-of-contents) .table-of-contents__link--active code {
+  color: var(--brand-600);
+  font-weight: 600;
+  background-color: color-mix(in srgb, var(--brand-500) 12%, transparent);
+  border-left-color: var(--brand-500);
+  text-decoration: none;
+}
+
+[data-theme='dark'] .theme-doc-toc-desktop .table-of-contents__link--active,
+[data-theme='dark'] .theme-doc-toc-desktop .table-of-contents__link--active code,
+[data-theme='dark'] .thin-scrollbar:has(> .table-of-contents) .table-of-contents__link--active,
+[data-theme='dark'] .thin-scrollbar:has(> .table-of-contents) .table-of-contents__link--active code {
+  color: var(--brand-500);
+  border-left-color: var(--brand-400);
+  background-color: color-mix(in srgb, var(--brand-500) 16%, transparent);
+}
+
+/* Mobile / collapsible TOC panel (docs; blog uses desktop TOC above 996px) */
+.theme-doc-toc-mobile {
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+  background-color: color-mix(in srgb, var(--surface-elevated) 92%, transparent);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--brand-950) 4%, transparent);
+  overflow: hidden;
+}
+
+[data-theme='dark'] .theme-doc-toc-mobile {
+  background-color: color-mix(in srgb, var(--surface-elevated) 94%, transparent);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+}
+
+.theme-doc-toc-mobile .table-of-contents__left-border {
+  border-left: none;
+}
+
+.theme-doc-toc-mobile .table-of-contents__link--active {
+  color: var(--brand-600);
+  font-weight: 600;
+}
+
+/*
+ * ── Blog post grid: wider TOC column ─────────────────────────────────
+ * Upstream BlogLayout uses Infima cols 3 (recent posts) / 7 (main) / 2 (TOC).
+ * With our 1080px shell + 1.25rem gutters the TOC inner width is ~140px and
+ * Vietnamese headings wrap onto 3 lines. Rebalance to ~21% / 55% / 24% by
+ * overriding `--ifm-col-width` (what `.col` / `.col[class*='col--']` read),
+ * scoped to `html.blog-post-page` and rows that actually contain the sticky
+ * TOC, so blog list / tag pages and docs are untouched. Desktop only — below
+ * 997px the TOC and sidebar are hidden and the main col is already 100%.
+ */
+@media (min-width: 997px) {
+  html.blog-post-page .container > .row:has(> .col.col--2 > .thin-scrollbar > .table-of-contents) {
+    --blog-toc-col: 24%;
+    --blog-side-col: 21%;
+    --blog-toc-gutter-start: 0.75rem;
+  }
+
+  html.blog-post-page .container > .row:has(> .col.col--2 > .thin-scrollbar > .table-of-contents) > aside.col.col--3 {
+    --ifm-col-width: var(--blog-side-col);
+  }
+
+  html.blog-post-page .container > .row:has(> .col.col--2 > .thin-scrollbar > .table-of-contents) > main.col.col--7 {
+    --ifm-col-width: calc(100% - var(--blog-side-col) - var(--blog-toc-col));
+  }
+
+  /* No-sidebar variant (col--9 + offset-1) — keep the sum at 100%. */
+  html.blog-post-page .container > .row:has(> .col.col--2 > .thin-scrollbar > .table-of-contents) > main.col.col--9 {
+    --ifm-col-width: calc(100% - (100% / 12) - var(--blog-toc-col));
+  }
+
+  html.blog-post-page .container > .row:has(> .col.col--2 > .thin-scrollbar > .table-of-contents) > .col.col--2 {
+    --ifm-col-width: var(--blog-toc-col);
+    /* Main's right gutter already separates the panels; trim ours. */
+    padding-left: var(--blog-toc-gutter-start);
+  }
+
+  /* Slightly tighter panel + indent so lines wrap less; glass look unchanged. */
+  html.blog-post-page .thin-scrollbar:has(> .table-of-contents) {
+    --md-toc-pad-x: 0.45rem;
+  }
+
+  html.blog-post-page .thin-scrollbar:has(> .table-of-contents) .table-of-contents ul {
+    padding-left: 0.5rem;
+  }
+
+  html.blog-post-page .thin-scrollbar:has(> .table-of-contents) .table-of-contents__link {
+    padding-right: 0.35rem;
+    text-wrap: pretty;
+  }
+}
+
+/*
+ * ── Docs chrome — Harbor Ledger ──────────────────────────────────────
+ * Scoped to `html.docs-doc-page` (set by Docusaurus DocRoot) so Home, blog
+ * and standalone pages are untouched. Three zones get distinct surfaces:
+ *   sidebar  → tinted, hairline right edge
+ *   content  → clean --surface-elevated panel (see DocItem/Layout module)
+ *   TOC      → existing glass panel (unchanged)
+ * Infima menu tokens are rewired to Harbor tokens for active/hover states.
+ */
+html.docs-doc-page {
+  --docs-sidebar-bg: color-mix(in srgb, var(--surface-page) 70%, var(--surface-muted));
+  --docs-sidebar-edge: var(--border-subtle);
+  --docs-panel-bg: var(--surface-elevated);
+  --docs-panel-border: var(--border-subtle);
+  --docs-panel-shadow:
+    0 1px 2px color-mix(in srgb, var(--brand-950) 4%, transparent),
+    0 12px 32px color-mix(in srgb, var(--brand-950) 5%, transparent);
+  --docs-page-gradient: radial-gradient(
+      90% 55% at 0% -10%,
+      color-mix(in srgb, var(--brand-200) 32%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      70% 45% at 100% 0%,
+      color-mix(in srgb, var(--accent-200) 14%, transparent),
+      transparent 50%
+    ),
+    linear-gradient(180deg, var(--surface-page) 0%, var(--surface-muted) 100%);
+
+  /* Infima sidebar menu → Harbor */
+  --ifm-menu-color: var(--text-secondary);
+  --ifm-menu-color-active: var(--brand-600);
+  --ifm-menu-color-background-hover: color-mix(in srgb, var(--brand-500) 7%, transparent);
+  --ifm-menu-color-background-active: color-mix(in srgb, var(--brand-500) 12%, transparent);
+  --ifm-menu-link-padding-vertical: 0.45rem;
+  --ifm-menu-link-padding-horizontal: 0.7rem;
+
+  /* Collapse / expand sidebar buttons */
+  --docusaurus-collapse-button-bg: transparent;
+  --docusaurus-collapse-button-bg-hover: color-mix(in srgb, var(--brand-500) 8%, transparent);
+}
+
+html[data-theme='dark'].docs-doc-page {
+  --docs-sidebar-bg: color-mix(in srgb, var(--surface-elevated) 60%, var(--surface-page));
+  --docs-panel-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 14px 36px rgba(0, 0, 0, 0.26);
+  --docs-page-gradient: radial-gradient(
+      80% 50% at 10% -15%,
+      color-mix(in srgb, var(--brand-300) 22%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(
+      60% 40% at 100% 0%,
+      color-mix(in srgb, var(--accent-300) 10%, transparent),
+      transparent 45%
+    ),
+    linear-gradient(180deg, var(--surface-page) 0%, var(--surface-sunken) 100%);
+
+  --ifm-menu-color-active: var(--brand-500);
+  --ifm-menu-color-background-hover: color-mix(in srgb, var(--brand-500) 10%, transparent);
+  --ifm-menu-color-background-active: color-mix(in srgb, var(--brand-500) 16%, transparent);
+  --docusaurus-collapse-button-bg-hover: color-mix(in srgb, var(--brand-500) 12%, transparent);
+}
+
+/* Calmer atmosphere behind docs so the content panel reads as the focus */
+html.docs-doc-page body::before {
+  background-image: var(--page-pattern), var(--docs-page-gradient);
+}
+
+/* Sidebar column — tinted surface + hairline edge (desktop only) */
+@media (min-width: 997px) {
+  .theme-doc-sidebar-container {
+    background-color: var(--docs-sidebar-bg);
+    border-right-color: var(--docs-sidebar-edge);
+    box-shadow: inset -1px 0 0 color-mix(in srgb, var(--surface-elevated) 60%, transparent);
+  }
+
+  [data-theme='dark'] .theme-doc-sidebar-container {
+    box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.02);
+  }
+
+  .theme-doc-sidebar-menu {
+    padding: var(--layout-space-4) var(--layout-space-3) var(--layout-space-4) var(--layout-space-4);
+  }
+}
+
+/* Menu items */
+.theme-doc-sidebar-menu .menu__link,
+.theme-doc-sidebar-menu .menu__list-item-collapsible {
+  border-radius: 0.4rem;
+}
+
+.theme-doc-sidebar-menu .menu__link {
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.theme-doc-sidebar-menu .menu__list-item-collapsible > .menu__link {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Active leaf: brand tint + left indicator (mirrors TOC active state) */
+.theme-doc-sidebar-menu .menu__link--active:not(.menu__link--sublist) {
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--brand-500);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-menu .menu__link--active:not(.menu__link--sublist) {
+  box-shadow: inset 3px 0 0 var(--brand-400);
+}
+
+/* Category whose descendant is active: title in brand, no fill */
+.theme-doc-sidebar-menu .menu__list-item-collapsible--active,
+.theme-doc-sidebar-menu .menu__list-item-collapsible--active:hover {
+  background: transparent;
+}
+
+.theme-doc-sidebar-menu .menu__list-item-collapsible--active > .menu__link {
+  color: var(--brand-600);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-menu .menu__list-item-collapsible--active > .menu__link {
+  color: var(--brand-500);
+}
+
+/* Nested lists: faint guide line for hierarchy */
+.theme-doc-sidebar-menu .menu__list .menu__list {
+  margin-left: calc(var(--ifm-menu-link-padding-horizontal) + 0.15rem);
+  padding-left: 0.35rem;
+  border-left: 1px solid var(--border-subtle);
+}
+
+.theme-doc-sidebar-menu .menu__list .menu__list .menu__link {
+  font-size: 0.875rem;
+}
+
+/* Collapse chevrons: quieter at rest, full on hover; pill hover for caret button */
+.theme-doc-sidebar-menu .menu__link--sublist-caret::after,
+.theme-doc-sidebar-menu .menu__caret::before {
+  opacity: 0.55;
+  background-size: 1.6rem 1.6rem;
+  transition: opacity var(--md-motion-duration-fast) ease,
+    transform var(--md-motion-duration-fast) ease;
+}
+
+.theme-doc-sidebar-menu .menu__link--sublist-caret:hover::after,
+.theme-doc-sidebar-menu .menu__list-item-collapsible:hover .menu__link--sublist-caret::after,
+.theme-doc-sidebar-menu .menu__caret:hover::before,
+.theme-doc-sidebar-menu .menu__list-item-collapsible:hover .menu__caret::before {
+  opacity: 1;
+}
+
+.theme-doc-sidebar-menu .menu__caret {
+  border-radius: 0.35rem;
+}
+
+/* Bottom "Collapse sidebar" button — flat hairline strip, not an outlined button */
+@media (min-width: 997px) {
+  .theme-doc-sidebar-container .button.button--secondary.button--outline {
+    border: 0;
+    border-top: 1px solid var(--docs-sidebar-edge);
+    color: var(--text-muted);
+    background-color: color-mix(in srgb, var(--docs-sidebar-bg) 85%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition:
+      color var(--md-motion-duration-fast) ease,
+      background-color var(--md-motion-duration-fast) ease;
+  }
+
+  .theme-doc-sidebar-container .button.button--secondary.button--outline:hover,
+  .theme-doc-sidebar-container .button.button--secondary.button--outline:focus-visible {
+    color: var(--brand-600);
+    background-color: var(--docusaurus-collapse-button-bg-hover);
+  }
+
+  [data-theme='dark'] .theme-doc-sidebar-container .button.button--secondary.button--outline:hover,
+  [data-theme='dark'] .theme-doc-sidebar-container .button.button--secondary.button--outline:focus-visible {
+    color: var(--brand-500);
+  }
+
+  /* Expand strip shown when sidebar is collapsed */
+  .theme-doc-sidebar-container [class*='expandButton'] {
+    color: var(--text-muted);
+    border-right: 1px solid var(--docs-sidebar-edge);
+  }
+
+  .theme-doc-sidebar-container [class*='expandButton']:hover,
+  .theme-doc-sidebar-container [class*='expandButton']:focus {
+    color: var(--brand-600);
+  }
+}
+
+/* Breadcrumbs — quiet, sit above the content panel */
+html.docs-doc-page .breadcrumbs__link {
+  color: var(--text-muted);
+  border-radius: 0.35rem;
+}
+
+html.docs-doc-page .breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--brand-600);
+  background-color: color-mix(in srgb, var(--brand-500) 10%, transparent);
+}
+
+html[data-theme='dark'].docs-doc-page .breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--brand-500);
+  background-color: color-mix(in srgb, var(--brand-500) 16%, transparent);
+}
+
+/* Mobile TOC sits inside the white panel → use a muted tint so it still reads */
+html.docs-doc-page .theme-doc-toc-mobile {
+  background-color: color-mix(in srgb, var(--surface-muted) 55%, transparent);
+  box-shadow: none;
+}
+
+html[data-theme='dark'].docs-doc-page .theme-doc-toc-mobile {
+  background-color: color-mix(in srgb, var(--surface-muted) 70%, transparent);
+}
+
+/* Doc footer (edit link / last updated) — hairline divider inside the panel */
+html.docs-doc-page .theme-doc-footer {
+  margin-top: var(--layout-space-6);
+  padding-top: var(--layout-space-4);
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.875rem;
+}
+
+/* Prev / next cards — match panel surface, brand edge on hover */
+html.docs-doc-page .pagination-nav__link {
+  background-color: color-mix(in srgb, var(--surface-elevated) 80%, transparent);
+  border-color: var(--border-subtle);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--brand-950) 4%, transparent);
+}
+
+html.docs-doc-page .pagination-nav__link:hover {
+  border-color: color-mix(in srgb, var(--brand-500) 45%, var(--border-default));
+  background-color: var(--surface-elevated);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--brand-950) 7%, transparent);
+}
+
+html[data-theme='dark'].docs-doc-page .pagination-nav__link {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme='dark'].docs-doc-page .pagination-nav__link:hover {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+}
+
+html.docs-doc-page .pagination-nav__sublabel {
+  color: var(--text-muted);
+}
+
+/* ── Motion (presence / hierarchy; skip Home — it has its own) ────── */
+
+:root {
+  --md-motion-duration: 0.48s;
+  --md-motion-duration-fast: 0.2s;
+  --md-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --md-reveal-delay: 0ms;
+}
+
+.navbar__brand,
+.navbar__link,
+.navbar__item,
+.navbar__toggle,
+.navbar__search-input,
+.menu__link,
+.footer__link-item,
+.table-of-contents__link,
+.pagination-nav__link,
+.breadcrumbs__link,
+.theme-edit-this-page {
+  transition:
+    color var(--md-motion-duration-fast) ease,
+    background-color var(--md-motion-duration-fast) ease,
+    opacity var(--md-motion-duration-fast) ease,
+    border-color var(--md-motion-duration-fast) ease;
+}
+
+.button {
+  transition:
+    background-color var(--md-motion-duration-fast) ease,
+    border-color var(--md-motion-duration-fast) ease,
+    color var(--md-motion-duration-fast) ease,
+    box-shadow var(--md-motion-duration-fast) ease,
+    transform var(--md-motion-duration-fast) ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* Blog / docs chrome — transitions only (no theme file edits) */
+article[itemprop='blogPost'] a,
+.theme-doc-markdown a,
+.pagination-nav__link {
+  transition:
+    color var(--md-motion-duration-fast) ease,
+    background-color var(--md-motion-duration-fast) ease,
+    border-color var(--md-motion-duration-fast) ease,
+    box-shadow var(--md-motion-duration-fast) ease;
+}
+
+@keyframes md-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.md-page-enter {
+  animation: md-page-enter var(--md-motion-duration) var(--md-motion-ease) both;
+}
+
+.md-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity var(--md-motion-duration) var(--md-motion-ease),
+    transform var(--md-motion-duration) var(--md-motion-ease);
+  transition-delay: var(--md-reveal-delay);
+}
+
+.md-reveal.md-reveal--in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .button,
+  .navbar__brand,
+  .navbar__link,
+  .navbar__item,
+  .navbar__toggle,
+  .navbar__search-input,
+  .menu__link,
+  .footer__link-item,
+  .table-of-contents__link,
+  .theme-doc-toc-desktop .table-of-contents__link,
+  .thin-scrollbar:has(> .table-of-contents) .table-of-contents__link,
+  .pagination-nav__link,
+  .breadcrumbs__link,
+  .theme-edit-this-page {
+    transition: none;
+  }
+
+  .button:hover,
+  .button:active {
+    transform: none;
+  }
+
+  article[itemprop='blogPost'] a,
+  .theme-doc-markdown a,
+  .pagination-nav__link {
+    transition: none;
+  }
+
+  .md-page-enter {
+    animation: none;
+  }
+
+  .md-reveal,
+  .md-reveal.md-reveal--in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

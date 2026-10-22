@@ -1,4 +1,6 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import styles from "./styles.module.css";
 
 export default function Modal({
   title,
@@ -7,18 +9,34 @@ export default function Modal({
   readonly title: string;
   readonly children: ReactNode;
 }>) {
-  return (
-    <div className="tw-justify-center tw-items-center tw-flex tw-overflow-x-hidden tw-overflow-y-auto tw-fixed tw-inset-0 tw-z-[200] tw-outline-none focus:tw-outline-none tw-bg-black/40">
-      <div className="tw-relative tw-w-auto tw-my-6 tw-mx-auto tw-max-w-3xl">
-        {/* title */}
-        <div className="tw-rounded-xl tw-shadow-lg tw-relative tw-flex tw-flex-col tw-w-full tw-bg-white dark:tw-bg-gray-900 tw-outline-none focus:tw-outline-none tw-overflow-hidden">
-          <div className="tw-p-5 tw-bg-[--ifm-color-primary-darkest]">
-            <h3 className="tw-text-2xl tw-font-semibold tw-mb-0 tw-text-white">{title}</h3>
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const content = (
+    <div className={styles.overlay} role="presentation">
+      <div
+        className={styles.dialog}
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
+      >
+        <div className={styles.panel}>
+          <div className={styles.header}>
+            <h3 className={styles.title}>{title}</h3>
           </div>
-          {/* children */}
-          {children}
+          <div className={styles.body}>{children}</div>
         </div>
       </div>
     </div>
   );
+
+  // Portal out of ancestor stacking contexts (e.g. Home hero `isolation: isolate`).
+  if (!mounted) {
+    return null;
+  }
+
+  return createPortal(content, document.body);
 }

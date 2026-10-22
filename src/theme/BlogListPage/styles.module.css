@@ -1,0 +1,17 @@
+/* Section band: vertical padding from global .layout-section */
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.paginator {
+  margin-top: var(--layout-space-6);
+  padding-top: var(--layout-space-5);
+  border-top: 1px solid var(--border-subtle);
+}

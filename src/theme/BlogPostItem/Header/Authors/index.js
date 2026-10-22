@@ -17,7 +17,7 @@ export default function BlogPostItemHeaderAuthors({className}) {
   return (
     <div
       className={clsx(
-        'margin-top--md margin-bottom--sm',
+        styles.authors,
         imageOnly ? styles.imageOnlyAuthorRow : 'row',
         className,
       )}>

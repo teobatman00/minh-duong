@@ -1,13 +1,15 @@
-import uniqid from "uniqid";
 import styles from "./styles.module.css";
-import { useEffect, useRef } from "react";
-import mediumZoom from "medium-zoom";
+import { useEffect } from "react";
+import LazyImage from "@site/src/components/shared/LazyImage";
+import useInView from "@site/src/lib/hooks/useInView";
 
 interface ImageGalleryPropsType {
   imgArray: Array<{
     alt?: string;
     caption?: string;
     src?: string;
+    width?: number;
+    height?: number;
     Svg?: React.ComponentType<React.ComponentProps<"svg">>;
   }>;
 }
@@ -16,18 +18,29 @@ function renderImage(item: {
   alt?: string;
   caption?: string;
   src?: string;
+  width?: number;
+  height?: number;
   Svg?: React.ComponentType<React.ComponentProps<"svg">>;
 }): import("react").ReactNode {
   return item.Svg ? (
-    <item.Svg className="tw-h-auto tw-max-w-full" />
+    <item.Svg
+      className="tw-h-auto tw-w-full tw-max-w-full"
+      role="img"
+      aria-label={item.alt}
+    />
   ) : (
-    <img
+    <LazyImage
       src={item.src}
       alt={item.alt}
+      width={item.width}
+      height={item.height}
       data-zoomable="true"
-      loading="lazy"
-      decoding="async"
-      className="tw-h-auto tw-max-w-full"
+      className="tw-h-auto tw-w-full tw-max-w-full"
+      style={
+        item.width && item.height
+          ? undefined
+          : { aspectRatio: "4 / 3", objectFit: "cover" }
+      }
     />
   );
 }
@@ -35,31 +48,51 @@ function renderImage(item: {
 export default function ImageGallery({
   imgArray,
 }: Readonly<ImageGalleryPropsType>): JSX.Element {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const { ref, inView } = useInView<HTMLDivElement>({
+    rootMargin: "250px 0px",
+  });
 
   useEffect(() => {
-    const root = containerRef.current;
-    if (!root) return;
+    const root = ref.current;
+    if (!root || !inView) {
+      return;
+    }
 
-    const images = root.querySelectorAll<HTMLImageElement>(
-      'img[data-zoomable="true"]'
-    );
-    if (!images.length) return;
+    let cancelled = false;
+    let zoom: { detach: () => void } | undefined;
 
-    const zoom = mediumZoom(images, {
-      margin: 80,
-      scrollOffset: 0,
+    import("medium-zoom").then(({ default: mediumZoom }) => {
+      if (cancelled || !ref.current) {
+        return;
+      }
+      const images = ref.current.querySelectorAll<HTMLImageElement>(
+        'img[data-zoomable="true"]'
+      );
+      if (!images.length) {
+        return;
+      }
+      // Overlay color comes from the global `.medium-zoom-overlay` rule
+      // (custom.css) so docs/blog/gallery zooms share one scrim in both themes.
+      zoom = mediumZoom(images, {
+        margin: 80,
+        scrollOffset: 0,
+      });
     });
+
     return () => {
-      zoom.detach();
+      cancelled = true;
+      zoom?.detach();
     };
-  }, [imgArray]);
+  }, [imgArray, inView, ref]);
 
   return (
-    <div className="container" ref={containerRef}>
-      <div className="tw-columns-2 sm:tw-columns-3 md:tw-columns-4 lg:tw-columns-5 tw-gap-4 tw-mx-auto tw-space-y-3 tw-pb-28">
-        {imgArray.map((item) => (
-          <div className="tw-break-inside-avoid" key={uniqid()}>
+    <div className="container" ref={ref}>
+      <div className="tw-columns-2 sm:tw-columns-3 tw-gap-5 tw-mx-auto tw-space-y-4 tw-pb-20">
+        {imgArray.map((item, index) => (
+          <div
+            className="tw-break-inside-avoid"
+            key={item.src ?? item.caption ?? item.alt ?? `gallery-${index}`}
+          >
             <figure className={styles.gallery_img_figure}>
               {renderImage(item)}
               {item.caption && <figcaption>{item.caption}</figcaption>}

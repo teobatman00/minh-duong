@@ -6,9 +6,15 @@
 .imageOnlyAuthorRow {
   display: flex;
   flex-flow: row wrap;
+  gap: var(--layout-space-2);
 }
 
 .imageOnlyAuthorCol {
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.authors {
+  margin-top: var(--layout-space-3);
+  margin-bottom: var(--layout-space-1);
 }

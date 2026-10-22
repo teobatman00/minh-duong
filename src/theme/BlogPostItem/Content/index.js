@@ -4,14 +4,15 @@ import {blogPostContainerID} from '@docusaurus/utils-common';
 import {useBlogPost} from '@docusaurus/theme-common/internal';
 import MDXContent from '@theme/MDXContent';
 import Giscus from '@giscus/react';
-import { useColorMode } from '@docusaurus/theme-common';
+import {useColorMode} from '@docusaurus/theme-common';
 import RelatedPosts from '@site/src/components/RelatedPosts';
+import styles from './styles.module.css';
 
 export default function BlogPostItemContent({children, className}) {
   const {isBlogPostPage, metadata} = useBlogPost();
-  const { colorMode } = useColorMode();
+  const {colorMode} = useColorMode();
   const giscus = (
-    <div className="tw-mt-12 tw-pt-8 tw-border-t tw-border-gray-200 dark:tw-border-gray-800">
+    <div className={styles.comments}>
       <Giscus
         id="comments"
         repo={process.env.GISCUS_REPO}
@@ -35,9 +36,7 @@ export default function BlogPostItemContent({children, className}) {
       id={isBlogPostPage ? blogPostContainerID : undefined}
       className={clsx('markdown', className)}
       itemProp="articleBody">
-      <MDXContent>
-        {children}
-      </MDXContent>
+      <MDXContent>{children}</MDXContent>
       {isBlogPostPage && (
         <RelatedPosts
           currentPermalink={metadata.permalink}

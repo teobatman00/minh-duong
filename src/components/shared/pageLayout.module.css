@@ -1,0 +1,129 @@
+/**
+ * Shared page shell for about / portfolio / gallery / bookmarks.
+ * Consumes Harbor Ledger tokens from custom.css — do not redefine them here.
+ */
+
+/*
+ * The body already paints --page-gradient (fixed). Re-painting it here created
+ * a second, scrolling copy with a hard seam at the header's bottom edge.
+ * Use the same soft primary wash + hairline as the Home hero instead.
+ */
+.header {
+  position: relative;
+  padding-block: var(--layout-section-y);
+  background:
+    radial-gradient(
+      120% 80% at 50% -20%,
+      color-mix(in srgb, var(--brand-500) 12%, transparent),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--brand-500) 6%, transparent) 0%,
+      transparent 70%
+    );
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+  pointer-events: none;
+}
+
+.title {
+  margin: 0;
+  font-weight: var(--ifm-heading-font-weight, 650);
+  letter-spacing: -0.025em;
+  line-height: var(--ifm-heading-line-height, 1.25);
+  color: var(--text-primary);
+}
+
+.subtitle {
+  margin: var(--layout-space-4) 0 0;
+  max-width: var(--layout-measure-wide);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Translucent band so the fixed page gradient still reads through */
+.sectionMuted {
+  padding-block: var(--layout-section-y);
+  background-color: color-mix(in srgb, var(--surface-muted) 72%, transparent);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.prose {
+  max-width: var(--layout-measure-wide);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.measureWide {
+  max-width: var(--layout-measure-wide);
+  margin-inline: auto;
+}
+
+.main {
+  padding-bottom: var(--layout-section-y);
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--layout-grid-gap-md);
+  min-width: 300px;
+}
+
+@media (min-width: 768px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 997px) {
+  .cardGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mirrors theme/Tag so chips look identical on blog, bookmarks and Home */
+.tagChip {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: var(--layout-space-1) var(--layout-space-3);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface-muted);
+  color: var(--text-secondary);
+  transition:
+    background-color var(--ifm-transition-fast) ease,
+    border-color var(--ifm-transition-fast) ease,
+    color var(--ifm-transition-fast) ease;
+}
+
+.tagChip:hover {
+  background-color: var(--brand-500);
+  border-color: var(--brand-500);
+  color: var(--text-inverse);
+  text-decoration: none;
+}
+
+.mutedText {
+  color: var(--text-muted);
+}
+
+.accentBar {
+  margin-top: var(--layout-space-4);
+  height: 0.2rem;
+  width: 4rem;
+  border-radius: 9999px;
+  background-color: var(--brand-500);
+}
