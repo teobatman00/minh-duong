@@ -434,6 +434,38 @@ select:focus-visible {
 .navbar__inner {
   max-width: var(--ifm-container-width-xl);
   margin-inline: auto;
+  align-items: center;
+}
+
+@media (min-width: 997px) {
+  .navbar__inner {
+    flex-wrap: nowrap;
+  }
+
+  .navbar__items > .navbar__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    line-height: 1;
+  }
+
+  .navbar__items--right {
+    column-gap: 0.15rem;
+  }
+
+  .navbar .DocSearch-Button {
+    margin: 0;
+  }
+}
+
+@media (max-width: 996px) {
+  /* A backdrop filter makes fixed sidebar/backdrop children navbar-relative. */
+  .navbar {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    --ifm-navbar-background-color: var(--surface-elevated);
+  }
 }
 
 /*
@@ -443,6 +475,18 @@ select:focus-visible {
  */
 .navbar__items {
   align-items: center;
+}
+
+.nav-item-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  line-height: 1;
+}
+
+.nav-item-label > .svg-inline--fa {
+  color: var(--ifm-color-primary);
+  flex-shrink: 0;
 }
 
 .navbar .svg-inline--fa,

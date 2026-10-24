@@ -132,11 +132,85 @@
 
 .heroTitle {
   margin: 0;
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  font-family: "Arial Black", "Segoe UI", sans-serif;
+  font-size: clamp(2.6rem, 8vw, 5rem);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.065em;
+  line-height: 1.2;
   color: var(--home-ink);
+}
+
+.heroTitleInk {
+  display: inline-block;
+  /* Leave space for the italic overhang and descending g. */
+  padding: 0.06em 0.13em 0.16em 0.04em;
+  margin-bottom: -0.16em;
+}
+
+.heroLetter {
+  display: inline-block;
+  position: relative;
+  /* Text clipping needs room for italic glyphs outside their advance width.
+   * Negative margins preserve the original spacing between letters. */
+  padding: 0.15em 0.22em;
+  margin: -0.15em -0.22em;
+  transform-origin: center 65%;
+  transition: transform 120ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .heroLetter {
+    background-image: linear-gradient(
+      110deg,
+      #185acb 0%,
+      #087e8b 22%,
+      #8042b5 44%,
+      #c12e73 62%,
+      #185acb 82%,
+      #087e8b 100%
+    );
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: homeTitleFlow 10s ease-in-out infinite alternate;
+  }
+
+  :global([data-theme="dark"]) .heroLetter {
+    background-image: linear-gradient(
+      110deg,
+      #79b5ff 0%,
+      #5ae0ce 22%,
+      #c4a0ff 44%,
+      #ff8ebe 62%,
+      #79b5ff 82%,
+      #5ae0ce 100%
+    );
+  }
+}
+
+@keyframes homeTitleFlow {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .heroLetter:hover {
+    transform: scale(1.3);
+    z-index: 1;
+  }
+}
+
+@media (forced-colors: active) {
+  .heroLetter {
+    background-image: none;
+    color: CanvasText;
+  }
 }
 
 .heroSubtitle {
@@ -220,9 +294,15 @@
   .heroReveal,
   .heroRevealDelay,
   .heroRevealDelay2,
+  .heroTitleInk,
+  .heroLetter,
   .avatarWrap::before,
   .avatarWrap::after {
     animation: none;
+  }
+
+  .heroLetter {
+    transition: none;
   }
 
   .postCard {

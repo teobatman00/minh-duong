@@ -63,8 +63,14 @@ function HomepageHeader() {
             className={styles.avatar}
           />
         </div>
-        <Heading as="h1" className={clsx(styles.heroTitle, styles.heroRevealDelay)}>
-          {siteConfig.title}
+        <Heading as="h1" aria-label={siteConfig.title} className={clsx(styles.heroTitle, styles.heroRevealDelay)}>
+          <span className={styles.heroTitleInk} aria-hidden="true">
+            {Array.from(siteConfig.title).map((letter, index) => (
+              <span className={styles.heroLetter} key={index}>
+                {letter === " " ? "\u00a0" : letter}
+              </span>
+            ))}
+          </span>
         </Heading>
         <p className={clsx(styles.heroSubtitle, styles.heroRevealDelay2)}>
           {siteConfig.tagline}
